@@ -1,1 +1,6 @@
-<p>lista works!</p>
+<div *ngFor="let pokemon of listaPokemon">
+  <img src="{{pokemon.image}}">
+  <p>Name: {{pokemon.name}}</p>
+  <p>nPokedex: {{pokemon.nPokedex}}</p>
+  <p *ngFor="let type of pokemon.types">Type: {{type}}</p>
+</div>
