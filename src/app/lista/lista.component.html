@@ -1,6 +1,13 @@
-<div *ngFor="let pokemon of listaPokemon">
-  <img src="{{pokemon.image}}">
-  <p>Name: {{pokemon.name}}</p>
-  <p>nPokedex: {{pokemon.nPokedex}}</p>
-  <p *ngFor="let type of pokemon.types">Type: {{type}}</p>
+<div class="pokemon-list">
+
+  <div *ngFor="let pokemon of listaPokemon" class="pokemon-card">
+    <img src="{{pokemon.image}}" class="pokemonImage">
+    <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+    <div class="name">{{pokemon.name}}</div>
+    <div class="types">
+      <div class="pokemon-type {{pokemon.types[0]}}">{{pokemon.types[0]}}</div>
+      <div class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
+    </div>
+  </div>
+
 </div>
