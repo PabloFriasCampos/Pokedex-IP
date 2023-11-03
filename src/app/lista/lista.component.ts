@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
-
-type Pokemon = {
-  image: string;
-  name: string;
-  nPokedex: number;
-  types: string[];
-}
+import { Pokemon } from '../pokemon';
 
 @Component({
   selector: 'app-lista',
@@ -27,21 +21,10 @@ export class ListaComponent implements OnInit {
 
 
   loadList() {
-    for (let i = 1; i <= 493; i++) {
+    this.pokeApi.getPokemonListN(493).subscribe((pokemonList: Pokemon[]) => {
+      this.listaPokemon = pokemonList;
 
-      this.pokeApi.getPokemon(i).subscribe((data: any) => {
-        let pokemon: Pokemon = {
-          image: data.sprites.other["official-artwork"].front_default,
-          name: data.name,
-          nPokedex: data.id,
-          types: data.types.map((types: any) => types.type.name)
-        };
-        this.listaPokemon.push(pokemon);
-        this.listaPokemon.sort((a, b) => a.nPokedex - b.nPokedex);
-
-      });
-
-    }
+    });
 
   }
 
