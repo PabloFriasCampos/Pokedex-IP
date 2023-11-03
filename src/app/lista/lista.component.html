@@ -1,13 +1,13 @@
 <div class="pokemon-list">
 
-  <div *ngFor="let pokemon of listaPokemon" class="pokemon-card">
+  <button *ngFor="let pokemon of listaPokemon" class="pokemon-card {{pokemon.types[0]}}">
     <img src="{{pokemon.image}}" class="pokemonImage">
     <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <div class="name">{{pokemon.name}}</div>
     <div class="types">
       <div class="pokemon-type {{pokemon.types[0]}}">{{pokemon.types[0]}}</div>
-      <div class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
+      <div *ngIf="pokemon.types[1]" class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
     </div>
-  </div>
+  </button>
 
 </div>
