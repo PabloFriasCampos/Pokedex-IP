@@ -15,21 +15,11 @@ export class PokeapiService {
 
   }
 
-  private getType(type: any): Observable<any> {
-    return this.http.get('https://pokeapi.co/api/v2/type/' + type);
-
-  }
-
-  private getGen(gen: number): Observable<any> {
-    return this.http.get('https://pokeapi.co/api/v2/type/' + gen);
-
-  }
-
   getPokemonListN(n: number): Observable<Pokemon[]> {
-    let observables: Observable<Pokemon>[] = [];
+    let pokemons: Observable<Pokemon>[] = [];
 
     for (let i = 1; i <= n; i++) {
-      let observable = this.getPokemon(i).pipe(
+      let pokemon = this.getPokemon(i).pipe(
         map((data: any) => ({
           image: data.sprites.other['official-artwork'].front_default,
           name: data.name,
@@ -38,16 +28,12 @@ export class PokeapiService {
         }))
       );
 
-      observables.push(observable);
+      pokemons.push(pokemon);
     }
 
-    return forkJoin(observables).pipe(
-      map((pokemonList: Pokemon[]) =>
-        pokemonList
-      )
+    return forkJoin(pokemons).pipe(
+      map((pokemonList: Pokemon[]) => pokemonList)
     );
   }
-
-
 
 }

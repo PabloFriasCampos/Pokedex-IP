@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaComponent } from './lista/lista.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { VistaListaFiltrosComponent } from './vista-lista-filtros/vista-lista-filtros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    VistaListaFiltrosComponent,
   ],
   imports: [
     BrowserModule,

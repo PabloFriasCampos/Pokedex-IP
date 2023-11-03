@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-buscador',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent {
+
+  @Output()
+  textFilterEvent = new EventEmitter();
+
+  textFilter: string = '';
+
+  enviaTexto() {
+    this.textFilterEvent.emit({ textFilter: this.textFilter });
+
+  }
 
 }

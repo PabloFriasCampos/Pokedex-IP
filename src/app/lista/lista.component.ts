@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { Pokemon } from '../pokemon';
 
@@ -7,25 +7,9 @@ import { Pokemon } from '../pokemon';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent implements OnInit {
+export class ListaComponent {
 
-  listaPokemon: Pokemon[] = [];
-
-  constructor(private pokeApi: PokeapiService) { }
-
-
-  ngOnInit(): void {
-    this.loadList();
-
-  }
-
-
-  loadList() {
-    this.pokeApi.getPokemonListN(493).subscribe((pokemonList: Pokemon[]) => {
-      this.listaPokemon = pokemonList;
-
-    });
-
-  }
+  @Input()
+  listaMostrada: Pokemon[] = [];
 
 }
