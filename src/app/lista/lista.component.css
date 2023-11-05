@@ -1,18 +1,38 @@
 .pokemon-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit,
-      minmax(337px,
-        1fr));
-  padding: 50px;
-  gap: 18px;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 3%;
+  gap: 10px;
   background-color: black;
 }
 
+@media (width < 1280px) {
+  .pokemon-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media (width < 1080px) {
+  .pokemon-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (width < 860px) {
+  .pokemon-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
 .pokemon-card {
-  text-align: left;
+  text-transform: capitalize;
   padding: 10px;
   border-radius: 20px;
   background-color: rgb(95, 109, 126);
+  border: 5px solid black;
 }
 
 .pokemon-card:hover {
@@ -31,32 +51,31 @@
 .nPokedex {
   text-align: right;
   color: white;
-  margin-right: 30px;
+  margin-right: 10%;
 }
 
 .name {
+  text-align: left;
   color: white;
-  text-transform: capitalize;
-  font-size: 40px;
-  margin-left: 30px;
+  margin-left: 10%;
+  font-size: xx-large;
 
 }
 
 .types {
   display: flex;
-  margin-left: 30px;
-  margin-right: 30px;
-  gap: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  gap: 4%;
+  font-size: large;
 }
 
 .pokemon-type {
   flex: 1;
   text-align: center;
-  text-transform: capitalize;
   font-weight: 800;
   color: white;
   text-shadow: 2px 2px black;
-  font-size: 25px;
   border-radius: 12px;
   background-color: var(--color);
 }
@@ -100,7 +119,7 @@
   --color: #C22E28;
   --ter_Color: #C22E28;
   --sec_Color: #C22E28;
-  
+
 }
 
 .poison {
