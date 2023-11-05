@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokeapiService } from '../pokeapi.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-vista-lista-filtros',
@@ -35,6 +36,28 @@ export class VistaListaFiltrosComponent {
     });
 
   }
+
+
+  /*loadList() {
+    for (let i = 1; i <= this.numPokemons; i++) {
+
+      this.pokeApi.getPokemon(i).subscribe((data: any) => {
+        let pokemon: Pokemon = {
+          image: data.sprites.other["official-artwork"].front_default,
+          name: data.name,
+          nPokedex: data.id,
+          types: data.types.map((types: any) => types.type.name)
+        };
+        this.listaPokemon.push(pokemon);
+        this.listaPokemon.sort((a, b) => a.nPokedex - b.nPokedex);
+        this.listaMostrada.push(pokemon);
+        this.listaMostrada.sort((a, b) => a.nPokedex - b.nPokedex);
+
+      });
+    }
+
+  }*/
+
 
   applyFilter() {
     this.listaMostrada = this.listaPokemon.filter(pokemon => pokemon.name.includes(this.textFilter));

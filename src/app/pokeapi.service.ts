@@ -16,7 +16,7 @@ export class PokeapiService {
   }
 
   getPokemonListN(n: number): Observable<Pokemon[]> {
-    let pokemons: Observable<Pokemon>[] = [];
+    const pokemons: Observable<Pokemon>[] = [];
 
     for (let i = 1; i <= n; i++) {
       let pokemon = this.getPokemon(i).pipe(
@@ -25,15 +25,13 @@ export class PokeapiService {
           name: data.name,
           nPokedex: data.id,
           types: data.types.map((types: any) => types.type.name),
-        }))
+        })),
       );
 
       pokemons.push(pokemon);
     }
 
-    return forkJoin(pokemons).pipe(
-      map((pokemonList: Pokemon[]) => pokemonList)
-    );
+    return forkJoin(pokemons).pipe(map((pokemonList: Pokemon[]) => pokemonList));
   }
 
 }

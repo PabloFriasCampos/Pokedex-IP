@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-vista-pokemon',
@@ -11,7 +10,12 @@ import { map } from 'rxjs';
 })
 export class VistaPokemonComponent implements OnInit {
 
-  pokemon: any;
+  pokemon: Pokemon = {
+    image: '',
+    name: '',
+    nPokedex: 0,
+    types: []
+  };
 
   constructor(
     private pokeApi: PokeapiService,
@@ -22,8 +26,12 @@ export class VistaPokemonComponent implements OnInit {
     const nPokedex = this.activatedRoute.snapshot.paramMap.get('nPokedex') as unknown as number;
 
     this.pokeApi.getPokemon(nPokedex).subscribe((data: any) => {
-      this.pokemon = data;
-
+      this.pokemon = {
+        image: data.sprites.other['official-artwork'].front_default,
+        name: data.name,
+        nPokedex: data.id,
+        types: data.types.map((types: any) => types.type.name)
+      };
     });
 
   }
