@@ -1,6 +1,7 @@
 <app-buscador 
   (textFilterEvent)="actualizarTextFilter($event)"
-  (typeFilterEvent)="actualizarTypesSelected($event)">
+  (typeFilterEvent)="actualizarTypesSelected($event)"
+  (genFilterEvent)="actualizarGenSelected($event)">
 </app-buscador>
 <app-lista
   [listaMostrada] = "listaMostrada">

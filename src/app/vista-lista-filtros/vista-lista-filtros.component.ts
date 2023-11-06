@@ -10,14 +10,16 @@ import { map } from 'rxjs';
 })
 export class VistaListaFiltrosComponent {
 
-  numPokemons = 493;
+  private generations: number[] = [493, 151, 251, 386, 493] //Total, Gen1, Gen2, Gen3, Gen4 ...
 
   listaPokemon: Pokemon[] = [];
 
   @Input()
-  textFilter = '';
+  textFilter: string = '';
   @Input()
   typesSelected: string[] = [];
+  @Input()
+  genSelected: number = 0;
 
   @Output()
   listaMostrada: Pokemon[] = [];
@@ -31,7 +33,7 @@ export class VistaListaFiltrosComponent {
   }
 
   loadList() {
-    this.pokeApi.getPokemonListN(this.numPokemons).subscribe((pokemonList: Pokemon[]) => {
+    this.pokeApi.getPokemonListN(this.generations[this.generations.length - 1]).subscribe((pokemonList: Pokemon[]) => {
       this.listaPokemon = pokemonList;
       this.listaMostrada = pokemonList;
 
@@ -39,33 +41,57 @@ export class VistaListaFiltrosComponent {
 
   }
 
+  applyFilters() {
+    this.applyFilterGen();
+    this.applyFilterType();
+    this.applyFilterText();
+
+  }
+
 
   applyFilterText() {
-    this.listaMostrada = this.listaPokemon.filter(pokemon => pokemon.name.includes(this.textFilter));
+    this.listaMostrada = this.listaMostrada.filter(pokemon => pokemon.name.includes(this.textFilter.toLowerCase()));
 
   }
 
   applyFilterType() {
-    this.listaMostrada = this.listaPokemon.filter(pokemon => {
-      return this.typesSelected.includes(pokemon.types[0]) || this.typesSelected.includes(pokemon.types[1])
+    if (this.typesSelected.length > 0) {
+      this.listaMostrada = this.listaMostrada.filter(pokemon => {
+        return this.typesSelected.includes(pokemon.types[0]) || this.typesSelected.includes(pokemon.types[1]);
 
-    });
+      });
+
+    }
+
+  }
+
+  applyFilterGen() {
+    if (this.genSelected == 1) {
+      this.listaMostrada = this.listaPokemon.slice(0, this.generations[this.genSelected]);
+
+    } else {
+      this.listaMostrada = this.listaPokemon.slice(this.generations[this.genSelected - 1], this.generations[this.genSelected]);
+
+    }
 
   }
 
   actualizarTextFilter(event: any) {
     this.textFilter = event.textFilter;
-    this.applyFilterText();
+    this.applyFilters();
 
   }
 
   actualizarTypesSelected(event: any) {
     this.typesSelected = event.typesSelected;
-    this.applyFilterType();
-    if (this.typesSelected.length == 0) {
-      this.listaMostrada = this.listaPokemon;
+    this.applyFilters();
 
-    }
+
+  }
+
+  actualizarGenSelected(event: any) {
+    this.genSelected = event.genSelected;
+    this.applyFilters();
 
   }
 

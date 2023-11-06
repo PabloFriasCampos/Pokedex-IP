@@ -1,20 +1,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-<div class="buscador">
-  <span class="material-symbols-outlined">
-    Search
+<div class="bgPROVISIONAL">
+  <div class="buscador">
+    <span class="material-symbols-outlined">
+      Search
     </span>
-  <input type="text" [(ngModel)]="textFilter" (keyup)="enviaTexto()" placeholder="Introduce un Pokémon">
-
+    <input type="text" [(ngModel)]="textFilter" (keyup)="enviaTexto()" placeholder="Pokemon name">
+  
+  </div>
+  
   <div class="type-selection">
-
-   <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
-    <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()"  [(ngModel)]="type.isChecked">
-    <span class="type-span">{{type.name}}</span>
-   </label>
-
-  <div>
-    <select class="genList">
+  
+    <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
+      <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()"
+        [(ngModel)]="type.isChecked">
+      <span class="type-span">{{type.name}}</span>
+    </label>
+  
+  </div>
+  
+  <div class="gen-selection">
+    <select class="genList" (change)="enviaGen()" [(ngModel)]="genSelected">
+      <option value="0">All generations</option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
       <option value="3">Generation 3</option>
@@ -22,8 +29,5 @@
     </select>
   
   </div>
-
-  </div>
-
 </div>
 

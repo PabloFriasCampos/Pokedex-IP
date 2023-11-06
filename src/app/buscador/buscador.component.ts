@@ -18,6 +18,8 @@ export class BuscadorComponent {
   textFilterEvent = new EventEmitter();
   @Output()
   typeFilterEvent = new EventEmitter();
+  @Output()
+  genFilterEvent = new EventEmitter();
 
   textFilter: string = '';
 
@@ -42,17 +44,20 @@ export class BuscadorComponent {
     { name: 'fairy', isChecked: false }
   ];
 
+  genSelected: number = 0;
+
   enviaTexto() {
     this.textFilterEvent.emit({ textFilter: this.textFilter });
-    this.typesSelected.forEach(element => {
-      element.isChecked = false;
-    });
 
   }
 
   enviaTipos() {
     this.typeFilterEvent.emit({ typesSelected: this.typesSelected.filter(t => t.isChecked).map(t => t.name) });
-    this.textFilter = '';
+
+  }
+
+  enviaGen() {
+    this.genFilterEvent.emit({ genSelected: this.genSelected });
 
   }
 
