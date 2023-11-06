@@ -3,5 +3,5 @@
 <div class="name">{{pokemon.name}}</div>
 <div class="types">
   <div class="pokemon-type {{pokemon.types[0]}}">{{pokemon.types[0]}}</div>
-  <div *ngIf="pokemon.types[1]" class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
+  <div *ngIf="pokemon.types.length>1" class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
 </div>
