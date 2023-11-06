@@ -16,6 +16,8 @@ export class VistaListaFiltrosComponent {
 
   @Input()
   textFilter = '';
+  @Input()
+  typesSelected: string[] = [];
 
   @Output()
   listaMostrada: Pokemon[] = [];
@@ -38,39 +40,32 @@ export class VistaListaFiltrosComponent {
   }
 
 
-  /*loadList() {
-    for (let i = 1; i <= this.numPokemons; i++) {
-
-      this.pokeApi.getPokemon(i).subscribe((data: any) => {
-        let pokemon: Pokemon = {
-          image: data.sprites.other["official-artwork"].front_default,
-          name: data.name,
-          nPokedex: data.id,
-          types: data.types.map((types: any) => types.type.name)
-        };
-        this.listaPokemon.push(pokemon);
-        this.listaPokemon.sort((a, b) => a.nPokedex - b.nPokedex);
-        this.listaMostrada.push(pokemon);
-        this.listaMostrada.sort((a, b) => a.nPokedex - b.nPokedex);
-
-      });
-    }
-
-  }*/
-
-
-  applyFilter() {
+  applyFilterText() {
     this.listaMostrada = this.listaPokemon.filter(pokemon => pokemon.name.includes(this.textFilter));
 
   }
 
-  //Para los tipos puedes hacer pokemon.types.includes(tipo)
+  applyFilterType() {
+    this.listaMostrada = this.listaPokemon.filter(pokemon => {
+      return this.typesSelected.includes(pokemon.types[0]) || this.typesSelected.includes(pokemon.types[1])
 
-  //Para las generaciones aun debemos ver
+    });
+
+  }
 
   actualizarTextFilter(event: any) {
     this.textFilter = event.textFilter;
-    this.applyFilter();
+    this.applyFilterText();
+
+  }
+
+  actualizarTypesSelected(event: any) {
+    this.typesSelected = event.typesSelected;
+    this.applyFilterType();
+    if (this.typesSelected.length == 0) {
+      this.listaMostrada = this.listaPokemon;
+
+    }
 
   }
 

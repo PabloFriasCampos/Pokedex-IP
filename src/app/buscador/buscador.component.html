@@ -6,31 +6,13 @@
     </span>
   <input type="text" [(ngModel)]="textFilter" (keyup)="enviaTexto()" placeholder="Introduce un Pokémon">
 
-  <div class="buttons">
+  <div class="type-selection">
 
-    <button class="button-type normal">Normal</button>
-    <button class="button-type fire">Fire</button>
-    <button class="button-type water">Water</button>
-    <button class="button-type grass">Grass</button>
-    <button class="button-type electric">Electric</button>
-    <button class="button-type ice">Ice</button>
-    <br>
-    <button class="button-type fighting">Fighting</button>
-    <button class="button-type poison">Poison</button>
-    <button class="button-type ground">Ground</button>
-    <button class="button-type flying">Flying</button>
-    <button class="button-type psychic">Psychic</button>
-    <button class="button-type bug">Bug</button>
-    <br>
-    <button class="button-type rock">Rock</button>
-    <button class="button-type ghost">Ghost</button>
-    <button class="button-type dragon">Dragon</button>
-    <button class="button-type dark">Dark</button>
-    <button class="button-type steel">Steel</button>
-    <button class="button-type fairy">Fairy</button>
-  
-    <br>
-  </div>
+   <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
+    <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()"  [(ngModel)]="type.isChecked">
+    <span class="type-span">{{type.name}}</span>
+   </label>
+
   <div>
     <select class="genList">
       <option value="1">Generation 1</option>
@@ -38,7 +20,9 @@
       <option value="3">Generation 3</option>
       <option value="4">Generation 4</option>
     </select>
-    
+  
+  </div>
+
   </div>
 
 </div>
