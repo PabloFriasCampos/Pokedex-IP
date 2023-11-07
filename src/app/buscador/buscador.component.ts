@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 
@@ -13,6 +14,15 @@ type Tipos = {
 })
 
 export class BuscadorComponent {
+
+  constructor(private http: HttpClient) {
+    this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
+      this.listaColores = data;
+
+    });
+  }
+
+  listaColores: any;
 
   @Output()
   textFilterEvent = new EventEmitter();

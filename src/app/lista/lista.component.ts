@@ -22,6 +22,4 @@ export class ListaComponent {
 
   listaColores: any;
 
-  hover: boolean = false;
-
 }

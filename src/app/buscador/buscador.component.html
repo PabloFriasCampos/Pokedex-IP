@@ -6,7 +6,7 @@
 
   <div class="type-selection">
   
-    <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
+    <label *ngFor="let type of typesSelected" class="type-label" [ngStyle]="{'--color': listaColores[type.name]}">
       <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()" [(ngModel)]="type.isChecked">
       <span class="type-span">{{type.name}}</span>
     </label>
