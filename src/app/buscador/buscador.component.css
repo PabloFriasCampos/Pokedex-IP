@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.lupa{
+.lupa {
   width: 4rem;
   height: 4rem;
 }
@@ -18,7 +18,7 @@
   background-image: url("/assets/testBuscador1.png");
   background-repeat: repeat-x;
   opacity: 0.8;
-  background-color:  rgb(0, 0, 0, 0.1);
+  background-color: rgb(0, 0, 0, 0.1);
   border: none;
   color: white;
 }
@@ -43,9 +43,9 @@
 
 }
 
-@media (width < 600px) {
+@media (width < 700px) {
   .type-selection {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
