@@ -1,14 +1,9 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
 <div class="buscador-filtros">
   <div class="buscador">
-    <span class="material-symbols-outlined">
-      Search
-    </span>
+      <img src="../assets/lupa.png" class="lupa"/>
     <input type="text" [(ngModel)]="textFilter" (keyup)="enviaTexto()" placeholder="Pokemon name">
-  
   </div>
-  
+
   <div class="type-selection">
   
     <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
