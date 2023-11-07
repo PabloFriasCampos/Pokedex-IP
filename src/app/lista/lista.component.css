@@ -3,7 +3,6 @@
   grid-template-columns: repeat(5, 1fr);
   padding: 3%;
   gap: 10px;
-  background-color: black;
 }
 
 @media (width < 1280px) {
@@ -32,7 +31,7 @@
   padding: 10px;
   border-radius: 20px;
   background-color: rgb(95, 109, 126);
-  border: 5px solid white;
+  border: 5px solid rgb(47, 45, 45);
 }
 
 .pokemon-card:hover {
@@ -50,13 +49,14 @@
   text-align: right;
   color: white;
   margin-right: 10%;
+  font-size: 1.4em;
 }
 
 .name {
   text-align: left;
   color: white;
   margin-left: 10%;
-  font-size: xx-large;
+  font-size: 2em;
 
 }
 
@@ -64,16 +64,15 @@
   display: flex;
   margin-left: 10%;
   margin-right: 10%;
-  gap: 4%;
-  font-size: large;
+  gap: 2%;
+  font-size: 1.5rem;
 }
 
 .pokemon-type {
   flex: 1;
   text-align: center;
-  font-weight: 800;
   color: white;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 1px black;
   border-radius: 12px;
   background-color: var(--color1);
 }

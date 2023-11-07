@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-<div class="bgPROVISIONAL">
+<div class="buscador-filtros">
   <div class="buscador">
     <span class="material-symbols-outlined">
       Search
@@ -12,8 +12,7 @@
   <div class="type-selection">
   
     <label *ngFor="let type of typesSelected" class="type-label {{type.name}}">
-      <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()"
-        [(ngModel)]="type.isChecked">
+      <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()" [(ngModel)]="type.isChecked">
       <span class="type-span">{{type.name}}</span>
     </label>
   

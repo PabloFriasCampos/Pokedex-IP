@@ -21,7 +21,8 @@ export class PokeapiService {
     for (let i = 1; i <= n; i++) {
       let pokemon = this.getPokemon(i).pipe(
         map((data: any) => ({
-          image: data.sprites.other['official-artwork'].front_default,
+          //image: data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+          image: data.sprites.other["official-artwork"].front_default,
           name: data.name,
           nPokedex: data.id,
           types: data.types.map((types: any) => types.type.name),
