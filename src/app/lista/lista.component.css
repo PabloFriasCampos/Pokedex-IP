@@ -1,12 +1,7 @@
-:root {
-  --background-color: rgb(47, 45, 45)
-}
-
 .pokemon-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: 3%;
-  gap: 1em;
 }
 
 @media (width < 1280px) {
@@ -36,12 +31,13 @@
   border-radius: 20px;
   background-color: rgb(95, 109, 126);
   border: none;
-  border: 0.4em solid;
-  transition: border 0.4s;
+  border: 0.8em solid rgb(47, 45, 45);
 }
 
-.pokemon-card:not(:hover) {
-  border: transparent;
+.pokemon-card:hover {
+  border: 0.4em solid var(--type-color1);
+  border-bottom-color: var(--type-color2, var(--type-color1));
+  border-right-color: var(--type-color2, var(--type-color1));
 
 }
 
@@ -77,4 +73,5 @@
   text-align: center;
   text-shadow: 1px 1px black;
   border-radius: 12px;
+  background-color: var(--type-color);
 }
