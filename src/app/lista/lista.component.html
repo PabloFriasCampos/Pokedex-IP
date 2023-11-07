@@ -1,13 +1,15 @@
 <div class="pokemon-list">
 
-    <button *ngFor="let pokemon of listaMostrada" class="pokemon-card {{pokemon.types[0]}}1 {{pokemon.types[1]}}2" [routerLink]="'/pokemon/' + pokemon.nPokedex">
+    <div *ngFor="let pokemon of listaMostrada" class="pokemon-card"
+    [ngClass]="pokemon.types[1]"
+    [routerLink]="'/pokemon/' + pokemon.nPokedex">
     <img src="{{pokemon.image}}" class="pokemonImage">
     <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <div class="name">{{pokemon.name}}</div>
     <div class="types">
-      <div class="pokemon-type {{pokemon.types[0]}}1">{{pokemon.types[0]}}</div>
-      <div *ngIf="pokemon.types.length > 1" class="pokemon-type {{pokemon.types[1]}}1">{{pokemon.types[1]}}</div>
+      <div class="pokemon-type" [style.backgroundColor]="listaColores[pokemon.types[0]]">{{pokemon.types[0]}}</div>
+      <div *ngIf="pokemon.types.length > 1" class="pokemon-type" [style.backgroundColor]="listaColores[pokemon.types[1]]">{{pokemon.types[1]}}</div>
     </div>
-  </button>
+  </div>
 
 </div>
