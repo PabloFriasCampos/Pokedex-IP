@@ -14,7 +14,10 @@ export class VistaPokemonComponent implements OnInit {
     image: '',
     name: '',
     nPokedex: 0,
-    types: []
+    types: [],
+    info: '',
+    weight: 0,
+    height: 0,
   };
 
   constructor(
@@ -27,11 +30,13 @@ export class VistaPokemonComponent implements OnInit {
 
     this.pokeApi.getPokemon(nPokedex).subscribe((data: any) => {
       this.pokemon = {
-        image: data.sprites.other['official-artwork'].front_default,
+        image: data.sprites.other['official-artwork'].front_shiny,
         name: data.name,
         nPokedex: data.id,
         types: data.types.map((types: any) => types.type.name)
       };
+
+      console.log(this.pokemon);
     });
 
   }
