@@ -32,6 +32,7 @@
   background-color: rgb(95, 109, 126);
   border: none;
   border: 0.8em solid rgb(47, 45, 45);
+  cursor: url(../../assets/masterball.png), auto;
 }
 
 .pokemon-card:hover {

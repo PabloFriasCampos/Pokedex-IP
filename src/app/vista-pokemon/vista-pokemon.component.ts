@@ -29,14 +29,8 @@ export class VistaPokemonComponent implements OnInit {
     const nPokedex = this.activatedRoute.snapshot.paramMap.get('nPokedex') as unknown as number;
 
     this.pokeApi.getPokemon(nPokedex).subscribe((data: any) => {
-      this.pokemon = {
-        image: data.sprites.other['official-artwork'].front_shiny,
-        name: data.name,
-        nPokedex: data.id,
-        types: data.types.map((types: any) => types.type.name)
-      };
+      this.pokemon = data;
 
-      console.log(this.pokemon);
     });
 
   }
