@@ -50,7 +50,7 @@ export class VistaListaFiltrosComponent {
 
 
   applyFilterText() {
-    this.listaMostrada = this.listaMostrada.filter(pokemon => pokemon.name.includes(this.textFilter.toLowerCase()));
+    this.listaMostrada = this.listaMostrada.filter(pokemon => pokemon.name.includes(this.textFilter.toLowerCase()) || pokemon.nPokedex === +this.textFilter);
 
   }
 
