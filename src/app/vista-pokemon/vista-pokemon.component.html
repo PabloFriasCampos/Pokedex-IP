@@ -1,9 +1,40 @@
-<img src="{{pokemon.image}}" class="pokemonImage">
-<div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
-<div class="name">{{pokemon.name}}</div>
-<div class="types">
-  <div class="pokemon-type {{pokemon.types[0]}}">{{pokemon.types[0]}}</div>
-  <div *ngIf="pokemon.types.length>1" class="pokemon-type {{pokemon.types[1]}}">{{pokemon.types[1]}}</div>
+<div class="pokemon-data" id="pokemon-data">
+  <div class="pokemon-image-container" (click)="cambiaImagen()">
+    <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
+  </div>
+  <div class="pokemon-info-container">
+    <div class="nPokedex" [ngStyle]="{'color':listaColores[pokemon.types[0]]}">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+    <div class="name">{{pokemon.name}}</div>
+    <div class="types">
+      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
+      <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
+        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
+    </div>
+    <div class="height">{{pokemon.height}} m</div>
+    <div class="weight">{{pokemon.weight}} kg</div>
+    <div class="pokemon-description">{{pokemon.info}}</div>
+    <div class="typesVs-container">
+      <div *ngIf="pokemon.typesVs?.typesVeryStrong">
+        Very Strong vs:
+      </div>
+      <div *ngIf="pokemon.typesVs?.typesStrong">
+        Strong vs:
+        <div class="typesVs" *ngFor="let typeStrong of pokemon.typesVs?.typesStrong"
+          [ngStyle]="{'--type-color':listaColores[typeStrong]}">{{typeStrong}}</div>
+      </div>
+      <div *ngIf="pokemon.typesVs?.typesInvulnerable">
+        Invulnerable vs:
+      </div>
+      <div *ngIf="pokemon.typesVs?.typesWeak">
+        Weak vs:
+        <div class="typesVs" *ngFor="let typeWeak of pokemon.typesVs?.typesWeak"
+          [ngStyle]="{'--type-color':listaColores[typeWeak]}">{{typeWeak}}</div>
+      </div>
+      <div *ngIf="pokemon.typesVs?.typesVeryWeak">
+        Very weak vs:
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="overlay">
