@@ -3,6 +3,7 @@ import { Pokemon } from '../pokemon';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { PokemonDetails } from '../pokemon-details';
 
 @Component({
   selector: 'app-vista-pokemon',
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VistaPokemonComponent implements OnInit {
 
-  pokemon: Pokemon = {
+  pokemon: PokemonDetails = {
     image: '',
     imageShiny: '',
     name: '',
@@ -19,11 +20,16 @@ export class VistaPokemonComponent implements OnInit {
     types: [],
     weight: 0,
     height: 0,
+    info: '',
+    typesVs: {
+      typesWeak: [],
+      typesVeryWeak: [],
+      typesInvulnerable: [],
+      typesStrong: []
+    }
   };
 
   listaColores: any;
-
-  shiny: boolean = false;
 
   constructor(
     private pokeApi: PokeapiService,
@@ -41,14 +47,14 @@ export class VistaPokemonComponent implements OnInit {
       if (content) {
         content.style.visibility = 'visible';
       }
-    }, 200);
+    }, 300);
 
   }
 
   ngOnInit(): void {
     const nPokedex = this.activatedRoute.snapshot.paramMap.get('nPokedex') as unknown as number;
 
-    this.pokeApi.getPokemonAll(nPokedex).subscribe((data: any) => {
+    this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
       this.pokemon = data;
 
       this.pokeApi.getDescription(nPokedex).subscribe((descripcion: any) => {
@@ -56,16 +62,12 @@ export class VistaPokemonComponent implements OnInit {
 
       });
 
-      this.pokeApi.getTypesVs(this.pokemon).subscribe((updatedPokemon: Pokemon) => {
+      this.pokeApi.getTypesVs(this.pokemon).subscribe((updatedPokemon: PokemonDetails) => {
         this.pokemon = updatedPokemon;
       });
 
     });
 
-  }
-
-  cambiaImagen() {
-    this.shiny = !this.shiny;
   }
 
 }

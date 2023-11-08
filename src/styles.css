@@ -1,9 +1,9 @@
 html {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  cursor: url(assets/superball.png), auto;
+  /*cursor: url(assets/superball.png), auto;
   cursor: url(assets/ultraball.png), auto;
   cursor: url(assets/masterball.png), auto;
-  cursor: url(assets/pokeball.png), auto;
+  cursor: url(assets/pokeball.png), auto;*/
 }
 
 body {

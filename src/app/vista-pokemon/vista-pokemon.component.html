@@ -1,6 +1,6 @@
 <div class="pokemon-data" id="pokemon-data">
-  <div class="pokemon-image-container" (click)="cambiaImagen()">
-    <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
+  <div class="pokemon-image-container">
+    <img src="{{pokemon.image}}" class="pokemonImage">
   </div>
   <div class="pokemon-info-container">
     <div class="nPokedex" [ngStyle]="{'color':listaColores[pokemon.types[0]]}">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
@@ -14,9 +14,6 @@
     <div class="weight">{{pokemon.weight}} kg</div>
     <div class="pokemon-description">{{pokemon.info}}</div>
     <div class="typesVs-container">
-      <div *ngIf="pokemon.typesVs?.typesVeryStrong">
-        Very Strong vs:
-      </div>
       <div *ngIf="pokemon.typesVs?.typesStrong">
         Strong vs:
         <div class="typesVs" *ngFor="let typeStrong of pokemon.typesVs?.typesStrong"
