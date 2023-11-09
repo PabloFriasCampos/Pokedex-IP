@@ -10,7 +10,7 @@ import { map } from 'rxjs';
 })
 export class VistaListaFiltrosComponent {
 
-  private generations: number[] = [493, 151, 251, 386, 493] //Total, Gen1, Gen2, Gen3, Gen4 ...
+  private generations: number[] = [0, 151, 251, 386, 493] //0, Gen1, Gen2, Gen3, Gen4 ...
 
   listaPokemon: Pokemon[] = [];
 
@@ -19,7 +19,7 @@ export class VistaListaFiltrosComponent {
   @Input()
   typesSelected: string[] = [];
   @Input()
-  genSelected: number = 0;
+  genSelected: number[] = [];
 
   @Output()
   listaMostrada: Pokemon[] = [];
@@ -35,7 +35,7 @@ export class VistaListaFiltrosComponent {
   loadList() {
     this.pokeApi.getPokemonListN(this.generations[this.generations.length - 1]).subscribe((pokemonList: Pokemon[]) => {
       this.listaPokemon = pokemonList;
-      this.listaMostrada = pokemonList;
+      this.listaMostrada = this.listaPokemon.slice(0, this.generations[1])
 
     });
 
@@ -66,11 +66,16 @@ export class VistaListaFiltrosComponent {
   }
 
   applyFilterGen() {
-    if (this.genSelected == 1) {
-      this.listaMostrada = this.listaPokemon.slice(0, this.generations[this.genSelected]);
+    if (this.genSelected.length > 0) {
+      let listaAux: Pokemon[] = [];
+      for (let gen of this.genSelected) {
+        listaAux = listaAux.concat(this.listaPokemon.slice(this.generations[gen - 1], this.generations[gen]));
+
+      }
+      this.listaMostrada = listaAux;
 
     } else {
-      this.listaMostrada = this.listaPokemon.slice(this.generations[this.genSelected - 1], this.generations[this.genSelected]);
+      this.listaMostrada = this.listaPokemon;
 
     }
 

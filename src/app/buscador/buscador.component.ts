@@ -7,6 +7,11 @@ type Tipos = {
   isChecked: boolean
 }
 
+type Gens = {
+  gen: number,
+  isChecked: boolean
+}
+
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
@@ -54,7 +59,12 @@ export class BuscadorComponent {
     { name: 'fairy', isChecked: false }
   ];
 
-  genSelected: number = 0;
+  gensSelected: Gens[] = [
+    { gen: 1, isChecked: true },
+    { gen: 2, isChecked: false },
+    { gen: 3, isChecked: false },
+    { gen: 4, isChecked: false }
+  ];
 
   enviaTexto() {
     this.textFilterEvent.emit({ textFilter: this.textFilter });
@@ -67,7 +77,8 @@ export class BuscadorComponent {
   }
 
   enviaGen() {
-    this.genFilterEvent.emit({ genSelected: this.genSelected });
+    console.log(this.gensSelected)
+    this.genFilterEvent.emit({ genSelected: this.gensSelected.filter(g => g.isChecked).map(g => g.gen) });
 
   }
 

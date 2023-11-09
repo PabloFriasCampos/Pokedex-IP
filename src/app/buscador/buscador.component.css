@@ -1,8 +1,9 @@
 .buscador-filtros {
-  padding: 1% 2% 0% 2%;
+  padding: 1% 1% 2% 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1em;
 }
 
 .buscador {
@@ -60,7 +61,6 @@
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 1%;
-  padding: 0% 3% 1% 1%;
 
 }
 
@@ -98,7 +98,6 @@
   align-items: center;
   justify-content: center;
   border: 2px solid var(--color);
-  color: white;
   margin: 10px;
   border-radius: 14px;
   text-shadow: 1px 1px black;
@@ -112,11 +111,68 @@
 }
 
 .gen-selection {
-  padding: 0% 1% 0% 1%;
-  /*cursor: url(../../assets/superball.png), auto;*/
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1% 1% 1% 1%;
+  width: 60%;
+  height: 6em;
+  gap: 0.5em;
+  justify-content: center;
 }
 
-.genList {
+.gen-label {
+  cursor: pointer;
+  text-align: center;
+}
+
+.gen-span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(255, 250, 250);
   margin: 10px;
-  width: 300px;
+  text-shadow: 1px 1px black;
+  width: 100%;
+  height: 60%;
+  opacity: 0.7;
+  border-radius: 12px;
+}
+
+.g1 {
+  background-image: url(../../assets/genPhotos/gen1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.g2 {
+  background-image: url(../../assets/genPhotos/gen2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.g3 {
+  background-image: url(../../assets/genPhotos/gen3.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.g4 {
+  background-image: url(../../assets/genPhotos/gen4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+
+.gen-checkbox {
+  display: none;
+}
+
+.gen-checkbox:checked~.gen-span {
+  box-shadow: 0px 0px 20px 0px white;
+  opacity: 1;
+
 }

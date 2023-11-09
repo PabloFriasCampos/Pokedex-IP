@@ -1,27 +1,28 @@
 <div class="buscador-filtros">
+  
   <div class="buscador">
     <img src="../assets/lupa.png"/>
     <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="Search...">
   </div>
 
+  <div class="gen-selection">
+
+    <label *ngFor="let gen of gensSelected" class="gen-label">
+      Generation {{gen.gen}}
+      <input type="checkbox" class="gen-checkbox" (change)="enviaGen()" [(ngModel)]="gen.isChecked">
+      <span class="gen-span g{{gen.gen}}"></span>
+    </label>
+
+  </div>
+
   <div class="type-selection">
   
     <label *ngFor="let type of typesSelected" class="type-label" [ngStyle]="{'--color': listaColores[type.name]}">
-      <input type="checkbox" class="type-checkbox" value="{{type.name}}" (change)="enviaTipos()" [(ngModel)]="type.isChecked">
+      <input type="checkbox" class="type-checkbox" (change)="enviaTipos()" [(ngModel)]="type.isChecked">
       <span class="type-span">{{type.name}}</span>
     </label>
   
   </div>
-  
-  <div class="gen-selection">
-    <select class="genList" (change)="enviaGen()" [(ngModel)]="genSelected">
-      <option value="0">All generations</option>
-      <option value="1">Generation 1</option>
-      <option value="2">Generation 2</option>
-      <option value="3">Generation 3</option>
-      <option value="4">Generation 4</option>
-    </select>
-  
-  </div>
+
 </div>
 
