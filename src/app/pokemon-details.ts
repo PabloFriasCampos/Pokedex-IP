@@ -5,5 +5,10 @@ export interface PokemonDetails extends Pokemon {
   info: string;
   weight: number;
   height: number;
-  stats?: number[];
+  hp: number;
+  atack: number;
+  defense: number;
+  specialAtack: number;
+  specialDefense: number;
+  speed: number;
 }

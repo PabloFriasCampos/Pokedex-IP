@@ -12,7 +12,13 @@
     </div>
     <div class="height">{{pokemon.height}} m</div>
     <div class="weight">{{pokemon.weight}} kg</div>
-    <div class="pokemon-description">{{pokemon.info}}</div>
+    <div class="description">{{pokemon.info}}</div>
+    <div class="hp">HP: {{pokemon.hp}}</div>
+    <div class="atack">ATACK: {{pokemon.atack}}</div>
+    <div class="defense">DEFENSE: {{pokemon.defense}}</div>
+    <div class="specialAtack">SPECIAL ATACK: {{pokemon.specialAtack}}</div>
+    <div class="specialDefense">SPECIAL DEFENSE: {{pokemon.specialDefense}}</div>
+    <div class="speed">SPEED: {{pokemon.speed}}</div>
 
     <div class="typesVs-container">
       <div *ngIf="veryWeak.length>0">

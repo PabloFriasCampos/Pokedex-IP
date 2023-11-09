@@ -20,6 +20,12 @@ export class VistaPokemonComponent {
     weight: 0,
     height: 0,
     info: '',
+    hp: 0,
+    atack: 0,
+    defense: 0,
+    specialAtack: 0,
+    specialDefense: 0,
+    speed: 0
   };
 
   veryWeak: string[] = [];

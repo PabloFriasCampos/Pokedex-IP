@@ -20,9 +20,7 @@
   .pokemon-image-container {
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
   }
-
 
 }
 
@@ -74,9 +72,33 @@
   font-size: 1.2em;
 }
 
-.pokemon-description {
+.description {
   margin-left: 6%;
   font-size: 1.5em;
+}
+
+.hp {
+  margin-left: 6%;
+}
+
+.atack {
+  margin-left: 6%;
+}
+
+.defense {
+  margin-left: 6%;
+}
+
+.specialAtack {
+  margin-left: 6%;
+}
+
+.specialDefense {
+  margin-left: 6%;
+}
+
+.speed {
+  margin-left: 6%;
 }
 
 .typesVs-container {
