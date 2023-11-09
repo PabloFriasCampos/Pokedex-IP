@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { PokemonDetails } from '../pokemon-details';
   templateUrl: './vista-pokemon.component.html',
   styleUrls: ['./vista-pokemon.component.css']
 })
-export class VistaPokemonComponent implements OnInit {
+export class VistaPokemonComponent {
 
   pokemon: PokemonDetails = {
     image: '',
@@ -45,6 +45,7 @@ export class VistaPokemonComponent implements OnInit {
 
     this.tablaTipos = this.http.get('assets/table-type.json').subscribe((data: any) => {
       this.tablaTipos = data;
+      this.loadPokemon();
 
     });
 
@@ -56,18 +57,18 @@ export class VistaPokemonComponent implements OnInit {
     }, 300);
   }
 
-  ngOnInit(): void {
+  loadPokemon() {
     const nPokedex = this.activatedRoute.snapshot.paramMap.get('nPokedex') as unknown as number;
 
     this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
       this.pokemon = data;
 
+      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
+
       this.pokeApi.getDescription(nPokedex).subscribe((descripcion: any) => {
         this.pokemon.info = descripcion;
 
       });
-
-      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
 
     });
 
