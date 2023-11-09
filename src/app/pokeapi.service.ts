@@ -21,9 +21,7 @@ export class PokeapiService {
           name: data.name,
           nPokedex: data.id,
           types: data.types.map((types: any) => types.type.name)
-
         }
-
       })
     );
 
@@ -73,21 +71,6 @@ export class PokeapiService {
         }
       }));
 
-  }
-
-  getTypesVs(pokemon: PokemonDetails): Observable<PokemonDetails> {
-    return this.http.get('https://pokeapi.co/api/v2/type/' + pokemon.types[0]).pipe(
-      map((data: any) => {
-        pokemon = pokemon;
-        pokemon.typesVs = {
-          typesWeak: data.damage_relations.double_damage_from.map((type: any) => type.name),
-          typesInvulnerable: data.damage_relations.no_damage_from.map((type: any) => type.name),
-          typesStrong: data.damage_relations.double_damage_to.map((type: any) => type.name),
-          typesVeryWeak: []
-        };
-        return pokemon;
-      })
-    );
   }
 
 }

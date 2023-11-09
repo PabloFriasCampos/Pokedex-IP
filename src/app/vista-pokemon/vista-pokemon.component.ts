@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../pokemon';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -21,15 +20,17 @@ export class VistaPokemonComponent implements OnInit {
     weight: 0,
     height: 0,
     info: '',
-    typesVs: {
-      typesWeak: [],
-      typesVeryWeak: [],
-      typesInvulnerable: [],
-      typesStrong: []
-    }
   };
 
+  veryWeak: string[] = [];
+  weak: string[] = [];
+  x0: string[] = [];
+  strong: string[] = [];
+  veryStrong: string[] = [];
+
   listaColores: any;
+
+  tablaTipos: any;
 
   constructor(
     private pokeApi: PokeapiService,
@@ -42,13 +43,17 @@ export class VistaPokemonComponent implements OnInit {
 
     });
 
+    this.tablaTipos = this.http.get('assets/table-type.json').subscribe((data: any) => {
+      this.tablaTipos = data;
+
+    });
+
     setTimeout(() => {
       const content = document.getElementById('pokemon-data');
       if (content) {
         content.style.visibility = 'visible';
       }
     }, 300);
-
   }
 
   ngOnInit(): void {
@@ -62,11 +67,65 @@ export class VistaPokemonComponent implements OnInit {
 
       });
 
-      this.pokeApi.getTypesVs(this.pokemon).subscribe((updatedPokemon: PokemonDetails) => {
-        this.pokemon = updatedPokemon;
-      });
+      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
 
     });
+
+  }
+
+  calcularTiposRecibir(type1: string, type2: string) {
+
+    if (type2) {
+
+      for (let tipoEnTabla in this.tablaTipos) {
+
+        if (this.tablaTipos[type1][tipoEnTabla] == 0 || this.tablaTipos[type2][tipoEnTabla] == 0) {
+          this.x0.push(tipoEnTabla);
+
+        }
+        else if (this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] == 2) {
+          this.veryWeak.push(tipoEnTabla);
+
+        }
+
+        else if (this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] == 0.5) {
+          this.veryStrong.push(tipoEnTabla);
+
+        }
+
+        else if ((this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] != 0.5) || (this.tablaTipos[type2][tipoEnTabla] == 2 && this.tablaTipos[type1][tipoEnTabla] != 0.5)) {
+          this.weak.push(tipoEnTabla);
+
+        }
+
+        else if ((this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] != 2) || (this.tablaTipos[type2][tipoEnTabla] == 0.5 && this.tablaTipos[type1][tipoEnTabla] != 2)) {
+          this.strong.push(tipoEnTabla);
+
+        }
+
+      }
+
+    } else {
+      for (let tipoEnTabla in this.tablaTipos) {
+
+        if (this.tablaTipos[type1][tipoEnTabla] == 2) {
+          this.weak.push(tipoEnTabla);
+
+        }
+
+        else if (this.tablaTipos[type1][tipoEnTabla] == 0) {
+          this.x0.push(tipoEnTabla);
+
+        }
+
+        else if (this.tablaTipos[type1][tipoEnTabla] == 0.5) {
+          this.strong.push(tipoEnTabla);
+
+        }
+
+      }
+
+    }
 
   }
 

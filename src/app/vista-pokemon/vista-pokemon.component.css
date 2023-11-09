@@ -1,6 +1,6 @@
 .pokemon-data {
   display: grid;
-  grid-template-columns: 3fr 7fr;
+  grid-template-columns: 3fr 8fr;
   gap: 1em;
   visibility: hidden;
   padding: 2%;
@@ -55,7 +55,6 @@
   gap: 1%;
 }
 
-
 .pokemon-type {
   min-width: 20%;
   font-size: 1.3rem;
@@ -82,8 +81,8 @@
 
 .typesVs-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6em;
   padding: 1%;
   text-transform: capitalize;
   text-align: center;
@@ -95,7 +94,7 @@
 .typesVs {
   text-shadow: 1px 1px black;
   margin-top: 7%;
-  padding: 4%;
+  padding: 3%;
   background-color: var(--type-color);
   border-radius: 12px;
 }
