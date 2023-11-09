@@ -1,7 +1,7 @@
 <div class="buscador-filtros">
   <div class="buscador">
     <img src="../assets/lupa.png"/>
-    <input type="search" [(ngModel)]="textFilter" (keyup)="enviaTexto()" placeholder="Busca un pokémon...">
+    <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="Search...">
   </div>
 
   <div class="type-selection">
