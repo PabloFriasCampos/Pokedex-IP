@@ -38,6 +38,8 @@ export class VistaPokemonComponent {
 
   tablaTipos: any;
 
+  shiny: boolean = false;
+
   constructor(
     private pokeApi: PokeapiService,
     private activatedRoute: ActivatedRoute,
@@ -61,6 +63,13 @@ export class VistaPokemonComponent {
         content.style.visibility = 'visible';
       }
     }, 300);
+
+    setTimeout(() => {
+      const content = document.getElementById('overlay');
+      if (content) {
+        content.style.display = 'none';
+      }
+    }, 1000);
   }
 
   loadPokemon() {
@@ -77,6 +86,11 @@ export class VistaPokemonComponent {
       });
 
     });
+
+  }
+
+  changeImage() {
+    this.shiny = !this.shiny
 
   }
 

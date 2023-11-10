@@ -1,6 +1,6 @@
 <div class="pokemon-data" id="pokemon-data">
-  <div class="pokemon-image-container">
-    <img src="{{pokemon.image}}" class="pokemonImage">
+  <div class="pokemon-image-container" (click)="changeImage()">
+    <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
   </div>
   <div class="pokemon-info-container">
     <div class="nPokedex" [ngStyle]="{'color':listaColores[pokemon.types[0]]}">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
@@ -55,7 +55,7 @@
 
 </div>
 
-<div class="overlay">
+<div class="overlay" id="overlay">
   <div class="top">
     <div class="circle">
       <div class="circle-small"></div>
