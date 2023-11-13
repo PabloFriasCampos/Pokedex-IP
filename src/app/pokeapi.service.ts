@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, map } from 'rxjs';
+import { Observable, forkJoin, map, switchMap } from 'rxjs';
 import { Pokemon } from './pokemon';
 import { PokemonDetails } from './pokemon-details';
 
@@ -37,16 +37,16 @@ export class PokeapiService {
     return forkJoin(pokemons);
   }
 
-  getPokemonDetails(id: any): Observable<Pokemon> {
+  getPokemonDetails(id: any): Observable<PokemonDetails> {
     return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
-      map((data: any) => {
-
-        return {
-          image: data.sprites.other["official-artwork"].front_default,
-          imageShiny: data.sprites.other["official-artwork"].front_shiny,
-          name: data.name,
+      switchMap((data: any) => {
+        let pokemonDetails: PokemonDetails = {
           nPokedex: data.id,
-          types: data.types.map((types: any) => types.type.name),
+          name: data.name,
+          types: data.types.map((type: any) => type.type.name),
+          image: data.sprites.other['official-artwork'].front_default,
+          imageShiny: data.sprites.other['official-artwork'].front_shiny,
+          info: '',
           weight: data.weight / 10,
           height: data.height / 10,
           hp: data.stats[0].base_stat,
@@ -54,15 +54,21 @@ export class PokeapiService {
           defense: data.stats[2].base_stat,
           specialAtack: data.stats[3].base_stat,
           specialDefense: data.stats[4].base_stat,
-          speed: data.stats[5].base_stat
-        }
+          speed: data.stats[5].base_stat,
+        };
+
+        return this.getDescription(id).pipe(
+          map((description: string) => {
+            pokemonDetails.info = description;
+            return pokemonDetails;
+          })
+        );
 
       })
     );
-
   }
 
-  getDescription(id: any): Observable<String> {
+  getDescription(id: any): Observable<string> {
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
         const flavorTextEntry = data.flavor_text_entries.find((entry: any) => {

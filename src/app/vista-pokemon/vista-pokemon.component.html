@@ -1,4 +1,4 @@
-<div class="container" [ngStyle]="{'--background-img':'url(./assets/typesBackground/' + pokemon.types[0] + 'Background.png)'}">
+<div class="container" id="container">
 <div class="pokemon-data" id="pokemon-data">
   <div class="pokemon-image-container" (click)="changeImage()">
     <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">

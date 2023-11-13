@@ -80,12 +80,19 @@ export class VistaPokemonComponent {
 
       this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
 
-      this.pokeApi.getDescription(nPokedex).subscribe((descripcion: any) => {
-        this.pokemon.info = descripcion;
-
-      });
+      this.setBackground();
 
     });
+
+  }
+
+  setBackground() {
+    let container = document.getElementById('container');
+
+    if (container) {
+      container.style.backgroundImage = 'url(./assets/typesBackground/' + this.pokemon.types[0] + 'Background.png)';
+
+    }
 
   }
 

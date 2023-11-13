@@ -15,6 +15,5 @@ body {
 }
 
 :root {
-  --background-img: url(./assets/typesBackground/bugBackground.png);
   --background-gen: url(./assets/genPhotos/gen2.png);
 }
