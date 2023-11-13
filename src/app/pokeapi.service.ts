@@ -66,7 +66,7 @@ export class PokeapiService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
         const flavorTextEntry = data.flavor_text_entries.find((entry: any) => {
-          return entry.language.name === 'en' && entry.version.name === 'platinum';
+          return entry.language.name === 'en' && entry.version.name === 'x';
         });
 
         if (flavorTextEntry) {

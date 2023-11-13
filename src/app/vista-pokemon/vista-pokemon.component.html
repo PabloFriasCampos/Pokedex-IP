@@ -1,9 +1,10 @@
+<div class="container" [ngStyle]="{'--background-img':'url(./assets/typesBackground/' + pokemon.types[0] + 'Background.png)'}">
 <div class="pokemon-data" id="pokemon-data">
   <div class="pokemon-image-container" (click)="changeImage()">
     <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
   </div>
   <div class="pokemon-info-container">
-    <div class="nPokedex" [ngStyle]="{'color':listaColores[pokemon.types[0]]}">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+    <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <div class="name">{{pokemon.name}}</div>
     <div class="types">
       <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
@@ -23,31 +24,29 @@
     <div class="typesVs-container">
       <div *ngIf="veryWeak.length>0">
         x4:
-        <div class="typesVs" *ngFor="let type of veryWeak"
-          [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
       </div>
 
       <div *ngIf="weak.length>0">
         x2:
-        <div class="typesVs" *ngFor="let type of weak"
-          [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
 
       <div *ngIf="x0.length>0">
         x0:
-        <div class="typesVs" *ngFor="let type of x0"
-          [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
 
       <div *ngIf="strong.length>0">
         x0.5:
-        <div class="typesVs" *ngFor="let type of strong"
-          [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
 
       <div *ngIf="veryStrong.length>0">
         x0.25:
-        <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
       </div>
 
     </div>
@@ -62,4 +61,6 @@
     </div>
   </div>
   <div class="bottom"></div>
+</div>
+
 </div>

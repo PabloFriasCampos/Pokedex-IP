@@ -7,6 +7,14 @@ html {
 }
 
 body {
+  height: 100vh;
   background-color: rgb(47, 45, 45);
-  color: white;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-img: url(./assets/typesBackground/bugBackground.png);
+  --background-gen: url(./assets/genPhotos/gen2.png);
 }

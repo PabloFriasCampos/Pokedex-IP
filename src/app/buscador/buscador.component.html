@@ -10,7 +10,7 @@
     <label *ngFor="let gen of gensSelected" class="gen-label">
       Generation {{gen.gen}}
       <input type="checkbox" class="gen-checkbox" (change)="enviaGen()" [(ngModel)]="gen.isChecked">
-      <span class="gen-span g{{gen.gen}}"></span>
+      <span class="gen-span" [ngStyle]="{'--background-gen': 'url(./assets/genPhotos/gen' + gen.gen + '.png)'}"></span>
     </label>
 
   </div>
@@ -25,4 +25,3 @@
   </div>
 
 </div>
-
