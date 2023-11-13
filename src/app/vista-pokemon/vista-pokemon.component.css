@@ -1,6 +1,6 @@
 .pokemon-data {
   display: grid;
-  grid-template-columns: 3fr 8fr;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 1em;
   visibility: hidden;
   padding: 2%;
@@ -206,3 +206,38 @@
     transform: translateY(100%);
   }
 }
+
+.statsPokemon{
+  border: 5px solid white;
+  
+}
+.statform {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background-color: black;
+  margin: 0 auto;
+  width: 15rem;
+  height: 15rem;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.pruebaDentro{
+  transition: clip-path 1s ease-in-out ;
+  width: 90%;
+  height: 90%;
+  clip-path: polygon(50% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+
+}
+.pruebaDentro:hover{
+  background-color: white;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+/*.in {
+  
+  background-position: 48% 42%;
+  animation-name: in-anim;
+}
+.out {
+  background-color: rgba(80, 220, 220, .4);
+  animation-name: out-anim
+}*/
