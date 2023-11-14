@@ -1,86 +1,70 @@
 <div class="container" id="container">
-  <!--<div class="pokemon-data" id="pokemon-data">-->
+
+  <div class="pokemon-data">
+    <div class="pokemon-image-container" (click)="changeImage()">
+      <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
+    </div>
     
-
-  <div class="pokemon-image-container" (click)="changeImage()">
-    <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
-  </div>
-
-  <div class="pokemon-infoNrName-container">
-    <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
-    <div class="name">{{pokemon.name}}</div>
-  </div>
-
-
-
-  <div class="changeView">
-    <button>Cambiar tipo vista</button>
-  </div>
-
-  <div class="types">
-    <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
-    <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
-      [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
-  </div>
-
-  <div class="description">
-    {{pokemon.info}}
-    <div class="infoPoke">
-      <div class="height">{{pokemon.height}} m</div>
-      <div class="weight">{{pokemon.weight}} kg</div>
+    <div class="pokemon-infoNrName-container">
+      <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+      <div class="name">{{pokemon.name}}</div>
     </div>
-  </div>
-
-  <div class="statsPokemon">
-    <div class="hp">HP: {{pokemon.hp}}</div>
-    <div class="atack">ATACK: {{pokemon.atack}}</div>
-    <div class="defense">DEFENSE: {{pokemon.defense}}</div>
-    <div class="specialAtack">SPECIAL ATACK: {{pokemon.specialAtack}}</div>
-    <div class="specialDefense">SPECIAL DEFENSE: {{pokemon.specialDefense}}</div>
-    <div class="speed">SPEED: {{pokemon.speed}}</div>
-  </div>
-  
-  <div class="logo">
-  </div>
-  
-  
-
-  
-
-  <div class="typesVs-container">
-    <div *ngIf="veryWeak.length>0">
-      x4:
-      <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+    
+    <div class="description">
+      {{pokemon.info}}
+      <div class="infoPoke">
+        <div class="height">{{pokemon.height}} m</div>
+        <div class="weight">{{pokemon.weight}} kg</div>
       </div>
     </div>
 
-    <div *ngIf="weak.length>0">
-      x2:
-      <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+    <div class="emptyCenter"></div>
+    
+    <div class="statsPokemon">
+      <div class="hp">HP: {{pokemon.hp}}</div>
+      <div class="atack">ATACK: {{pokemon.atack}}</div>
+      <div class="defense">DEFENSE: {{pokemon.defense}}</div>
+      <div class="specialAtack">SPECIAL ATACK: {{pokemon.specialAtack}}</div>
+      <div class="specialDefense">SPECIAL DEFENSE: {{pokemon.specialDefense}}</div>
+      <div class="speed">SPEED: {{pokemon.speed}}</div>
     </div>
 
-    <div *ngIf="x0.length>0">
-      x0:
-      <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+    <div class="types">
+      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
+      <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
+        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
     </div>
-
-    <div *ngIf="strong.length>0">
-      x0.5:
-      <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
-    </div>
-
-    <div *ngIf="veryStrong.length>0">
-      x0.25:
-      <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+    
+    <div class="typesVs-container">
+      <div *ngIf="veryWeak.length>0">
+        x4:
+        <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
       </div>
+    
+      <div *ngIf="weak.length>0">
+        x2:
+        <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+      </div>
+    
+      <div *ngIf="x0.length>0">
+        x0:
+        <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+      </div>
+    
+      <div *ngIf="strong.length>0">
+        x0.5:
+        <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+      </div>
+    
+      <div *ngIf="veryStrong.length>0">
+        x0.25:
+        <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
+      </div>
+    
     </div>
-
   </div>
-
-<!--   <div class="cadenaEvolutiva">
-    <p> esto es la cadena evolutiva</p>
-  </div>
- -->
 
   <div class="overlay" id="overlay">
     <div class="top">
