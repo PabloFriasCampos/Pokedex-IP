@@ -2,65 +2,100 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
+  width: 100%;
   height: 100%;
   background-image: var(--background-img);
+  display: grid;
+  /* grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr); */
+  /*grid-gap: 1em;*/
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
+    "img img nrId nrId types btn"
+    "img img desc desc desc desc"
+    "img img logo logo logo logo"
+    "stats stats logo logo logo logo"
+    "stats stats tVS tVS tVS tVS"
+    "stats stats tVS tVS tVS tVS"
+    /* "cadEv cadEv cadEv cadEv cadEv cadEv cadEv"
+    "cadEv cadEv cadEv cadEv cadEv cadEv cadEv" */
+    ;
+    grid-gap: 1rem;
 }
 
-.pokemon-data {
-  display: grid;
-  place-items: center;
-  grid-template-columns: 1fr 3fr 1fr;
-  gap: 1em;
+/*.pokemon-data {
   visibility: hidden;
   padding: 2%;
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-
-.pokemon-info-container {
-  border: 2px solid white;
-  border-radius: 20px;
-}
+*/
 
 .pokemon-image-container {
-  border: 2px solid white;
   border-radius: 20px;
+  /* margin-top: 5rem; */
+  grid-row: img;
+  grid-column: img;
+  background-color: blue;
+  width: 100%;
+  height: 100%;
 }
 
 @media(width < 1200px) {
   .pokemon-image-container {
-    flex-direction: column;
     align-items: center;
   }
 
 }
 
 .pokemonImage {
-  width: 100%;
-  height: auto;
+  object-fit: cover;
 }
 
+.pokemon-infoNrName-container {
+  background-color: bisque;
+  border-radius: 20px;
+  grid-column: nrId;
+  grid-row: nrId;
+  width: 100%;
+  height: 100%;
+  /*   justify-content: center;
+  align-items: center; */
+}
 
 .nPokedex {
   text-align: right;
-  margin-right: 6%;
-  margin-top: 6%;
+  /*margin-right: 6%;
+  margin-top: 6%;*/
   font-size: 1.4em;
 }
 
 .name {
   text-transform: capitalize;
-  text-align: left;
-  margin-left: 6%;
+  text-align: right;
+  /*margin-left: 6%;*/
   font-size: 1.6em;
 
 }
 
+.changeView {
+  grid-column: btn;
+  grid-row: btn;
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+}
+
 .types {
   text-transform: capitalize;
-  display: flex;
-  margin-left: 6%;
+  grid-column: types;
+  grid-row: types;
+  background-color: chocolate;
+  width: 100%;
+  height: 100%;
+  /*margin-left: 6%;
   margin-right: 6%;
-  gap: 1%;
+  gap: 1%;*/
 }
 
 .pokemon-type {
@@ -73,20 +108,34 @@
 }
 
 .weight {
-  margin-left: 6%;
+  /*margin-left: 6%;*/
   font-size: 1.2em;
 }
 
 .height {
-  margin-left: 6%;
+  /*margin-left: 6%;*/
   font-size: 1.2em;
 }
 
 .description {
-  margin-left: 6%;
+  /*margin-left: 6%;*/
   font-size: 1.5em;
+  grid-column: desc;
+  grid-row: desc;
+  width: 100%;
+  height: 100%;
+  background-color: deeppink;
 }
 
+.statsPokemon {
+  background-color:indigo;
+  grid-column: stats;
+  grid-row: stats;
+  width: 100%;
+  height: 100%;
+}
+
+/*
 .hp {
   margin-left: 6%;
 }
@@ -110,17 +159,38 @@
 .speed {
   margin-left: 6%;
 }
+*/
+
+.infoPoke {
+  grid-column: infoPoke;
+  grid-row: infoPoke;
+  width: 50%;
+  height: 50%;
+  background-color: darkgoldenrod;
+
+}
 
 .typesVs-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-area: tVS;
+/*   grid-column: tVS;
+  grid-row: tVS; */
+  /* width: 100%; */
   gap: 0.6em;
   padding: 1%;
   text-transform: capitalize;
   text-align: center;
-  margin-left: 6%;
+  /* margin-left: 6%;
   margin-right: 6%;
-  font-size: 1.2em;
+  font-size: 1.2em; */
+  align-items: top;
+  /* align-self: center; */
+  background-color: chartreuse;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  width: 100%;
+  height: 100%;
+  grid-auto-flow: row;
 }
 
 .typesVs {
@@ -129,7 +199,25 @@
   padding: 3%;
   background-color: var(--type-color);
   border-radius: 12px;
+  width: 100%;
 }
+
+.logo {
+  grid-column: logo;
+  grid-row: logo;
+  border: 5px solid white;
+/*   width: 10rem;
+  height: 10rem; */
+  width: 100%;
+  height: 100%;
+}
+/* .cadenaEvolutiva {
+  grid-column: cadEv;
+  grid-row: cadEv;
+  background-color: blueviolet;
+  width: 100%;
+  height: 100%;
+} */
 
 /* TRANSICION / ANIMACION */
 
@@ -217,6 +305,7 @@
   }
 }
 
+/*
 .statsPokemon {
   border: 5px solid white;
 
@@ -244,7 +333,7 @@
 .pruebaDentro:hover {
   background-color: white;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-}
+}*/
 
 /*.in {
   
