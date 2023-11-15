@@ -67,17 +67,6 @@
   grid-column: span 2;
 }
 
-.statsPokemon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  border: 1px solid black;
-  border-radius: 20px;
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
 .typesVs-container {
   display: grid;
   text-align: center;
