@@ -19,7 +19,7 @@ export class VistaListaFiltrosComponent {
   @Input()
   typesSelected: string[] = [];
   @Input()
-  genSelected: number[] = [];
+  genSelected: number[] = [1];
 
   @Output()
   listaMostrada: Pokemon[] = [];
@@ -35,7 +35,7 @@ export class VistaListaFiltrosComponent {
   loadList() {
     this.pokeApi.getPokemonListN(this.generations[this.generations.length - 1]).subscribe((pokemonList: Pokemon[]) => {
       this.listaPokemon = pokemonList;
-      this.listaMostrada = this.listaPokemon.slice(0, this.generations[1])
+      this.applyFilters()
 
     });
 
