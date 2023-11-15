@@ -18,6 +18,7 @@ export class PokeapiService {
 
         return {
           image: data.sprites.other["official-artwork"].front_default,
+          gif: data.sprites.versions["generation-v"]["black-white"].animated.front_default,
           name: data.name,
           nPokedex: data.id,
           types: data.types.map((types: any) => types.type.name)
@@ -46,6 +47,7 @@ export class PokeapiService {
           types: data.types.map((type: any) => type.type.name),
           image: data.sprites.other['official-artwork'].front_default,
           imageShiny: data.sprites.other['official-artwork'].front_shiny,
+          gif: data.sprites.versions["generation-v"]["black-white"].animated.front_default,
           info: '',
           weight: data.weight / 10,
           height: data.height / 10,

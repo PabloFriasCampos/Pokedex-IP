@@ -3,6 +3,7 @@
   grid-template-columns: repeat(5, 1fr);
   padding: 3%;
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
+  align-items: stretch;
 }
 
 @media (width < 1280px) {
@@ -28,6 +29,9 @@
 
 .pokemon-card {
   text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 4%;
   border-radius: 20px;
   background-color: rgb(95, 109, 126);
@@ -64,10 +68,18 @@
   height: auto;
 }
 
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nPokedex {
-  text-align: right;
   margin-right: 6%;
   font-size: 1.4em;
+}
+
+.pokemonGif {
+  max-height: 60px;
 }
 
 .name {

@@ -14,6 +14,7 @@ export class VistaPokemonComponent {
   pokemon: PokemonDetails = {
     image: '',
     imageShiny: '',
+    gif: '',
     name: '',
     nPokedex: 0,
     types: [],
