@@ -7,7 +7,7 @@
     }"
     [routerLink]="'/pokemon/' + pokemon.nPokedex">
     <div class="cardTop">
-      <div class="nPokedex">Nº {{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+      <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
       <img src="{{pokemon.gif}}" class="pokemonGif">
     </div>
     <img src="{{pokemon.image}}" class="pokemonImage">
