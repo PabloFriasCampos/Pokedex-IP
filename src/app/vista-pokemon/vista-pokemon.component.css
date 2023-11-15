@@ -1,82 +1,102 @@
 .container {
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
-  min-height: 100vh;
   background-image: var(--background-img);
 }
 
 .pokemon-data {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-content: center;
-  align-items: center;
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
-  padding: 1%;
-  gap: 0.6em;
 }
 
-.pokemon-image-container {
-  display: grid;
-  place-items: center;
-  border: 1px solid black;
-  border-radius: 20px;
-  grid-row: span 2;
-  grid-column: span 2;
+.top-details {
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
-.pokemon-infoNrName-container {
-  display: grid;
-  place-items: center;
-  height: 100%;
-  border: 1px solid black;
-  border-radius: 20px;
+.top-pokemon-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.nPokedex {
+  font-size: 2em;
 }
 
 .name {
   text-transform: capitalize;
-  text-align: center;
-  font-size: 3em;
+  font-size: 5em;
 }
 
-.types {
+.types,
+.dimensions {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 0.3em;
   text-transform: capitalize;
-  grid-column: span 2;
+  font-size: 1.5em;
+  gap: 1em;
+  width: 60%;
+}
+
+.height,
+.weight {
+  text-transform: lowercase;
+  margin-top: 5%;
+  flex: 1;
+  text-align: center;
+  padding: 0.2em;
+  border-bottom: 2px solid var(--type-color);
 }
 
 .pokemon-type {
-  border: 1px solid black;
+  flex: 1;
   text-align: center;
-  border-radius: 12px;
-  width: 100%;
-  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0.2em;
   background-color: var(--type-color);
 }
 
-.description {
+.top-pokemon-image {
   display: grid;
-  place-items: center;
-  border: 1px solid black;
-  height: 100%;
-  border-radius: 20px;
-  grid-column: span 2;
+  justify-content: center;
+  flex: 1;
+}
+
+.pokemonImage {
+  width: 100%;
+  height: auto;
+}
+
+.more-pokemon-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20vh;
+}
+
+.description {
+  font-size: 1.5em;
+  border-left: 2px solid var(--type-color);
+  padding-left: 1%;
+}
+
+.atacksLabel {
+  display: flex;
+  justify-content: center;
+  font-size: 1.7em;
 }
 
 .typesVs-container {
   display: grid;
   text-align: center;
   grid-template-columns: repeat(5, 1fr);
-  padding: 1%;
+  height: 30vh;
+  padding: 2% 5% 5% 5%;
   gap: 0.6em;
   text-transform: capitalize;
-  border: 1px solid black;
-  border-radius: 20px;
-  grid-column: span 5;
+  font-size: 1.4em;
 }
 
 .typesVs {

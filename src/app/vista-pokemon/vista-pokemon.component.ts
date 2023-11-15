@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { PokemonDetails } from '../pokemon-details';
   templateUrl: './vista-pokemon.component.html',
   styleUrls: ['./vista-pokemon.component.css']
 })
-export class VistaPokemonComponent {
+export class VistaPokemonComponent implements OnInit {
 
   pokemon: PokemonDetails = {
     image: '',
@@ -45,8 +45,11 @@ export class VistaPokemonComponent {
     private pokeApi: PokeapiService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
+  ) { }
 
-  ) {
+  ngOnInit(): void {
+
+
     this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
 
