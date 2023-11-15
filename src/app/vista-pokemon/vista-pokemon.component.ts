@@ -49,6 +49,19 @@ export class VistaPokemonComponent implements OnInit {
 
   ngOnInit(): void {
 
+    setTimeout(() => {
+      const content = document.getElementById('pokemon-data');
+      if (content) {
+        content.style.visibility = 'visible';
+      }
+    }, 400);
+
+    setTimeout(() => {
+      const animation = document.getElementById('overlay');
+      if (animation) {
+        animation.style.display = 'none';
+      }
+    }, 900);
 
     this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
@@ -61,19 +74,8 @@ export class VistaPokemonComponent implements OnInit {
 
     });
 
-    setTimeout(() => {
-      const content = document.getElementById('pokemon-data');
-      if (content) {
-        content.style.visibility = 'visible';
-      }
-    }, 300);
+    window.scrollTo({ top: 0 });
 
-    setTimeout(() => {
-      const content = document.getElementById('overlay');
-      if (content) {
-        content.style.display = 'none';
-      }
-    }, 1000);
   }
 
   loadPokemon() {

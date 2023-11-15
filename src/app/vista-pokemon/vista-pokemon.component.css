@@ -1,11 +1,14 @@
 .container {
   background-size: cover;
+  background-position: center center;
   background-attachment: fixed;
+  height: 200vh;
   background-image: var(--background-img);
 }
 
 .pokemon-data {
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
+  visibility: hidden;
 }
 
 .top-details {

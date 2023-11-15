@@ -1,6 +1,6 @@
 <div class="container" id="container">
 
-  <div class="pokemon-data">
+  <div class="pokemon-data" id="pokemon-data">
 
     <div class="top-details">
       <div class="top-pokemon-image" (click)="changeImage()">
@@ -29,28 +29,28 @@
   <label class="atacksLabel">ATACKS RECEIVED</label>
     <div class="typesVs-container">
       <div *ngIf="veryWeak.length>0">
-        x4:
+        x4
         <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
         </div>
       </div>
     
       <div *ngIf="weak.length>0">
-        x2:
+        x2
         <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
     
       <div *ngIf="x0.length>0">
-        x0:
+        x0
         <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
     
       <div *ngIf="strong.length>0">
-        x0.5:
+        x0.5
         <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
       </div>
     
       <div *ngIf="veryStrong.length>0">
-        x0.25:
+        x0.25
         <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
         </div>
       </div>
