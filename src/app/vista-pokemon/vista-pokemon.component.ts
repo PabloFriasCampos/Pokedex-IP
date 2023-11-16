@@ -107,6 +107,11 @@ export class VistaPokemonComponent implements OnInit {
 
   }
 
+  scrollDown() {
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+
+  }
+
   calcularTiposRecibir(type1: string, type2: string) {
 
     if (type2) {

@@ -19,10 +19,12 @@
           <div class="weight">{{pokemon.weight}} kg</div>
         </div>
       </div>
+      <div class="scroll-hint" (click)="scrollDown()"></div>
     </div>
 
-    <div class="more-pokemon-details">
-      <div class="description" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.info}}</div>
+    <div class="more-pokemon-details" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+      <div class="description">{{pokemon.info}}</div>
+      <div class="game-source"> - Pokemon X</div>
     </div>
     
     

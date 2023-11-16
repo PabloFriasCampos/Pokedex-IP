@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  height: 200vh;
+  height: 230vh;
   background-image: var(--background-img);
 }
 
@@ -25,25 +25,26 @@
 }
 
 .nPokedex {
-  font-size: 2em;
+  font-size: 2vw;
 }
 
 .name {
   text-transform: capitalize;
-  font-size: 5em;
+  font-size: 6vw;
 }
 
 .types,
 .dimensions {
   display: flex;
   text-transform: capitalize;
-  font-size: 1.5em;
+  font-size: 3vw;
   gap: 1em;
   width: 60%;
 }
 
 .height,
 .weight {
+  font-size: 2.5vw;
   text-transform: lowercase;
   margin-top: 5%;
   flex: 1;
@@ -56,7 +57,7 @@
   flex: 1;
   text-align: center;
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 40px;
   padding: 0.2em;
   background-color: var(--type-color);
 }
@@ -72,23 +73,46 @@
   height: auto;
 }
 
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid black;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .more-pokemon-details {
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 20vh;
+  align-items: center;
 }
 
 .description {
-  font-size: 1.5em;
-  border-left: 2px solid var(--type-color);
+  font-size: 2.3vw;
+  border-left: 4px solid var(--type-color);
+  margin: 0% 5% 0% 5%;
   padding-left: 1%;
+}
+
+.game-source {
+  color: var(--type-color);
+  font-size: 1.8vw;
+  margin-left: 50%;
 }
 
 .atacksLabel {
   display: flex;
   justify-content: center;
-  font-size: 1.7em;
+  font-size: 2.5vw;
 }
 
 .typesVs-container {
@@ -99,7 +123,7 @@
   padding: 2% 5% 5% 5%;
   gap: 0.6em;
   text-transform: capitalize;
-  font-size: 1.4em;
+  font-size: 2vw;
 }
 
 .typesVs {
