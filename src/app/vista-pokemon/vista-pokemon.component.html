@@ -4,11 +4,11 @@
 
   
   <div class="moveToPokemon">
-    <div class="previousPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex + 1)" (click)="ngOnInit()">
-    <img src="{{pokemon.gifPrev}}">
+    <div class="previousPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex - 1)" (click)="ngOnInit()">
+    🡸<img src="{{pokemon.gifPrev}}">
     </div>
-    <div class="nextPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex - 1)" (click)="ngOnInit()">
-    <img src="{{pokemon.gifNext}}">
+    <div class="nextPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex + 1)" (click)="ngOnInit()">
+    <img src="{{pokemon.gifNext}}">🡺
     </div>
   </div>
 
