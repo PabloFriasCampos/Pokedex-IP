@@ -14,17 +14,22 @@
   cursor: pointer;
 }
 
-.nextPokemon {
+.moveToPokemon {
   position: absolute;
-  margin-left: 85%;
+  width: 20%;
   margin-top: 5%;
+  margin-left: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 50px;
+}
+
+.nextPokemon {
   cursor: pointer;
 }
 
 .previousPokemon {
-  position: absolute;
-  margin-left: 10%;
-  margin-top: 5%;
   cursor: pointer;
 }
 

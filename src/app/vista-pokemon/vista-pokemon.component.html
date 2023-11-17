@@ -5,10 +5,10 @@
   
   <div class="moveToPokemon">
     <div class="nextPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex + 1)" (click)="ngOnInit()">
-    <img src="{{pokemon.gifNext}}">Next
+    <img src="{{pokemon.gifNext}}">
     </div>
     <div class="previousPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex - 1)" (click)="ngOnInit()">
-    <img src="{{pokemon.gifPrev}}">Prev
+    <img src="{{pokemon.gifPrev}}">
     </div>
   </div>
 

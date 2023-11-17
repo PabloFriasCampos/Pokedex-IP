@@ -92,12 +92,12 @@ export class VistaPokemonComponent implements OnInit {
     this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
       this.pokemon = data;
 
-      this.pokeApi.getGif(nPokedex + 1).subscribe((data: any) => {
+      this.pokeApi.getGif(this.pokemon.nPokedex + 1).subscribe((data: any) => {
         this.pokemon.gifNext = data;
 
       });
 
-      this.pokeApi.getGif(nPokedex - 1).subscribe((data: any) => {
+      this.pokeApi.getGif(this.pokemon.nPokedex - 1).subscribe((data: any) => {
         this.pokemon.gifPrev = data;
 
       });
