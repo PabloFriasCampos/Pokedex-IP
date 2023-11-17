@@ -18,6 +18,11 @@ export class VistaPokemonComponent implements OnInit {
     name: '',
     nPokedex: 0,
     types: [],
+    veryWeak: [],
+    weak: [],
+    x0: [],
+    strong: [],
+    veryStrong: [],
     weight: 0,
     height: 0,
     info: '',
@@ -29,11 +34,8 @@ export class VistaPokemonComponent implements OnInit {
     speed: 0
   };
 
-  veryWeak: string[] = [];
-  weak: string[] = [];
-  x0: string[] = [];
-  strong: string[] = [];
-  veryStrong: string[] = [];
+  gifNext: string = '';
+  gifPrevious: string = '';
 
   listaColores: any;
 
@@ -49,19 +51,25 @@ export class VistaPokemonComponent implements OnInit {
 
   ngOnInit(): void {
 
-    setTimeout(() => {
-      const content = document.getElementById('pokemon-data');
-      if (content) {
-        content.style.visibility = 'visible';
-      }
-    }, 400);
+    const content = document.getElementById('pokemon-data');
+    const animation = document.getElementById('overlay');
 
-    setTimeout(() => {
-      const animation = document.getElementById('overlay');
-      if (animation) {
+    if (content) {
+      content.style.visibility = 'hidden';
+      setTimeout(() => {
+        content.style.visibility = 'visible';
+      }, 400);
+
+    }
+
+    if (animation) {
+      animation.style.display = ''
+      setTimeout(() => {
         animation.style.display = 'none';
-      }
-    }, 900);
+      }, 900);
+
+    }
+
 
     this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
@@ -84,10 +92,19 @@ export class VistaPokemonComponent implements OnInit {
     this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
       this.pokemon = data;
 
-      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
+      this.pokeApi.getGif(nPokedex + 1).subscribe((data: any) => {
+        this.pokemon.gifNext = data;
+
+      });
+
+      this.pokeApi.getGif(nPokedex - 1).subscribe((data: any) => {
+        this.pokemon.gifPrev = data;
+
+      });
 
       this.setBackground();
 
+      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
     });
 
   }
@@ -110,6 +127,12 @@ export class VistaPokemonComponent implements OnInit {
   scrollDown() {
     window.scrollTo({ top: 200, behavior: 'smooth' });
 
+    const flecha = document.getElementById('scroll-hint');
+    if (flecha) {
+      flecha.style.display = 'none'
+
+    }
+
   }
 
   calcularTiposRecibir(type1: string, type2: string) {
@@ -119,22 +142,22 @@ export class VistaPokemonComponent implements OnInit {
       for (let tipoEnTabla in this.tablaTipos) {
 
         if (this.tablaTipos[type1][tipoEnTabla] == 0 || this.tablaTipos[type2][tipoEnTabla] == 0) {
-          this.x0.push(tipoEnTabla);
+          this.pokemon.x0.push(tipoEnTabla);
         }
         else if (this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] == 2) {
-          this.veryWeak.push(tipoEnTabla);
+          this.pokemon.veryWeak.push(tipoEnTabla);
         }
 
         else if (this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] == 0.5) {
-          this.veryStrong.push(tipoEnTabla);
+          this.pokemon.veryStrong.push(tipoEnTabla);
         }
 
         else if ((this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] != 0.5) || (this.tablaTipos[type2][tipoEnTabla] == 2 && this.tablaTipos[type1][tipoEnTabla] != 0.5)) {
-          this.weak.push(tipoEnTabla);
+          this.pokemon.weak.push(tipoEnTabla);
         }
 
         else if ((this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] != 2) || (this.tablaTipos[type2][tipoEnTabla] == 0.5 && this.tablaTipos[type1][tipoEnTabla] != 2)) {
-          this.strong.push(tipoEnTabla);
+          this.pokemon.strong.push(tipoEnTabla);
         }
 
       }
@@ -143,17 +166,17 @@ export class VistaPokemonComponent implements OnInit {
       for (let tipoEnTabla in this.tablaTipos) {
 
         if (this.tablaTipos[type1][tipoEnTabla] == 2) {
-          this.weak.push(tipoEnTabla);
+          this.pokemon.weak.push(tipoEnTabla);
 
         }
 
         else if (this.tablaTipos[type1][tipoEnTabla] == 0) {
-          this.x0.push(tipoEnTabla);
+          this.pokemon.x0.push(tipoEnTabla);
 
         }
 
         else if (this.tablaTipos[type1][tipoEnTabla] == 0.5) {
-          this.strong.push(tipoEnTabla);
+          this.pokemon.strong.push(tipoEnTabla);
 
         }
 

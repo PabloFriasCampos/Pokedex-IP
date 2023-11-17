@@ -6,9 +6,16 @@ export interface PokemonDetails extends Pokemon {
   weight: number;
   height: number;
   hp: number;
+  veryWeak: string[],
+  weak: string[],
+  x0: string[],
+  strong: string[],
+  veryStrong: string[],
   atack: number;
   defense: number;
   specialAtack: number;
   specialDefense: number;
   speed: number;
+  gifPrev?: string,
+  gifNext?: string
 }

@@ -77,7 +77,6 @@ export class BuscadorComponent {
   }
 
   enviaGen() {
-    console.log(this.gensSelected)
     this.genFilterEvent.emit({ genSelected: this.gensSelected.filter(g => g.isChecked).map(g => g.gen) });
 
   }

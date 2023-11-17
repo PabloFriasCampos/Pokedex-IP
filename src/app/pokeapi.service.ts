@@ -57,6 +57,11 @@ export class PokeapiService {
           specialAtack: data.stats[3].base_stat,
           specialDefense: data.stats[4].base_stat,
           speed: data.stats[5].base_stat,
+          veryWeak: [],
+          weak: [],
+          x0: [],
+          strong: [],
+          veryStrong: []
         };
 
         return this.getDescription(id).pipe(
@@ -84,6 +89,14 @@ export class PokeapiService {
         }
       }));
 
+  }
+
+  getGif(id: any): Observable<String> {
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
+      map((data: any) => {
+        return data.sprites.versions["generation-v"]["black-white"].animated.front_default
+      })
+    );
   }
 
 }

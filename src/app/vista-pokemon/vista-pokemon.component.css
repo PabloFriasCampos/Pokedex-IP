@@ -4,10 +4,31 @@
   background-attachment: fixed;
   height: 230vh;
   background-image: var(--background-img);
+  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
+}
+
+.back-image {
+  position: absolute;
+  width: 4rem;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.nextPokemon {
+  position: absolute;
+  margin-left: 85%;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
+.previousPokemon {
+  position: absolute;
+  margin-left: 10%;
+  margin-top: 5%;
+  cursor: pointer;
 }
 
 .pokemon-data {
-  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
   visibility: hidden;
 }
 
