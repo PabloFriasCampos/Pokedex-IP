@@ -96,3 +96,15 @@
   border-radius: 12px;
   background-color: var(--type-color);
 }
+
+.goTop {
+  position: fixed;
+  width: 5rem;
+  cursor: pointer;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: white;
+  visibility: hidden;
+}

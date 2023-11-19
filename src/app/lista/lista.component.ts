@@ -17,11 +17,36 @@ export class ListaComponent implements OnInit {
       this.listaColores = data;
 
     });
+
+    window.addEventListener('scroll', () => {
+      const flecha = document.getElementById('goTop');
+      if (window.scrollY > 500) {
+        if (flecha) {
+          flecha.style.visibility = 'visible'
+
+        }
+
+      }
+
+      if (window.scrollY < 500) {
+        if (flecha) {
+          flecha.style.visibility = 'hidden'
+
+        }
+
+      }
+
+    })
   }
 
   @Input()
   listaMostrada: Pokemon[] = [];
 
   listaColores: any;
+
+  goTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  }
 
 }
