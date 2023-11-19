@@ -16,6 +16,5 @@ export interface PokemonDetails extends Pokemon {
   specialAtack: number;
   specialDefense: number;
   speed: number;
-  gifPrev?: string,
-  gifNext?: string
+  gifShiny: string
 }

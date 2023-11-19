@@ -15,6 +15,7 @@ export class VistaPokemonComponent implements OnInit {
     image: '',
     imageShiny: '',
     gif: '',
+    gifShiny: '',
     name: '',
     nPokedex: 0,
     types: [],
@@ -33,9 +34,6 @@ export class VistaPokemonComponent implements OnInit {
     specialDefense: 0,
     speed: 0
   };
-
-  gifNext: string = '';
-  gifPrevious: string = '';
 
   listaColores: any;
 
@@ -84,6 +82,18 @@ export class VistaPokemonComponent implements OnInit {
 
     window.scrollTo({ top: 0 });
 
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        const flecha = document.getElementById('scroll-hint');
+        if (flecha) {
+          flecha.style.display = 'none'
+
+        }
+
+      }
+
+    })
+
   }
 
   loadPokemon() {
@@ -91,16 +101,6 @@ export class VistaPokemonComponent implements OnInit {
 
     this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
       this.pokemon = data;
-
-      this.pokeApi.getGif(this.pokemon.nPokedex + 1).subscribe((data: any) => {
-        this.pokemon.gifNext = data;
-
-      });
-
-      this.pokeApi.getGif(this.pokemon.nPokedex - 1).subscribe((data: any) => {
-        this.pokemon.gifPrev = data;
-
-      });
 
       this.setBackground();
 
@@ -122,10 +122,24 @@ export class VistaPokemonComponent implements OnInit {
   changeImage() {
     this.shiny = !this.shiny
 
+    const shinyGif = document.getElementById('shinyGif');
+    const normalGif = document.getElementById('normalGif');
+
+    if (shinyGif && normalGif) {
+      if (this.shiny) {
+        shinyGif.style.opacity = '1';
+        normalGif.style.opacity = '0.6';
+      } else {
+        shinyGif.style.opacity = '0.6';
+        normalGif.style.opacity = '1';
+      }
+
+    }
+
   }
 
   scrollDown() {
-    window.scrollTo({ top: 200, behavior: 'smooth' });
+    window.scrollTo({ top: 300, behavior: 'smooth' });
 
     const flecha = document.getElementById('scroll-hint');
     if (flecha) {
@@ -183,6 +197,27 @@ export class VistaPokemonComponent implements OnInit {
       }
 
     }
+
+  }
+
+  calcularColor(stat: number): string {
+
+    let color;
+
+    if (stat > 100) {
+      color = '#E62CDF'
+    }
+    else if (stat > 75) {
+      color = "#28E543"
+    }
+    else if (stat > 50) {
+      color = "#E1FB1D"
+
+    } else {
+      color = "#FA2C25"
+    }
+
+    return color;
 
   }
 

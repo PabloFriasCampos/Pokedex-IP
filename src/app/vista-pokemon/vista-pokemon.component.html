@@ -2,21 +2,17 @@
 
   <img src="./assets/cuerdaHuida.png" class="back-image" [routerLink]="''">
 
-  
-  <div class="moveToPokemon">
-    <div class="previousPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex - 1)" (click)="ngOnInit()">
-    🡸<img src="{{pokemon.gifPrev}}">
-    </div>
-    <div class="nextPokemon" [routerLink]="'/pokemon/' + (pokemon.nPokedex + 1)" (click)="ngOnInit()">
-    <img src="{{pokemon.gifNext}}">🡺
-    </div>
-  </div>
-
   <div class="pokemon-data" id="pokemon-data">
 
     <div class="top-details">
-      <div class="top-pokemon-image" (click)="changeImage()">
+      <div class="top-pokemon-image">
         <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
+        <label class="switchShiny">
+          <span class="spanShiny" (click)="changeImage()">
+            <img src="{{pokemon.gif}}" class="normalGif" id="normalGif">
+            <img src="{{pokemon.gifShiny}}" class="shinyGif" id="shinyGif">
+          </span>
+        </label>
       </div>
       <div class="top-pokemon-details">
         <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
@@ -31,7 +27,7 @@
           <div class="weight">{{pokemon.weight}} kg</div>
         </div>
       </div>
-      <div class="scroll-hint" (click)="scrollDown()" id="scroll-hint"></div>
+      <img src="./assets/flecha.png" class="scroll-hint" (click)="scrollDown()" id="scroll-hint">
     </div>
 
     <div class="more-pokemon-details" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
@@ -40,7 +36,7 @@
     </div>
     
     
-  <label class="atacksLabel">ATACKS RECEIVED</label>
+  <h1 class="atacksLabel">ATACKS RECEIVED</h1>
     <div class="typesVs-container">
       <div *ngIf="pokemon.veryWeak.length>0">
         x4
@@ -71,15 +67,24 @@
     
     </div>
 
-        <div class="statsPokemon">
-        
-          <!--<div class="hp">HP: {{pokemon.hp}}</div>
-              <div class="atack">ATACK: {{pokemon.atack}}</div>
-              <div class="defense">DEFENSE: {{pokemon.defense}}</div>
-              <div class="specialAtack">SPECIAL ATACK: {{pokemon.specialAtack}}</div>
-              <div class="specialDefense">SPECIAL DEFENSE: {{pokemon.specialDefense}}</div>
-              <div class="speed">SPEED: {{pokemon.speed}}</div> -->
+        <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+          <h2>Statistics</h2>
+          <div class="bar-chart">
+            <label>HP</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.hp*0.5) + 'vw', 'background-color': calcularColor(pokemon.hp)}">{{pokemon.hp}}</div>
+            <label>ATACK</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.atack*0.5) + 'vw', 'background-color': calcularColor(pokemon.atack)}">{{pokemon.atack}}</div>
+            <label>DEFENSE</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.defense*0.5) + 'vw', 'background-color': calcularColor(pokemon.defense)}">{{pokemon.defense}}</div>
+            <label>SPECIAL ATACK</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.specialAtack*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialAtack)}">{{pokemon.specialAtack}}</div>
+            <label>SPECIAL DEFENSE</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.specialDefense*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialDefense)}">{{pokemon.specialDefense}}</div>
+            <label>SPEED</label>
+            <div class="bar" [ngStyle]="{'width': (pokemon.speed*0.5) + 'vw', 'background-color': calcularColor(pokemon.speed)}">{{pokemon.speed}}</div>
+          </div>
         </div>
+        
   </div>
 
   <div class="overlay" id="overlay">

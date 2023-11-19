@@ -48,6 +48,7 @@ export class PokeapiService {
           image: data.sprites.other['official-artwork'].front_default,
           imageShiny: data.sprites.other['official-artwork'].front_shiny,
           gif: data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+          gifShiny: data.sprites.versions["generation-v"]["black-white"].animated.front_shiny,
           info: '',
           weight: data.weight / 10,
           height: data.height / 10,

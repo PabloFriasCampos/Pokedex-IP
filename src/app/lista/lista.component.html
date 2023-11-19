@@ -6,10 +6,7 @@
       '--type-color2':listaColores[pokemon.types[1]]
     }"
     [routerLink]="'/pokemon/' + pokemon.nPokedex">
-    <div class="cardTop">
-      <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
-      <img src="{{pokemon.gif}}" class="pokemonGif">
-    </div>
+    <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <img src="{{pokemon.image}}" class="pokemonImage">
     <div class="name">{{pokemon.name}}</div>
     <div class="types">

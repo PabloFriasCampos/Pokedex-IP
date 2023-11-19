@@ -38,6 +38,7 @@
   border: none;
   border: 0.8em solid rgb(47, 45, 45);
   cursor: url(../../assets/pokeball.png), auto;
+  transition: border-width 0.3s ease;
 }
 
 .pokemon-card:hover {
@@ -61,6 +62,7 @@
   border-bottom-color: var(--type-color2, var(--type-color1));
   border-right-color: var(--type-color2, var(--type-color1));
   filter: blur(4px);
+  transition: border 0.2s ease, filter 0.2s ease;
 }
 
 .pokemonImage {
@@ -68,25 +70,15 @@
   height: auto;
 }
 
-.cardTop {
-  display: flex;
-  justify-content: space-between;
-}
-
 .nPokedex {
   margin-right: 6%;
   font-size: 1.4em;
-}
-
-.pokemonGif {
-  max-height: 60px;
 }
 
 .name {
   text-align: left;
   margin-left: 6%;
   font-size: 1.6em;
-
 }
 
 .types {
