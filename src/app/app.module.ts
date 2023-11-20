@@ -11,6 +11,7 @@ import { VistaListaFiltrosComponent } from './vista-lista-filtros/vista-lista-fi
 import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
 import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
 import { AttacksReceivedComponent } from './attacks-received/attacks-received.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AttacksReceivedComponent } from './attacks-received/attacks-received.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

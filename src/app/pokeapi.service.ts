@@ -53,9 +53,9 @@ export class PokeapiService {
           weight: data.weight / 10,
           height: data.height / 10,
           hp: data.stats[0].base_stat,
-          atack: data.stats[1].base_stat,
+          attack: data.stats[1].base_stat,
           defense: data.stats[2].base_stat,
-          specialAtack: data.stats[3].base_stat,
+          specialAttack: data.stats[3].base_stat,
           specialDefense: data.stats[4].base_stat,
           speed: data.stats[5].base_stat,
         };

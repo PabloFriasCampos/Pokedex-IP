@@ -15,24 +15,13 @@
     [tablaTipos] = "tablaTipos">
     </app-attacks-received>
 
-        <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
-          <h2>Statistics</h2>
-          <div class="bar-chart">
-            <label>HP</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.hp*0.5) + 'vw', 'background-color': calcularColor(pokemon.hp)}">{{pokemon.hp}}</div>
-            <label>ATACK</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.atack*0.5) + 'vw', 'background-color': calcularColor(pokemon.atack)}">{{pokemon.atack}}</div>
-            <label>DEFENSE</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.defense*0.5) + 'vw', 'background-color': calcularColor(pokemon.defense)}">{{pokemon.defense}}</div>
-            <label>SPECIAL ATACK</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.specialAtack*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialAtack)}">{{pokemon.specialAtack}}</div>
-            <label>SPECIAL DEFENSE</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.specialDefense*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialDefense)}">{{pokemon.specialDefense}}</div>
-            <label>SPEED</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.speed*0.5) + 'vw', 'background-color': calcularColor(pokemon.speed)}">{{pokemon.speed}}</div>
-          </div>
-        </div>
-        
+    <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+      <h2>Statistics</h2>
+      <canvas id="statsPoke">
+        {{ chart }}
+      </canvas>
+    </div>
+
   </div>
 
   <div class="overlay" id="overlay">
