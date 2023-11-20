@@ -52,21 +52,31 @@ export class StatsComponent implements OnChanges {
         labels: ['hp', 'defense', 'attack', 'specialAttack', 'specialDefense', 'speed'],
         datasets: [
           {
-            label: 'Stats de ' + this.pokemon.name,
             data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.attack, this.pokemon.specialAttack, this.pokemon.specialDefense, this.pokemon.speed],
             backgroundColor: this.listaColores[this.pokemon.types[0]],
           },
           {
-            label: '',
-            data: [250, 250, 250, 250, 250, 250]
+            data: [250, 250, 250, 250, 250, 250],
+            fill: false
+            
           }
         ]
       },
       options: {
-        aspectRatio: 4
-      }
+        plugins: {
+          legend: {
+            display: false,
+          },
+          filler: {
+            propagate: false
+          },
+        },
+        
+      },
+        
 
-    });
+      }
+    )
   }
 
 }
