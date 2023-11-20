@@ -58,7 +58,7 @@
   border: 0.4em solid var(--type-color1);
   border-bottom-color: var(--type-color2, var(--type-color1));
   border-right-color: var(--type-color2, var(--type-color1));
-  filter: blur(4px);
+  filter: blur(4px) saturate(2);
 }
 
 .pokemonImage {
