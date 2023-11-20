@@ -3,7 +3,6 @@ import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { PokemonDetails } from '../pokemon-details';
-import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-vista-pokemon',
@@ -89,8 +88,6 @@ export class VistaPokemonComponent implements OnInit {
 
       this.setBackground();
 
-      this.createChart()
-
     });
 
   }
@@ -103,31 +100,6 @@ export class VistaPokemonComponent implements OnInit {
 
     }
 
-  }
-
-  createChart() {
-    this.chart = new Chart("statsPoke", {
-      type: 'radar',
-
-      data: {
-        labels: ['hp', 'defense', 'attack', 'specialAttack', 'specialDefense', 'speed'],
-        datasets: [
-          {
-            label: 'Stats de ' + this.pokemon.name,
-            data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.attack, this.pokemon.specialAttack, this.pokemon.specialDefense, this.pokemon.speed],
-            backgroundColor: '#67db86',
-          },
-          {
-            label: '',
-            data: [250, 250, 250, 250, 250, 250]
-          }
-        ]
-      },
-      options: {
-        aspectRatio: 4
-      }
-
-    });
   }
 
 }

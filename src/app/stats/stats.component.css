@@ -1,0 +1,7 @@
+.statsPokemon {
+  text-align: left;
+  padding: 0% 2% 2% 2%;
+  border: 5px solid var(--type-color);
+  margin-right: 5%;
+  margin-left: 5%;
+}

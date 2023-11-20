@@ -5,8 +5,8 @@
   <div class="pokemon-data" id="pokemon-data">
     
     <app-pokemon-data
-      [pokemon] = "pokemon"
-      [listaColores] = "listaColores">
+    [pokemon] = "pokemon"
+    [listaColores] = "listaColores">
     </app-pokemon-data>
     
     <app-attacks-received
@@ -15,12 +15,10 @@
     [tablaTipos] = "tablaTipos">
     </app-attacks-received>
 
-    <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
-      <h2>Statistics</h2>
-      <canvas id="statsPoke">
-        {{ chart }}
-      </canvas>
-    </div>
+    <app-stats
+    [pokemon] = "pokemon"
+    [listaColores] = "listaColores">
+    </app-stats>
 
   </div>
 

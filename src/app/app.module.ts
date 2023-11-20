@@ -12,6 +12,7 @@ import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
 import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
 import { AttacksReceivedComponent } from './attacks-received/attacks-received.component';
 import { NgChartsModule } from 'ng2-charts';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgChartsModule } from 'ng2-charts';
     VistaListaFiltrosComponent,
     VistaPokemonComponent,
     PokemonDataComponent,
-    AttacksReceivedComponent
+    AttacksReceivedComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

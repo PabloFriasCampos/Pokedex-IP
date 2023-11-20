@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokeapiService } from '../pokeapi.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-vista-lista-filtros',
