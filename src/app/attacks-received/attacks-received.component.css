@@ -1,0 +1,23 @@
+.atacksLabel {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vw;
+}
+
+.typesVs-container {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 2% 5% 2% 5%;
+  gap: 0.6em;
+  text-transform: capitalize;
+  font-size: 2vw;
+}
+
+.typesVs {
+  border: 1px solid black;
+  background-color: var(--type-color);
+  border-radius: 12px;
+  margin-top: 0.4em;
+  padding: 0.4em;
+}

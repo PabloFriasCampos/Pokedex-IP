@@ -1,0 +1,30 @@
+<div class="top-details">
+  <div class="top-pokemon-image">
+    <img [src]="shiny ? pokemon.imageShiny : pokemon.image" class="pokemonImage">
+    <label class="switchShiny">
+      <span class="spanShiny" (click)="changeImage()">
+        <img src="{{pokemon.gif}}" class="normalGif" id="normalGif">
+        <img src="{{pokemon.gifShiny}}" class="shinyGif" id="shinyGif">
+      </span>
+    </label>
+  </div>
+  <div class="top-pokemon-details">
+    <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
+    <div class="name">{{pokemon.name}}</div>
+    <div class="types">
+      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
+      <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
+        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
+    </div>
+    <div class="dimensions" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+      <div class="height">{{pokemon.height}} m</div>
+      <div class="weight">{{pokemon.weight}} kg</div>
+    </div>
+  </div>
+  <img src="./assets/flecha.png" class="scroll-hint" (click)="scrollDown()" id="scroll-hint">
+</div>
+
+<div class="more-pokemon-details" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+  <div class="description">{{pokemon.info}}</div>
+  <div class="game-source"> - Pokemon X</div>
+</div>

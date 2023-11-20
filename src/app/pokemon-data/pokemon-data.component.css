@@ -1,0 +1,130 @@
+.top-details {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.top-pokemon-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.nPokedex {
+  font-size: 2vw;
+}
+
+.name {
+  text-transform: capitalize;
+  font-size: 6vw;
+}
+
+.types,
+.dimensions {
+  display: flex;
+  text-transform: capitalize;
+  font-size: 3vw;
+  gap: 1em;
+  width: 60%;
+}
+
+.height,
+.weight {
+  font-size: 2.5vw;
+  text-transform: lowercase;
+  margin-top: 5%;
+  flex: 1;
+  text-align: center;
+  padding: 0.2em;
+  border-bottom: 2px solid var(--type-color);
+}
+
+.pokemon-type {
+  flex: 1;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 40px;
+  padding: 0.2em;
+  background-color: var(--type-color);
+}
+
+.top-pokemon-image {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.pokemonImage {
+  width: 100%;
+  height: auto;
+}
+
+.switchShiny {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkboxShiny {
+  display: none;
+}
+
+.spanShiny {
+  display: flex;
+  cursor: pointer;
+  gap: 2em;
+}
+
+.normalGif {
+  opacity: 1;
+  height: 5em;
+}
+
+.shinyGif {
+  opacity: 0.6;
+  height: 5em;
+}
+
+.scroll-hint {
+  width: 4vw;
+  position: absolute;
+  bottom: 20px;
+  left: 48vw;
+  cursor: pointer;
+  animation: parpadeoYAscenso 1s infinite;
+}
+
+@keyframes parpadeoYAscenso {
+
+  0%,
+  100% {
+    transform: rotateX(180deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotateX(180deg) translateY(-10px);
+  }
+}
+
+.more-pokemon-details {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+
+.description {
+  font-size: 2.3vw;
+  border-left: 4px solid var(--type-color);
+  margin: 0% 5% 0% 5%;
+  padding-left: 1%;
+}
+
+.game-source {
+  color: var(--type-color);
+  font-size: 1.8vw;
+  margin-left: 50%;
+}

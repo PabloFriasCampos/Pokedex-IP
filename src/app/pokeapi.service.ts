@@ -58,11 +58,6 @@ export class PokeapiService {
           specialAtack: data.stats[3].base_stat,
           specialDefense: data.stats[4].base_stat,
           speed: data.stats[5].base_stat,
-          veryWeak: [],
-          weak: [],
-          x0: [],
-          strong: [],
-          veryStrong: []
         };
 
         return this.getDescription(id).pipe(

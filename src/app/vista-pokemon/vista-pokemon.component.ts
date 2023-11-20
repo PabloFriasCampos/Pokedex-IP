@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -11,6 +11,7 @@ import { PokemonDetails } from '../pokemon-details';
 })
 export class VistaPokemonComponent implements OnInit {
 
+  @Output()
   pokemon: PokemonDetails = {
     image: '',
     imageShiny: '',
@@ -19,11 +20,6 @@ export class VistaPokemonComponent implements OnInit {
     name: '',
     nPokedex: 0,
     types: [],
-    veryWeak: [],
-    weak: [],
-    x0: [],
-    strong: [],
-    veryStrong: [],
     weight: 0,
     height: 0,
     info: '',
@@ -35,11 +31,10 @@ export class VistaPokemonComponent implements OnInit {
     speed: 0
   };
 
+  @Output()
   listaColores: any;
-
+  @Output()
   tablaTipos: any;
-
-  shiny: boolean = false;
 
   constructor(
     private pokeApi: PokeapiService,
@@ -82,18 +77,6 @@ export class VistaPokemonComponent implements OnInit {
 
     window.scrollTo({ top: 0 });
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        const flecha = document.getElementById('scroll-hint');
-        if (flecha) {
-          flecha.style.display = 'none'
-
-        }
-
-      }
-
-    })
-
   }
 
   loadPokemon() {
@@ -104,7 +87,6 @@ export class VistaPokemonComponent implements OnInit {
 
       this.setBackground();
 
-      this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
     });
 
   }
@@ -114,87 +96,6 @@ export class VistaPokemonComponent implements OnInit {
 
     if (container) {
       container.style.backgroundImage = 'url(./assets/typesBackground/' + this.pokemon.types[0] + 'Background.png)';
-
-    }
-
-  }
-
-  changeImage() {
-    this.shiny = !this.shiny
-
-    const shinyGif = document.getElementById('shinyGif');
-    const normalGif = document.getElementById('normalGif');
-
-    if (shinyGif && normalGif) {
-      if (this.shiny) {
-        shinyGif.style.opacity = '1';
-        normalGif.style.opacity = '0.6';
-      } else {
-        shinyGif.style.opacity = '0.6';
-        normalGif.style.opacity = '1';
-      }
-
-    }
-
-  }
-
-  scrollDown() {
-    window.scrollTo({ top: 300, behavior: 'smooth' });
-
-    const flecha = document.getElementById('scroll-hint');
-    if (flecha) {
-      flecha.style.display = 'none'
-
-    }
-
-  }
-
-  calcularTiposRecibir(type1: string, type2: string) {
-
-    if (type2) {
-
-      for (let tipoEnTabla in this.tablaTipos) {
-
-        if (this.tablaTipos[type1][tipoEnTabla] == 0 || this.tablaTipos[type2][tipoEnTabla] == 0) {
-          this.pokemon.x0.push(tipoEnTabla);
-        }
-        else if (this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] == 2) {
-          this.pokemon.veryWeak.push(tipoEnTabla);
-        }
-
-        else if (this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] == 0.5) {
-          this.pokemon.veryStrong.push(tipoEnTabla);
-        }
-
-        else if ((this.tablaTipos[type1][tipoEnTabla] == 2 && this.tablaTipos[type2][tipoEnTabla] != 0.5) || (this.tablaTipos[type2][tipoEnTabla] == 2 && this.tablaTipos[type1][tipoEnTabla] != 0.5)) {
-          this.pokemon.weak.push(tipoEnTabla);
-        }
-
-        else if ((this.tablaTipos[type1][tipoEnTabla] == 0.5 && this.tablaTipos[type2][tipoEnTabla] != 2) || (this.tablaTipos[type2][tipoEnTabla] == 0.5 && this.tablaTipos[type1][tipoEnTabla] != 2)) {
-          this.pokemon.strong.push(tipoEnTabla);
-        }
-
-      }
-
-    } else {
-      for (let tipoEnTabla in this.tablaTipos) {
-
-        if (this.tablaTipos[type1][tipoEnTabla] == 2) {
-          this.pokemon.weak.push(tipoEnTabla);
-
-        }
-
-        else if (this.tablaTipos[type1][tipoEnTabla] == 0) {
-          this.pokemon.x0.push(tipoEnTabla);
-
-        }
-
-        else if (this.tablaTipos[type1][tipoEnTabla] == 0.5) {
-          this.pokemon.strong.push(tipoEnTabla);
-
-        }
-
-      }
 
     }
 

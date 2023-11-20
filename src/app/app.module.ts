@@ -9,6 +9,8 @@ import { ListaComponent } from './lista/lista.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { VistaListaFiltrosComponent } from './vista-lista-filtros/vista-lista-filtros.component';
 import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
+import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
+import { AttacksReceivedComponent } from './attacks-received/attacks-received.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
     ListaComponent,
     BuscadorComponent,
     VistaListaFiltrosComponent,
-    VistaPokemonComponent
+    VistaPokemonComponent,
+    PokemonDataComponent,
+    AttacksReceivedComponent
   ],
   imports: [
     BrowserModule,
