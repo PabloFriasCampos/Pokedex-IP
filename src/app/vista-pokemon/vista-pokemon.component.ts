@@ -3,6 +3,7 @@ import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { PokemonDetails } from '../pokemon-details';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-vista-pokemon',
@@ -28,12 +29,14 @@ export class VistaPokemonComponent implements OnInit {
     height: 0,
     info: '',
     hp: 0,
-    atack: 0,
+    attack: 0,
     defense: 0,
-    specialAtack: 0,
+    specialAttack: 0,
     specialDefense: 0,
     speed: 0
   };
+
+  chart: any
 
   listaColores: any;
 
@@ -65,7 +68,6 @@ export class VistaPokemonComponent implements OnInit {
       setTimeout(() => {
         animation.style.display = 'none';
       }, 900);
-
     }
 
 
@@ -105,6 +107,7 @@ export class VistaPokemonComponent implements OnInit {
       this.setBackground();
 
       this.calcularTiposRecibir(this.pokemon.types[0], this.pokemon.types[1]);
+      this.createChart();
     });
 
   }
@@ -200,25 +203,31 @@ export class VistaPokemonComponent implements OnInit {
 
   }
 
-  calcularColor(stat: number): string {
+  
+  createChart() {
 
-    let color;
+    this.chart = new Chart("statsPoke", {
+      type: 'radar',
 
-    if (stat > 100) {
-      color = '#E62CDF'
-    }
-    else if (stat > 75) {
-      color = "#28E543"
-    }
-    else if (stat > 50) {
-      color = "#E1FB1D"
+      data: {
+        labels: ['hp', 'defense', 'attack','specialAttack', 'specialDefense', 'speed'],
+        datasets: [
+          {
+            label: 'Stats de ' + this.pokemon.name,
+            data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.attack, this.pokemon.specialAttack, this.pokemon.specialDefense, this.pokemon.speed],
+            backgroundColor: '#67db86',
+          },
+          {
+            label: '',
+            data: [250, 250, 250, 250, 250, 250]
+          }
+        ]
+      },
+      options: {
+        aspectRatio: 4
+      }
 
-    } else {
-      color = "#FA2C25"
-    }
-
-    return color;
-
+    });
   }
 
 }

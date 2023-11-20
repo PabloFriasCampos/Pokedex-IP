@@ -11,9 +11,9 @@ export interface PokemonDetails extends Pokemon {
   x0: string[],
   strong: string[],
   veryStrong: string[],
-  atack: number;
+  attack: number;
   defense: number;
-  specialAtack: number;
+  specialAttack: number;
   specialDefense: number;
   speed: number;
   gifShiny: string

@@ -18,7 +18,8 @@
         <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
         <div class="name">{{pokemon.name}}</div>
         <div class="types">
-          <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
+          <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}
+          </div>
           <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
             [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
         </div>
@@ -34,57 +35,51 @@
       <div class="description">{{pokemon.info}}</div>
       <div class="game-source"> - Pokemon X</div>
     </div>
-    
-    
-  <h1 class="atacksLabel">ATACKS RECEIVED</h1>
+
+
+    <h1 class="atacksLabel">ATACKS RECEIVED</h1>
     <div class="typesVs-container">
       <div *ngIf="pokemon.veryWeak.length>0">
         x4
-        <div class="typesVs" *ngFor="let type of pokemon.veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        <div class="typesVs" *ngFor="let type of pokemon.veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">
+          {{type}}
         </div>
       </div>
-    
+
       <div *ngIf="pokemon.weak.length>0">
         x2
-        <div class="typesVs" *ngFor="let type of pokemon.weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of pokemon.weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
       </div>
-    
+
       <div *ngIf="pokemon.x0.length>0">
         x0
-        <div class="typesVs" *ngFor="let type of pokemon.x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of pokemon.x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        </div>
       </div>
-    
+
       <div *ngIf="pokemon.strong.length>0">
         x0.5
-        <div class="typesVs" *ngFor="let type of pokemon.strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+        <div class="typesVs" *ngFor="let type of pokemon.strong" [ngStyle]="{'--type-color':listaColores[type]}">
+          {{type}}</div>
       </div>
-    
+
       <div *ngIf="pokemon.veryStrong.length>0">
         x0.25
-        <div class="typesVs" *ngFor="let type of pokemon.veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+        <div class="typesVs" *ngFor="let type of pokemon.veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">
+          {{type}}
         </div>
       </div>
-    
+
     </div>
 
-        <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
-          <h2>Statistics</h2>
-          <div class="bar-chart">
-            <label>HP</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.hp*0.5) + 'vw', 'background-color': calcularColor(pokemon.hp)}">{{pokemon.hp}}</div>
-            <label>ATACK</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.atack*0.5) + 'vw', 'background-color': calcularColor(pokemon.atack)}">{{pokemon.atack}}</div>
-            <label>DEFENSE</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.defense*0.5) + 'vw', 'background-color': calcularColor(pokemon.defense)}">{{pokemon.defense}}</div>
-            <label>SPECIAL ATACK</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.specialAtack*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialAtack)}">{{pokemon.specialAtack}}</div>
-            <label>SPECIAL DEFENSE</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.specialDefense*0.5) + 'vw', 'background-color': calcularColor(pokemon.specialDefense)}">{{pokemon.specialDefense}}</div>
-            <label>SPEED</label>
-            <div class="bar" [ngStyle]="{'width': (pokemon.speed*0.5) + 'vw', 'background-color': calcularColor(pokemon.speed)}">{{pokemon.speed}}</div>
-          </div>
-        </div>
-        
+    <div class="statsPokemon" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
+      <h2>Statistics</h2>
+      <canvas id="statsPoke">
+        {{ chart }}
+      </canvas>
+    </div>
+
   </div>
 
   <div class="overlay" id="overlay">

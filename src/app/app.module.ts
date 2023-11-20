@@ -9,6 +9,7 @@ import { ListaComponent } from './lista/lista.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { VistaListaFiltrosComponent } from './vista-lista-filtros/vista-lista-filtros.component';
 import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
