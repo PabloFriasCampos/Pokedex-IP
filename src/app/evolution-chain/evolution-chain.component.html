@@ -1,1 +1,10 @@
-<p>evolution-chain works!</p>
+<p>{{chain.pokeTrigger.pokemon.name}}</p>
+<div *ngFor="let poke of chain.evolution1">
+  <!-- <div *ngFor="let trigger in poke.trigger">
+    <p>trigger</p>
+  </div> -->
+  <p>{{poke.pokemon.name}}</p>
+</div>
+<div *ngFor="let poke of chain.evolution2">
+  <p>{{poke.pokemon.name}}</p>
+</div>

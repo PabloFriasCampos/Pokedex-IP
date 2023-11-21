@@ -25,14 +25,14 @@ import { EvolutionChainComponent } from './evolution-chain/evolution-chain.compo
     PokemonDataComponent,
     AttacksReceivedComponent,
     StatsComponent,
-    EvolutionChainComponent
+    EvolutionChainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

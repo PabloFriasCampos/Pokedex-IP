@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map, switchMap } from 'rxjs';
-import { Pokemon } from './pokemon';
-import { PokemonDetails } from './pokemon-details';
+import { Pokemon } from './model/pokemon';
+import { PokemonDetails } from './model/pokemon-details';
+import { Evolution } from './model/evolution';
+import { PokeTrigger } from './model/poke-trigger';
 
 @Injectable({
   providedIn: 'root'
@@ -87,12 +89,62 @@ export class PokeapiService {
 
   }
 
-  getGif(id: any): Observable<String> {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
+  getEvolutionChainUrl(id: any): Observable<String> {
+    return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
-        return data.sprites.versions["generation-v"]["black-white"].animated.front_default
+        return data.evolution_chain.url;
       })
-    );
+    )
+  }
+
+  getEvolutionChain(url: any): Observable<Evolution> {
+    return this.http.get(url).pipe(
+      map((data: any) => {
+        const chain: Evolution = {
+          pokeTrigger: new PokeTrigger,
+          evolution1: [],
+          evolution2: []
+        }
+        this.getPokemon(data.chain.species.name).subscribe((data: any) => {
+          chain.pokeTrigger.pokemon = data;
+
+        });
+
+        for (let evo of data.chain.evolves_to) {
+          let pokemon1: Pokemon = new Pokemon;
+          let pokemon2: Pokemon = new Pokemon;
+
+          let id = evo.species.url.split('/')[6];
+          if (id <= 493) {
+            this.getPokemon(id).subscribe((data: any) => {
+              pokemon1 = data;
+              chain.evolution1?.push({
+                pokemon: pokemon1,
+              });
+
+              for (let evo2 of evo.evolves_to) {
+                let id = evo2.species.url.split('/')[6];
+                if (id <= 493) {
+                  this.getPokemon(id).subscribe((data: any) => {
+                    pokemon2 = data;
+                    chain.evolution2?.push({
+                      pokemon: pokemon2,
+                    });
+
+                  });
+
+                }
+              }
+
+            });
+
+          }
+
+        }
+
+        return chain;
+      })
+    )
   }
 
 }

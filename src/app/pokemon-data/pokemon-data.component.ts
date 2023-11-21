@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonDetails } from '../pokemon-details';
+import { PokemonDetails } from '../model/pokemon-details';
 
 @Component({
   selector: 'app-pokemon-data',
@@ -9,24 +9,7 @@ import { PokemonDetails } from '../pokemon-details';
 export class PokemonDataComponent implements OnInit {
 
   @Input()
-  pokemon: PokemonDetails = {
-    image: '',
-    imageShiny: '',
-    gif: '',
-    gifShiny: '',
-    name: '',
-    nPokedex: 0,
-    types: [],
-    weight: 0,
-    height: 0,
-    info: '',
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    specialAttack: 0,
-    specialDefense: 0,
-    speed: 0
-  };
+  pokemon: PokemonDetails = new PokemonDetails;
 
   @Input()
   listaColores: any;

@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { PokemonDetails } from '../pokemon-details';
+import { PokemonDetails } from '../model/pokemon-details';
 
 @Component({
   selector: 'app-vista-pokemon',
@@ -12,24 +12,7 @@ import { PokemonDetails } from '../pokemon-details';
 export class VistaPokemonComponent implements OnInit {
 
   @Output()
-  pokemon: PokemonDetails = {
-    image: '',
-    imageShiny: '',
-    gif: '',
-    gifShiny: '',
-    name: '',
-    nPokedex: 0,
-    types: [],
-    weight: 0,
-    height: 0,
-    info: '',
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    specialAttack: 0,
-    specialDefense: 0,
-    speed: 0
-  };
+  pokemon: PokemonDetails = new PokemonDetails;
 
   @Output()
   listaColores: any;

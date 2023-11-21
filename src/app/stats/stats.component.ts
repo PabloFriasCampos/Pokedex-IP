@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js';
-import { PokemonDetails } from '../pokemon-details';
+import { PokemonDetails } from '../model/pokemon-details';
 
 @Component({
   selector: 'app-stats',
@@ -10,24 +10,7 @@ import { PokemonDetails } from '../pokemon-details';
 export class StatsComponent implements OnChanges {
 
   @Input()
-  pokemon: PokemonDetails = {
-    image: '',
-    imageShiny: '',
-    gif: '',
-    gifShiny: '',
-    name: '',
-    nPokedex: 0,
-    types: [],
-    weight: 0,
-    height: 0,
-    info: '',
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    specialAttack: 0,
-    specialDefense: 0,
-    speed: 0
-  };
+  pokemon: PokemonDetails = new PokemonDetails;
 
   @Input()
   listaColores: any;
@@ -76,13 +59,13 @@ export class StatsComponent implements OnChanges {
         scales: {
           r: {
             grid: {
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'rgba(0, 0, 0, 0.7)',
             },
             angleLines: {
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'rgba(0, 0, 0, 0.7)',
             },
             pointLabels: {
-              color: 'rgba(255, 255, 255, 1)',
+              color: 'rgba(0, 0, 0, 1)',
             }
           },
         },

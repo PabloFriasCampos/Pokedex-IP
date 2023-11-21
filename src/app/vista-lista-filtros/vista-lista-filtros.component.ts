@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { Pokemon } from '../pokemon';
+import { Pokemon } from '../model/pokemon';
 import { PokeapiService } from '../pokeapi.service';
 
 @Component({
