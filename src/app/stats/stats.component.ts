@@ -49,16 +49,21 @@ export class StatsComponent implements OnChanges {
       type: 'radar',
 
       data: {
-        labels: ['hp', 'defense', 'attack', 'specialAttack', 'specialDefense', 'speed'],
+        labels: ['HP', 'DEFENSE', 'SPECIAL DEFENSE', 'SPEED', '     SPECIAL ATTACK', 'ATTACK'],
         datasets: [
           {
-            data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.attack, this.pokemon.specialAttack, this.pokemon.specialDefense, this.pokemon.speed],
+            data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.specialDefense, this.pokemon.speed, this.pokemon.specialAttack, this.pokemon.attack],
             backgroundColor: this.listaColores[this.pokemon.types[0]],
+            borderColor: this.listaColores[this.pokemon.types[0]],
+            borderWidth: 2,
+            fill: true,
+            pointBackgroundColor: this.listaColores[this.pokemon.types[0]],
           },
           {
-            data: [250, 250, 250, 250, 250, 250],
-            fill: false
-            
+            data: [0, 0, 0, 0, 0, 250],
+            borderWidth: 0,
+            fill: true,
+            pointRadius: 0
           }
         ]
       },
@@ -67,16 +72,24 @@ export class StatsComponent implements OnChanges {
           legend: {
             display: false,
           },
-          filler: {
-            propagate: false
+        },
+        scales: {
+          r: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.7)',
+            },
+            angleLines: {
+              color: 'rgba(255, 255, 255, 0.7)',
+            },
+            pointLabels: {
+              color: 'rgba(255, 255, 255, 1)',
+            }
           },
         },
-        
+        color: 'rgba(255, 255, 255, 0.7)',
       },
-        
-
-      }
-    )
+    });
   }
+
 
 }

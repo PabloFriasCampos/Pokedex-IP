@@ -1,7 +1,13 @@
 .statsPokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: left;
-  padding: 0% 2% 2% 2%;
+  padding: 2%;
   border: 5px solid var(--type-color);
-  margin-right: 5%;
-  margin-left: 5%;
+  border-radius: 30px;
+  margin: 0 auto;
+  max-width: 80%;
+  max-height: 75vh;
 }
