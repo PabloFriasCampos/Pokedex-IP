@@ -48,12 +48,12 @@ export class VistaPokemonComponent implements OnInit {
     }
 
 
-    this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
+    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
 
     });
 
-    this.tablaTipos = this.http.get('assets/table-type.json').subscribe((data: any) => {
+    this.tablaTipos = this.http.get('assets/json/table-type.json').subscribe((data: any) => {
       this.tablaTipos = data;
       this.loadPokemon();
 

@@ -13,7 +13,7 @@ export class ListaComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
+    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
 
     });

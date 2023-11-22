@@ -21,7 +21,7 @@ type Gens = {
 export class BuscadorComponent {
 
   constructor(private http: HttpClient) {
-    this.listaColores = this.http.get('assets/pokemon-colors.json').subscribe((data: any) => {
+    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
 
     });
