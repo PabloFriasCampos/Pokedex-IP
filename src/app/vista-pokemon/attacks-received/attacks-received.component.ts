@@ -30,11 +30,13 @@ export class AttacksReceivedComponent implements OnChanges {
     }
   }
 
-  ngOnChange(): void {
-    this.calcularTiposRecibir(this.types[0], this.types[1]);
-  }
-
   calcularTiposRecibir(type1: string, type2: string) {
+
+    this.x0 = [];
+    this.weak = [];
+    this.strong = [];
+    this.veryStrong = [];
+    this.veryWeak = [];
 
     if (type2) {
 

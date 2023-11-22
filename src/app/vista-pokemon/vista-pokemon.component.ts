@@ -1,15 +1,16 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { PokeapiService } from '../services/pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { PokemonDetails } from '../model/pokemon-details';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-vista-pokemon',
   templateUrl: './vista-pokemon.component.html',
   styleUrls: ['./vista-pokemon.component.css']
 })
-export class VistaPokemonComponent implements OnInit {
+export class VistaPokemonComponent implements OnDestroy, OnInit {
 
   @Output()
   pokemon: PokemonDetails = new PokemonDetails;
@@ -19,15 +20,20 @@ export class VistaPokemonComponent implements OnInit {
   @Output()
   tablaTipos: any;
 
+  $unsubs: Subscription | null = null;
+
   chart: any;
 
   constructor(
     private pokeApi: PokeapiService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
-  ) { }
-
+  ) {
+  }
   ngOnInit(): void {
+    this.$unsubs = this.activatedRoute.params.subscribe(data => {
+      this.initComponent(data['nPokedex'])
+    })
 
     const content = document.getElementById('pokemon-data');
     const animation = document.getElementById('overlay');
@@ -46,7 +52,9 @@ export class VistaPokemonComponent implements OnInit {
         animation.style.display = 'none';
       }, 900);
     }
+  }
 
+  initComponent(nPokedex: number): void {
 
     this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
       this.listaColores = data;
@@ -55,7 +63,7 @@ export class VistaPokemonComponent implements OnInit {
 
     this.tablaTipos = this.http.get('assets/json/table-type.json').subscribe((data: any) => {
       this.tablaTipos = data;
-      this.loadPokemon();
+      this.loadPokemon(nPokedex);
 
     });
 
@@ -63,10 +71,13 @@ export class VistaPokemonComponent implements OnInit {
 
   }
 
-  loadPokemon() {
-    const nPokedex = this.activatedRoute.snapshot.paramMap.get('nPokedex') as unknown as number;
+  ngOnDestroy() {
+    this.$unsubs?.unsubscribe();
+  }
 
-    this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: any) => {
+  loadPokemon(nPokedex: number) {
+
+    this.pokeApi.getPokemonDetails(nPokedex).subscribe((data: PokemonDetails) => {
       this.pokemon = data;
 
       this.setBackground();
