@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PokeapiService } from '../pokeapi.service';
-import { Evolution } from '../model/evolution';
+import { PokeapiService } from '../../services/pokeapi.service';
+import { Evolution } from '../../model/evolution';
 
 @Component({
   selector: 'app-evolution-chain',

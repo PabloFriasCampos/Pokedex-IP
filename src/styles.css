@@ -17,6 +17,7 @@ body {
 
 body::-webkit-scrollbar {
   width: 10px;
+  background-color: var(--type-color);
 }
 
 body::-webkit-scrollbar-thumb {

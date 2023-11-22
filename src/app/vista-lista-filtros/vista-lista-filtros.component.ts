@@ -1,6 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { Pokemon } from '../model/pokemon';
-import { PokeapiService } from '../pokeapi.service';
+import { PokeapiService } from '../services/pokeapi.service';
 
 @Component({
   selector: 'app-vista-lista-filtros',

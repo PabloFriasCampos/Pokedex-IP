@@ -17,7 +17,7 @@
   </div>
 
   <div class="column">
-    <div *ngFor="let pokemon of chain.evolution1">
+    <div *ngFor="let pokemon of chain.evolution1" class="triggers">
       <div *ngFor="let trigger of pokemon.trigger" class="trigger">
         {{trigger.triggerName}}: {{trigger.triggerValue}}
       </div>
@@ -40,7 +40,7 @@
   </div>
 
   <div class="column">
-    <div *ngFor="let pokemon of chain.evolution2">
+    <div *ngFor="let pokemon of chain.evolution2" class="triggers">
       <div *ngFor="let trigger of pokemon.trigger" class="trigger">
         {{trigger.triggerName}}: {{trigger.triggerValue}}
       </div>

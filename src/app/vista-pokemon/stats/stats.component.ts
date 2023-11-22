@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js';
-import { PokemonDetails } from '../model/pokemon-details';
+import { PokemonDetails } from '../../model/pokemon-details';
 
 @Component({
   selector: 'app-stats',

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map, switchMap } from 'rxjs';
-import { Pokemon } from './model/pokemon';
-import { PokemonDetails } from './model/pokemon-details';
-import { Evolution } from './model/evolution';
-import { PokeTrigger } from './model/poke-trigger';
-import { Trigger } from './model/trigger';
+import { Pokemon } from '../model/pokemon';
+import { PokemonDetails } from '../model/pokemon-details';
+import { Evolution } from '../model/evolution';
+import { PokeTrigger } from '../model/poke-trigger';
+import { Trigger } from '../model/trigger';
 
 @Injectable({
   providedIn: 'root'
@@ -106,7 +106,8 @@ export class PokeapiService {
           evolution1: [],
           evolution2: []
         }
-        this.getPokemon(data.chain.species.name).subscribe((data: any) => {
+        let id = data.chain.species.url.split('/')[6];
+        this.getPokemon(id).subscribe((data: any) => {
           chain.pokeTrigger.pokemon = data;
 
         });

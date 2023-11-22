@@ -5,15 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaComponent } from './lista/lista.component';
-import { BuscadorComponent } from './buscador/buscador.component';
+import { ListaComponent } from './vista-lista-filtros/lista/lista.component';
+import { BuscadorComponent } from './vista-lista-filtros/buscador/buscador.component';
 import { VistaListaFiltrosComponent } from './vista-lista-filtros/vista-lista-filtros.component';
 import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
-import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
-import { AttacksReceivedComponent } from './attacks-received/attacks-received.component';
+import { PokemonDataComponent } from './vista-pokemon/pokemon-data/pokemon-data.component';
+import { AttacksReceivedComponent } from './vista-pokemon/attacks-received/attacks-received.component';
 import { NgChartsModule } from 'ng2-charts';
-import { StatsComponent } from './stats/stats.component';
-import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
+import { StatsComponent } from './vista-pokemon/stats/stats.component';
+import { EvolutionChainComponent } from './vista-pokemon/evolution-chain/evolution-chain.component';
 
 @NgModule({
   declarations: [

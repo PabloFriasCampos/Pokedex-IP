@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from '../model/pokemon';
+import { Pokemon } from '../../model/pokemon';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -37,6 +37,8 @@ export class ListaComponent implements OnInit {
       }
 
     })
+
+    document.body.style.setProperty('--type-color', 'rgb(47, 45, 45)');
   }
 
   @Input()

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { PokeapiService } from '../pokeapi.service';
+import { PokeapiService } from '../services/pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { PokemonDetails } from '../model/pokemon-details';
@@ -71,6 +71,8 @@ export class VistaPokemonComponent implements OnInit {
 
       this.setBackground();
 
+      this.setScrollbar()
+
     });
 
   }
@@ -82,6 +84,11 @@ export class VistaPokemonComponent implements OnInit {
       container.style.backgroundImage = 'url(./assets/typesBackground/' + this.pokemon.types[0] + 'Background.png)';
 
     }
+
+  }
+
+  setScrollbar() {
+    document.body.style.setProperty('--type-color', this.listaColores[this.pokemon.types[0]]);
 
   }
 

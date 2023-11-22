@@ -11,5 +11,6 @@ export class PokemonDetails extends Pokemon {
   specialAttack: number = 0;
   specialDefense: number = 0;
   speed: number = 0;
-  gifShiny: string = ''
+  gif: string = '';
+  gifShiny: string = '';
 }
