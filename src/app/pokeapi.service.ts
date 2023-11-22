@@ -5,6 +5,7 @@ import { Pokemon } from './model/pokemon';
 import { PokemonDetails } from './model/pokemon-details';
 import { Evolution } from './model/evolution';
 import { PokeTrigger } from './model/poke-trigger';
+import { Trigger } from './model/trigger';
 
 @Injectable({
   providedIn: 'root'
@@ -110,26 +111,30 @@ export class PokeapiService {
 
         });
 
-        for (let evo of data.chain.evolves_to) {
+        for (let evo1 of data.chain.evolves_to) {
           let pokemon1: Pokemon = new Pokemon;
           let pokemon2: Pokemon = new Pokemon;
 
-          let id = evo.species.url.split('/')[6];
+          let id = evo1.species.url.split('/')[6];
           if (id <= 493) {
             this.getPokemon(id).subscribe((data: any) => {
               pokemon1 = data;
               chain.evolution1?.push({
                 pokemon: pokemon1,
+                trigger: this.triggerData(evo1.evolution_details[0])
               });
+              chain.evolution1?.sort((a, b) => a.pokemon.nPokedex - b.pokemon.nPokedex);
 
-              for (let evo2 of evo.evolves_to) {
+              for (let evo2 of evo1.evolves_to) {
                 let id = evo2.species.url.split('/')[6];
                 if (id <= 493) {
                   this.getPokemon(id).subscribe((data: any) => {
                     pokemon2 = data;
                     chain.evolution2?.push({
                       pokemon: pokemon2,
+                      trigger: this.triggerData(evo2.evolution_details[0])
                     });
+                    chain.evolution2?.sort((a, b) => a.pokemon.nPokedex - b.pokemon.nPokedex);
 
                   });
 
@@ -145,6 +150,39 @@ export class PokeapiService {
         return chain;
       })
     )
+  }
+
+  triggerData(triggers: any): Trigger[] {
+    let triggersFiltered: Trigger[] = [];
+
+    for (let trigger in triggers) {
+      let value = triggers[trigger];
+      if (value !== null && value !== '' && value !== false) {
+        let triggerToAdd = new Trigger;
+        if (trigger == 'gender' && value == 1) {
+          triggerToAdd = {
+            triggerName: trigger,
+            triggerValue: 'female'
+          };
+
+        } else if (trigger == 'gender' && value == 2) {
+          triggerToAdd = {
+            triggerName: trigger,
+            triggerValue: 'male'
+          };
+
+        } else {
+          triggerToAdd = {
+            triggerName: trigger,
+            triggerValue: value.name ? value.name : value
+          };
+
+        }
+        triggersFiltered.push(triggerToAdd);
+      }
+    }
+
+    return triggersFiltered.reverse();
   }
 
 }

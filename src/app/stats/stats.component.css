@@ -7,7 +7,6 @@
   padding: 2%;
   border: 5px solid var(--type-color);
   border-radius: 30px;
-  margin: 0 auto;
-  max-width: 80%;
+  margin: 5%;
   max-height: 75vh;
 }

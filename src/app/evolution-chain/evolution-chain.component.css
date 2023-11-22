@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+}
+
+.chain {
+  display: flex;
+  border: 5px solid var(--type-color);
+  border-radius: 20px;
+  margin: 0% 5% 0% 5%;
+  padding: 5%;
+  text-transform: capitalize;
+  align-items: center;
+  gap: 2em;
+}
+
+.column {
+  flex: 1;
+  height: 100%;
+  gap: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pokemonImage {
+  width: 100%;
+  height: auto;
+}
+
+.pokemonNPokedex {
+  font-size: 1.2em;
+}
+
+.pokemonName {
+  font-size: 1.6em;
+}
+
+.pokemonTypes {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  gap: 1em;
+}
+
+.pokemonType {
+  flex: 1;
+  background-color: var(--type-color);
+  border-radius: 12px;
+  padding: 0.1em;
+  font-size: 1.4em;
+}
+
+.trigger {
+  flex: 1;
+  font-size: 1.2em;
+}
