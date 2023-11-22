@@ -36,6 +36,16 @@ h1 {
   align-items: center;
 }
 
+.pokemonCard {
+  cursor: pointer;
+  padding: 1%;
+}
+
+.pokemonCard:hover {
+  outline: 5px solid var(--type-color);
+  border-radius: 12px;
+}
+
 .pokemonImage {
   width: 100%;
   height: auto;

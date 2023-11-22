@@ -1,24 +1,22 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { PokeapiService } from '../services/pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { PokemonDetails } from '../model/pokemon-details';
 import { Subscription } from 'rxjs';
+import * as jsonColores from '../../assets/json/pokemon-colors.json';
 
 @Component({
   selector: 'app-vista-pokemon',
   templateUrl: './vista-pokemon.component.html',
   styleUrls: ['./vista-pokemon.component.css']
 })
-export class VistaPokemonComponent implements OnDestroy, OnInit {
+export class VistaPokemonComponent implements OnDestroy {
 
   @Output()
   pokemon: PokemonDetails = new PokemonDetails;
 
   @Output()
-  listaColores: any;
-  @Output()
-  tablaTipos: any;
+  listaColores: any = jsonColores;
 
   $unsubs: Subscription | null = null;
 
@@ -27,52 +25,23 @@ export class VistaPokemonComponent implements OnDestroy, OnInit {
   constructor(
     private pokeApi: PokeapiService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient
   ) {
-  }
-  ngOnInit(): void {
     this.$unsubs = this.activatedRoute.params.subscribe(data => {
       this.initComponent(data['nPokedex'])
     })
+  }
 
-    const content = document.getElementById('pokemon-data');
-    const animation = document.getElementById('overlay');
 
-    if (content) {
-      content.style.visibility = 'hidden';
-      setTimeout(() => {
-        content.style.visibility = 'visible';
-      }, 400);
-
-    }
-
-    if (animation) {
-      animation.style.display = ''
-      setTimeout(() => {
-        animation.style.display = 'none';
-      }, 900);
-    }
+  ngOnDestroy() {
+    this.$unsubs?.unsubscribe();
   }
 
   initComponent(nPokedex: number): void {
 
-    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
-      this.listaColores = data;
-
-    });
-
-    this.tablaTipos = this.http.get('assets/json/table-type.json').subscribe((data: any) => {
-      this.tablaTipos = data;
-      this.loadPokemon(nPokedex);
-
-    });
+    this.loadPokemon(nPokedex);
 
     window.scrollTo({ top: 0 });
 
-  }
-
-  ngOnDestroy() {
-    this.$unsubs?.unsubscribe();
   }
 
   loadPokemon(nPokedex: number) {
@@ -82,7 +51,25 @@ export class VistaPokemonComponent implements OnDestroy, OnInit {
 
       this.setBackground();
 
-      this.setScrollbar()
+      this.setScrollbar();
+
+      const content = document.getElementById('pokemon-data');
+      const animation = document.getElementById('overlay');
+
+      if (content) {
+        content.style.visibility = 'hidden';
+        setTimeout(() => {
+          content.style.visibility = 'visible';
+        }, 400);
+
+      }
+
+      if (animation) {
+        animation.style.display = ''
+        setTimeout(() => {
+          animation.style.display = 'none';
+        }, 900);
+      }
 
     });
 

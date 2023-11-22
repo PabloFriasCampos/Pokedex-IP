@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PokeapiService } from '../../services/pokeapi.service';
 import { Evolution } from '../../model/evolution';
+import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 @Component({
   selector: 'app-evolution-chain',
@@ -13,7 +14,9 @@ export class EvolutionChainComponent implements OnChanges {
   @Input()
   nPokedex: number = 0;
   @Input()
-  listaColores: any;
+  type: string = ''
+
+  listaColores: any = jsonColores;
 
   chain: Evolution = new Evolution;
 

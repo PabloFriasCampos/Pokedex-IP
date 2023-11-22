@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from '../../model/pokemon';
 import { HttpClient } from '@angular/common/http';
+import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 @Component({
   selector: 'app-lista',
@@ -9,14 +10,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListaComponent implements OnInit {
 
+  @Input()
+  listaMostrada: Pokemon[] = [];
+
+  listaColores: any = jsonColores;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
-      this.listaColores = data;
-
-    });
 
     window.addEventListener('scroll', () => {
       const flecha = document.getElementById('goTop');
@@ -40,11 +41,6 @@ export class ListaComponent implements OnInit {
 
     document.body.style.setProperty('--type-color', 'rgb(47, 45, 45)');
   }
-
-  @Input()
-  listaMostrada: Pokemon[] = [];
-
-  listaColores: any;
 
   goTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

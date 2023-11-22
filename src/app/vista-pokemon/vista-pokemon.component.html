@@ -10,19 +10,16 @@
     </app-pokemon-data>
     
     <app-attacks-received
-    [types] = "pokemon.types"
-    [listaColores] = "listaColores"
-    [tablaTipos] = "tablaTipos">
+    [types] = "pokemon.types">
     </app-attacks-received>
 
     <app-stats
-    [pokemon] = "pokemon"
-    [listaColores] = "listaColores">
+    [pokemon] = "pokemon">
     </app-stats>
 
     <app-evolution-chain
     [nPokedex] = "pokemon.nPokedex"
-    [listaColores] = "listaColores">
+    [type] = "pokemon.types[0]">
     </app-evolution-chain>
 
   </div>

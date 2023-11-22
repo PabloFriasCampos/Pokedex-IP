@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js';
 import { PokemonDetails } from '../../model/pokemon-details';
+import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 @Component({
   selector: 'app-stats',
@@ -12,8 +13,7 @@ export class StatsComponent implements OnChanges {
   @Input()
   pokemon: PokemonDetails = new PokemonDetails;
 
-  @Input()
-  listaColores: any;
+  listaColores: any = jsonColores;
 
   chart: any;
 
@@ -21,6 +21,7 @@ export class StatsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.pokemon.attack != 0) {
+      Chart.getChart(this.chart)?.destroy();
       this.createChart();
 
     }
@@ -73,6 +74,5 @@ export class StatsComponent implements OnChanges {
       },
     });
   }
-
 
 }

@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import * as jsonTablaTipos from '../../../assets/json/table-type.json';
+import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 @Component({
   selector: 'app-attacks-received',
@@ -10,10 +12,9 @@ export class AttacksReceivedComponent implements OnChanges {
   @Input()
   types: string[] = []
 
-  @Input()
-  listaColores: any;
-  @Input()
-  tablaTipos: any;
+  listaColores: any = jsonColores;
+
+  tablaTipos: any = jsonTablaTipos;
 
   veryWeak: string[] = [];
   weak: string[] = [];
@@ -24,7 +25,7 @@ export class AttacksReceivedComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.types.length != 0) {
+    if (this.tablaTipos && this.types && this.types.length != 0) {
       this.calcularTiposRecibir(this.types[0], this.types[1]);
 
     }
@@ -39,7 +40,6 @@ export class AttacksReceivedComponent implements OnChanges {
     this.veryWeak = [];
 
     if (type2) {
-
       for (let tipoEnTabla in this.tablaTipos) {
 
         if (this.tablaTipos[type1][tipoEnTabla] == 0 || this.tablaTipos[type2][tipoEnTabla] == 0) {
