@@ -14,6 +14,7 @@ import { AttacksReceivedComponent } from './vista-pokemon/attacks-received/attac
 import { NgChartsModule } from 'ng2-charts';
 import { StatsComponent } from './vista-pokemon/stats/stats.component';
 import { EvolutionChainComponent } from './vista-pokemon/evolution-chain/evolution-chain.component';
+import { HeaderComponent } from './vista-lista-filtros/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EvolutionChainComponent } from './vista-pokemon/evolution-chain/evoluti
     AttacksReceivedComponent,
     StatsComponent,
     EvolutionChainComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

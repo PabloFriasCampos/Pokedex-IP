@@ -38,6 +38,10 @@ export class BuscadorComponent {
 
   textFilter: string = '';
 
+  show: boolean = false;
+
+  menuIcon = '../../../assets/items/menu-hamburguesa.png';
+
   typesSelected: Tipos[] = [
     { name: 'normal', isChecked: false },
     { name: 'fire', isChecked: false },
@@ -78,6 +82,29 @@ export class BuscadorComponent {
 
   enviaGen() {
     this.genFilterEvent.emit({ genSelected: this.gensSelected.filter(g => g.isChecked).map(g => g.gen) });
+
+  }
+
+  showFilters() {
+    const gens = document.getElementById('gen-selection')
+    const types = document.getElementById('type-selection')
+
+    if (gens && types) {
+      if (this.show) {
+        gens.style.display = 'none'
+        types.style.display = 'none'
+        this.menuIcon = '../../../assets/items/menu-hamburguesa.png'
+
+      } else {
+        gens.style.display = 'grid'
+        types.style.display = 'grid'
+        this.menuIcon = '../../../assets/items/cruz.png'
+
+      }
+
+    }
+
+    this.show = !this.show;
 
   }
 

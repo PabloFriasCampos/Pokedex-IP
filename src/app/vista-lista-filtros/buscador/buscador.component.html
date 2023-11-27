@@ -1,11 +1,14 @@
 <div class="buscador-filtros">
   
-  <div class="buscador">
-    <img src="../assets/items/lupa.png"/>
-    <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="Search...">
+  <div class="text-selection">
+    <div class="buscador">
+      <img src="../assets/items/lupa.png" />
+      <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="Search...">
+    </div>
+    <img [src]="menuIcon" (click)="showFilters()" class="menuIcon">
   </div>
 
-  <div class="gen-selection">
+  <div class="gen-selection" id="gen-selection">
 
     <label *ngFor="let gen of gensSelected" class="gen-label">
       Generation {{gen.gen}}
@@ -15,7 +18,7 @@
 
   </div>
 
-  <div class="type-selection">
+  <div class="type-selection" id="type-selection">
   
     <label *ngFor="let type of typesSelected" class="type-label" [ngStyle]="{'--color': listaColores[type.name]}">
       <input type="checkbox" class="type-checkbox" (change)="enviaTipos()" [(ngModel)]="type.isChecked">
