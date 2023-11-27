@@ -15,6 +15,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { StatsComponent } from './vista-pokemon/stats/stats.component';
 import { EvolutionChainComponent } from './vista-pokemon/evolution-chain/evolution-chain.component';
 import { HeaderComponent } from './vista-lista-filtros/header/header.component';
+import { FooterComponent } from './vista-lista-filtros/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HeaderComponent } from './vista-lista-filtros/header/header.component';
     StatsComponent,
     EvolutionChainComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
