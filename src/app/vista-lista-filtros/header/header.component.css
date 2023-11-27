@@ -12,8 +12,23 @@
 }
 
 .gifTitle {
-  width: 20rem;
+  font-size: 4em;
   padding: 1%;
+  color: rgb(241, 241, 74);
+  text-shadow: 2px 2px 0 rgb(45, 45, 165), 2px -2px 0 rgb(45, 45, 165), -2px 2px 0 rgb(45, 45, 165), -2px -2px 0 rgb(45, 45, 165);
+  font-family: FuentePokemon, sans-serif;
+  margin-bottom: 20px;
+  animation: floatAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnimation {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-5px)
+  }
 }
 
 .button {

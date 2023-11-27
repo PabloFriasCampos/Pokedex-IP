@@ -44,7 +44,6 @@ export class VistaListaFiltrosComponent {
     this.applyFilterGen();
     this.applyFilterType();
     this.applyFilterText();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }
 
