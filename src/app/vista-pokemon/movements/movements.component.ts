@@ -23,6 +23,7 @@ export class MovementsComponent implements OnChanges {
     if (this.nPokedex != 0) {
       this.pokeApi.getMovements(this.nPokedex).subscribe((data: Movements) => {
         this.moves = data;
+
       })
 
     }

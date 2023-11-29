@@ -232,22 +232,11 @@ export class PokeapiService {
                 })
 
               movements.machineMovements.push(mov);
-              movements.machineMovements.sort(this.compareMovesByMachine)
             }))
 
         return movements;
       })
     );
-  }
-
-  compareMovesByMachine(a: Move, b: Move): number {
-    if (a.machine < b.machine) {
-      return -1;
-    }
-    if (a.machine > b.machine) {
-      return 1;
-    }
-    return 0;
   }
 
 }

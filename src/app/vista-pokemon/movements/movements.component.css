@@ -1,6 +1,11 @@
-.movesTable {
+h1 {
+  text-align: center;
+}
+
+.movesLabel {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  place-items: center;
   text-transform: capitalize;
   margin: 0% 5% 0% 5%;
   text-align: center;
@@ -8,11 +13,36 @@
   font-size: 1.4em;
 }
 
+.movesTable {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  place-items: center;
+  text-transform: capitalize;
+  margin: 0% 5% 0% 5%;
+  text-align: center;
+  padding: 0.6em;
+  font-size: 1.3em;
+  overflow: auto;
+}
+
+.moveName {
+  width: 100%;
+  text-align: left;
+}
+
 .moveType {
   background-color: var(--type-color);
   border-radius: 10px;
+  padding: 2%;
+  width: 60%;
 }
 
-.moveMachine {
+.moveCattegory {
+  height: 1.5em;
+}
+
+.moveData {
+  border-right: 5px solid var(--type-color);
+  width: 30%;
   text-transform: uppercase;
 }

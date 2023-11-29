@@ -1,20 +1,36 @@
-<h1>LVL-UP</h1>
+<h1>LVL-UP MOVEMENTS</h1>
+<div class="movesLabel">
+  <div>NAME</div>
+  <div>TYPE</div>
+  <div>CATTEGORY</div>
+  <div>ACCURACY</div>
+  <div>POWER</div>
+  <div>LVL LEARNED</div>
+</div>
 <div *ngFor="let move of moves.lvlMovements" class="movesTable"
 [ngStyle]="{'--type-color':listaColores[move.type]}">
-  <div>{{move.name}}</div>
+  <div class="moveName">{{move.name}}</div>
   <div class="moveType">{{move.type}}</div>
-  <div>{{move.cattegory}}</div>
-  <div>{{move.accuracy}}</div>
-  <div>{{move.power}}</div>
-  <div>{{move.lvl}}</div>
+  <div><img src="../../../assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
+  <div class="moveData">{{move.accuracy}}</div>
+  <div class="moveData">{{move.power}}</div>
+  <div class="moveData">{{move.lvl}}</div>
 </div>
-<h1>MACHINE</h1>
+<h1>MACHINE MOVEMENTS</h1>
+<div class="movesLabel">
+  <div>NAME</div>
+  <div>TYPE</div>
+  <div>CATTEGORY</div>
+  <div>ACCURACY</div>
+  <div>POWER</div>
+  <div>TM / HM</div>
+</div>
 <div *ngFor="let move of moves.machineMovements" class="movesTable"
 [ngStyle]="{'--type-color':listaColores[move.type]}">
-  <div>{{move.name}}</div>
+  <div class="moveName">{{move.name}}</div>
   <div class="moveType">{{move.type}}</div>
-  <div>{{move.cattegory}}</div>
-  <div>{{move.accuracy}}</div>
-  <div>{{move.power}}</div>
-  <div class="moveMachine">{{move.machine}}</div>
+  <div><img src="../../../assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
+  <div class="moveData">{{move.accuracy}}</div>
+  <div class="moveData">{{move.power}}</div>
+  <div class="moveData">{{move.machine}}</div>
 </div>
