@@ -6,6 +6,8 @@ import { PokemonDetails } from '../model/pokemon-details';
 import { Evolution } from '../model/evolution';
 import { PokeTrigger } from '../model/poke-trigger';
 import { Trigger } from '../model/trigger';
+import { Movements } from '../model/movements';
+import { Move } from '../model/move';
 
 @Injectable({
   providedIn: 'root'
@@ -184,6 +186,68 @@ export class PokeapiService {
     }
 
     return triggersFiltered.reverse();
+  }
+
+  getMovements(id: any): Observable<Movements> {
+
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
+      map((data: any) => {
+
+        const movements: Movements = new Movements;
+
+        data.moves
+          .filter((move: any) => move.version_group_details.some((detail: any) =>
+            detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'platinum'))
+          .map((move: any) => this.http.get(move.move.url).subscribe((moveData: any) => {
+            const mov: Move = {
+              name: moveData.name,
+              type: moveData.type.name,
+              cattegory: moveData.damage_class.name,
+              accuracy: moveData.accuracy,
+              power: moveData.power,
+              machine: '',
+              lvl: move.version_group_details[0].level_learned_at
+            }
+            movements.lvlMovements.push(mov);
+            movements.lvlMovements.sort((a, b) => a.lvl - b.lvl)
+
+          })),
+
+          data.moves
+            .filter((move: any) => move.version_group_details.some((detail: any) =>
+              detail.move_learn_method.name === 'machine' && detail.version_group.name === 'platinum'))
+            .map((move: any) => this.http.get(move.move.url).subscribe((moveData: any) => {
+              const mov: Move = {
+                name: moveData.name,
+                type: moveData.type.name,
+                cattegory: moveData.damage_class.name,
+                accuracy: moveData.accuracy,
+                power: moveData.power,
+                machine: '',
+                lvl: 0
+              }
+              this.http.get(moveData.machines.filter((detail: any) => detail.version_group.name == 'platinum')[0].machine.url)
+                .subscribe((data: any) => {
+                  mov.machine = data.item.name
+                })
+
+              movements.machineMovements.push(mov);
+              movements.machineMovements.sort(this.compareMovesByMachine)
+            }))
+
+        return movements;
+      })
+    );
+  }
+
+  compareMovesByMachine(a: Move, b: Move): number {
+    if (a.machine < b.machine) {
+      return -1;
+    }
+    if (a.machine > b.machine) {
+      return 1;
+    }
+    return 0;
   }
 
 }

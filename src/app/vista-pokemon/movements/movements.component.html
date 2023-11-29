@@ -1,0 +1,20 @@
+<h1>LVL-UP</h1>
+<div *ngFor="let move of moves.lvlMovements" class="movesTable"
+[ngStyle]="{'--type-color':listaColores[move.type]}">
+  <div>{{move.name}}</div>
+  <div class="moveType">{{move.type}}</div>
+  <div>{{move.cattegory}}</div>
+  <div>{{move.accuracy}}</div>
+  <div>{{move.power}}</div>
+  <div>{{move.lvl}}</div>
+</div>
+<h1>MACHINE</h1>
+<div *ngFor="let move of moves.machineMovements" class="movesTable"
+[ngStyle]="{'--type-color':listaColores[move.type]}">
+  <div>{{move.name}}</div>
+  <div class="moveType">{{move.type}}</div>
+  <div>{{move.cattegory}}</div>
+  <div>{{move.accuracy}}</div>
+  <div>{{move.power}}</div>
+  <div class="moveMachine">{{move.machine}}</div>
+</div>

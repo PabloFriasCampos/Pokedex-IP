@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PokemonDetails } from '../../model/pokemon-details';
 
 @Component({
@@ -6,7 +6,7 @@ import { PokemonDetails } from '../../model/pokemon-details';
   templateUrl: './pokemon-data.component.html',
   styleUrls: ['./pokemon-data.component.css']
 })
-export class PokemonDataComponent implements OnInit {
+export class PokemonDataComponent implements OnChanges {
 
   @Input()
   pokemon: PokemonDetails = new PokemonDetails;
@@ -18,7 +18,7 @@ export class PokemonDataComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
@@ -28,6 +28,15 @@ export class PokemonDataComponent implements OnInit {
         }
       }
     })
+
+    const flecha = document.getElementById('scroll-hint');
+    if (flecha) {
+      flecha.style.display = 'block'
+    }
+
+    if (this.shiny) {
+      this.changeImage()
+    }
 
   }
 

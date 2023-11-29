@@ -3,8 +3,8 @@
 
   <div class="column">
     <div class="pokemonCard"
-    [routerLink]="'/pokemon/' + chain.pokeTrigger.pokemon.nPokedex">
-      <div class="pokemonNPokedex">#{{chain.pokeTrigger.pokemon.nPokedex}}</div>
+    [routerLink]="'/pokemon/' + chain.pokeTrigger.pokemon.nPokedex"
+    [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}">
       <img src="{{chain.pokeTrigger.pokemon.image}}" class="pokemonImage">
       <div class="pokemonName">{{chain.pokeTrigger.pokemon.name}}</div>
       <div class="pokemonTypes">
@@ -27,8 +27,8 @@
 
   <div class="column" >
     <div *ngFor="let pokemon of chain.evolution1" class="pokemonCard"
-    [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex">
-      <div class="pokemonNPokedex">#{{pokemon.pokemon.nPokedex}}</div>
+    [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
+    [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
       <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
       <div class="pokemonName">{{pokemon.pokemon.name}}</div>
       <div class="pokemonTypes">
@@ -51,8 +51,8 @@
 
   <div class="column">
     <div *ngFor="let pokemon of chain.evolution2" class="pokemonCard"
-    [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex">
-      <div class="pokemonNPokedex">#{{pokemon.pokemon.nPokedex}}</div>
+    [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
+    [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
       <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
       <div class="pokemonName">{{pokemon.pokemon.name}}</div>
       <div class="pokemonTypes">

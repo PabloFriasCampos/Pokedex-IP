@@ -38,7 +38,7 @@ h1 {
 
 .pokemonCard {
   cursor: pointer;
-  padding: 1%;
+  padding: 2%;
 }
 
 .pokemonCard:hover {
@@ -57,6 +57,7 @@ h1 {
 
 .pokemonName {
   font-size: 1.6em;
+  text-align: center;
 }
 
 .pokemonTypes {
