@@ -15,20 +15,6 @@ h1 {
   top: 1em;
   background-color: var(--type-color);
   border-radius: 12px;
-  animation: scroll-down both linear;
-  animation-timeline: scroll();
-  animation-range: 0 200px;
-}
-
-@keyframes scroll-down {
-  from {
-    backdrop-filter: blur(1px);
-    ;
-  }
-
-  to {
-    backdrop-filter: blur(10px);
-  }
 }
 
 .movesTable {
