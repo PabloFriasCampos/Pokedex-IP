@@ -60,7 +60,7 @@ export class BuscadorComponent {
   ];
 
   gensSelected: Gens[] = [
-    { gen: 1, isChecked: true },
+    { gen: 1, isChecked: false },
     { gen: 2, isChecked: false },
     { gen: 3, isChecked: false },
     { gen: 4, isChecked: false }

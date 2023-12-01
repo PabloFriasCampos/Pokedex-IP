@@ -162,25 +162,59 @@ export class PokeapiService {
       let value = triggers[trigger];
       if (value !== null && value !== '' && value !== false) {
         let triggerToAdd = new Trigger;
-        if (trigger == 'gender' && value == 1) {
-          triggerToAdd = {
-            triggerName: trigger,
-            triggerValue: 'female'
-          };
 
-        } else if (trigger == 'gender' && value == 2) {
-          triggerToAdd = {
-            triggerName: trigger,
-            triggerValue: 'male'
-          };
+        switch (trigger) {
 
-        } else {
-          triggerToAdd = {
-            triggerName: trigger,
-            triggerValue: value.name ? value.name : value
-          };
+          case 'gender':
+            triggerToAdd = {
+              triggerName: trigger,
+              triggerValue: value == 1 ? 'female' : 'male'
+            };
+            break;
+
+          case 'held_item':
+            triggerToAdd = {
+              triggerName: 'holding item',
+              triggerValue: value.name ? value.name : value
+            };
+            break;
+
+          case 'known_move':
+            triggerToAdd = {
+              triggerName: 'knows move',
+              triggerValue: value.name ? value.name : value
+            };
+            break;
+
+          case 'known_move_type':
+            triggerToAdd = {
+              triggerName: 'knows move of type',
+              triggerValue: value.name ? value.name : value
+            };
+            break;
+
+          case 'needs_overworld_rain':
+            triggerToAdd = {
+              triggerName: 'has to be raining',
+              triggerValue: value.name ? value.name : value
+            };
+            break;
+
+          case 'relative_physical_stats':
+            triggerToAdd = {
+              triggerName: 'relative stats',
+              triggerValue: value == 0 ? 'equal attack and defense' : value == 1 ? 'more attack than defense' : 'more defense than attack'
+            };
+            break;
+
+          default:
+            triggerToAdd = {
+              triggerName: trigger.replace('min_', '').replace('_', ''),
+              triggerValue: value.name ? value.name.replace('-', ' ') : value
+            };
 
         }
+
         triggersFiltered.push(triggerToAdd);
       }
     }

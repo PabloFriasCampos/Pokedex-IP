@@ -1,7 +1,5 @@
-.atacksLabel {
-  display: flex;
-  justify-content: center;
-  font-size: 2.5vw;
+h1 {
+  text-align: center;
 }
 
 .typesVs-container {

@@ -11,6 +11,24 @@ h1 {
   text-align: center;
   padding: 0.6em;
   font-size: 1.4em;
+  position: sticky;
+  top: 1em;
+  background-color: var(--type-color);
+  border-radius: 12px;
+  animation: scroll-down both linear;
+  animation-timeline: scroll();
+  animation-range: 0 200px;
+}
+
+@keyframes scroll-down {
+  from {
+    backdrop-filter: blur(1px);
+    ;
+  }
+
+  to {
+    backdrop-filter: blur(10px);
+  }
 }
 
 .movesTable {
@@ -22,12 +40,6 @@ h1 {
   text-align: center;
   padding: 0.6em;
   font-size: 1.3em;
-  overflow: auto;
-}
-
-.moveName {
-  width: 100%;
-  text-align: left;
 }
 
 .moveType {

@@ -18,7 +18,7 @@ export class VistaListaFiltrosComponent {
   @Input()
   typesSelected: string[] = [];
   @Input()
-  genSelected: number[] = [1];
+  genSelected: number[] = [];
 
   @Output()
   listaMostrada: Pokemon[] = [];

@@ -4,8 +4,6 @@ h1 {
 
 .chain {
   display: grid;
-  border: 5px solid var(--type-color);
-  border-radius: 20px;
   margin: 0% 5% 0% 5%;
   padding: 5%;
   text-transform: capitalize;
