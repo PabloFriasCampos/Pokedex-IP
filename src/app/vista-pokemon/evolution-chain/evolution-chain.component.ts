@@ -28,10 +28,10 @@ export class EvolutionChainComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.nPokedex != 0) {
-      this.pokeApi.getEvolutionChainUrl(this.nPokedex).subscribe((data: any) => {
+      this.pokeApi.getEvolutionChainUrl(this.nPokedex).subscribe((data: string) => {
         this.url = data;
 
-        this.pokeApi.getEvolutionChain(this.url).subscribe((data: any) => {
+        this.pokeApi.getEvolutionChain(this.url).subscribe((data: Evolution) => {
           this.chain = data;
         })
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
+import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 
 type Tipos = {
@@ -20,14 +21,9 @@ type Gens = {
 
 export class BuscadorComponent {
 
-  constructor(private http: HttpClient) {
-    this.listaColores = this.http.get('assets/json/pokemon-colors.json').subscribe((data: any) => {
-      this.listaColores = data;
+  constructor(private http: HttpClient) { }
 
-    });
-  }
-
-  listaColores: any;
+  listaColores: any = jsonColores;
 
   @Output()
   textFilterEvent = new EventEmitter();
@@ -40,7 +36,7 @@ export class BuscadorComponent {
 
   show: boolean = false;
 
-  menuIcon = '../../../assets/items/menu-hamburguesa.png';
+  menuIcon: string = '../../../assets/items/menu-hamburguesa.png';
 
   typesSelected: Tipos[] = [
     { name: 'normal', isChecked: false },

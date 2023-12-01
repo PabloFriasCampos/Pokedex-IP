@@ -16,7 +16,7 @@ export class PokeapiService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemon(id: any): Observable<Pokemon> {
+  getPokemon(id: number): Observable<Pokemon> {
 
     return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
       map((data: any) => {
@@ -43,7 +43,7 @@ export class PokeapiService {
     return forkJoin(pokemons);
   }
 
-  getPokemonDetails(id: any): Observable<PokemonDetails> {
+  getPokemonDetails(id: number): Observable<PokemonDetails> {
     return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
       switchMap((data: any) => {
         let pokemonDetails: PokemonDetails = {
@@ -76,11 +76,11 @@ export class PokeapiService {
     );
   }
 
-  getDescription(id: any): Observable<string> {
+  getDescription(id: number): Observable<string> {
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
         const flavorTextEntry = data.flavor_text_entries.find((entry: any) => {
-          return entry.language.name === 'en' && entry.version.name === 'x';
+          return entry.language.name === 'en' && entry.version.name === 'platinum';
         });
 
         if (flavorTextEntry) {
@@ -92,7 +92,7 @@ export class PokeapiService {
 
   }
 
-  getEvolutionChainUrl(id: any): Observable<String> {
+  getEvolutionChainUrl(id: number): Observable<string> {
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
         return data.evolution_chain.url;
@@ -100,7 +100,7 @@ export class PokeapiService {
     )
   }
 
-  getEvolutionChain(url: any): Observable<Evolution> {
+  getEvolutionChain(url: string): Observable<Evolution> {
     return this.http.get(url).pipe(
       map((data: any) => {
         const chain: Evolution = {
@@ -188,7 +188,7 @@ export class PokeapiService {
     return triggersFiltered.reverse();
   }
 
-  getMovements(id: any): Observable<Movements> {
+  getMovements(id: number): Observable<Movements> {
 
     return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
       map((data: any) => {
