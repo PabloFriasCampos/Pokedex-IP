@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Movements } from 'src/app/model/movements';
 import { PokeapiService } from 'src/app/services/pokeapi.service';
 import * as jsonColores from '../../../assets/json/pokemon-colors.json';
+import { Move } from 'src/app/model/move';
 
 @Component({
   selector: 'app-movements',
@@ -25,7 +26,6 @@ export class MovementsComponent implements OnChanges {
         this.moves = data;
 
       })
-
     }
 
   }

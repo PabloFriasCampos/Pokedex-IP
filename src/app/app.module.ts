@@ -17,6 +17,7 @@ import { EvolutionChainComponent } from './vista-pokemon/evolution-chain/evoluti
 import { HeaderComponent } from './vista-lista-filtros/header/header.component';
 import { FooterComponent } from './vista-lista-filtros/footer/footer.component';
 import { MovementsComponent } from './vista-pokemon/movements/movements.component';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MovementsComponent } from './vista-pokemon/movements/movements.componen
     HeaderComponent,
     FooterComponent,
     MovementsComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,

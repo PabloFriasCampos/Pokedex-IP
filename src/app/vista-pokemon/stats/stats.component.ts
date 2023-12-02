@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js';
 import { PokemonDetails } from '../../model/pokemon-details';
 import * as jsonColores from '../../../assets/json/pokemon-colors.json';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-stats',
@@ -17,11 +18,14 @@ export class StatsComponent implements OnChanges {
 
   chart: any;
 
-  constructor() { }
+  labels = ['HP', 'DEFENSE', 'SPECIAL DEFENSE', 'SPEED', 'SPECIAL ATTACK', 'ATTACK']
+
+  constructor(private translation: TranslationService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.pokemon.attack != 0) {
       Chart.getChart(this.chart)?.destroy();
+      this.labels = this.labels.map((label: string) => this.translation.getTranslation(label))
       this.createChart();
 
     }
@@ -33,7 +37,7 @@ export class StatsComponent implements OnChanges {
       type: 'radar',
 
       data: {
-        labels: ['HP', 'DEFENSE', 'SPECIAL DEFENSE', 'SPEED', '     SPECIAL ATTACK', 'ATTACK'],
+        labels: this.labels,
         datasets: [
           {
             data: [this.pokemon.hp, this.pokemon.defense, this.pokemon.specialDefense, this.pokemon.speed, this.pokemon.specialAttack, this.pokemon.attack],

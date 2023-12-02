@@ -1,32 +1,31 @@
-<h1>ATTACKS RECEIVED</h1>
+<h1>{{'ATTACKS RECEIVED' | translate}}</h1>
 <div class="typesVs-container">
   <div *ngIf="veryWeak.length>0">
     x4
-    <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+    <div class="typesVs" *ngFor="let type of veryWeak" [ngStyle]="{'--type-color':listaColores[type]}">{{type | translate}}
     </div>
   </div>
 
   <div *ngIf="weak.length>0">
     x2
-    <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+    <div class="typesVs" *ngFor="let type of weak" [ngStyle]="{'--type-color':listaColores[type]}">{{type | translate}}
     </div>
   </div>
 
   <div *ngIf="x0.length>0">
     x0
-    <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}</div>
+    <div class="typesVs" *ngFor="let type of x0" [ngStyle]="{'--type-color':listaColores[type]}">{{type | translate}}</div>
   </div>
 
   <div *ngIf="strong.length>0">
     x0.5
-    <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type}}
+    <div class="typesVs" *ngFor="let type of strong" [ngStyle]="{'--type-color':listaColores[type]}">{{type | translate}}
     </div>
   </div>
 
   <div *ngIf="veryStrong.length>0">
     x0.25
-    <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">
-      {{type}}
+    <div class="typesVs" *ngFor="let type of veryStrong" [ngStyle]="{'--type-color':listaColores[type]}">{{type | translate}}
     </div>
   </div>
 

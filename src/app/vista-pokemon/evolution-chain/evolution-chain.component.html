@@ -1,5 +1,5 @@
 <div *ngIf="chain.evolution1.length > 0">
-  <h1>EVOLUTION CHAIN</h1>
+  <h1>{{'EVOLUTION CHAIN' | translate}}</h1>
   <div class="chain" [ngStyle]="{'--type-color':listaColores[type]}">
   
     <div class="column">
@@ -9,10 +9,10 @@
         <div class="pokemonName">{{chain.pokeTrigger.pokemon.name}}</div>
         <div class="pokemonTypes">
           <div [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}" class="pokemonType">
-            {{chain.pokeTrigger.pokemon.types[0]}}</div>
+            {{chain.pokeTrigger.pokemon.types[0] | translate}}</div>
           <div *ngIf="chain.pokeTrigger.pokemon.types.length > 1"
             [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[1]]}" class="pokemonType">
-            {{chain.pokeTrigger.pokemon.types[1]}}</div>
+            {{chain.pokeTrigger.pokemon.types[1] | translate}}</div>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="column">
       <div *ngFor="let pokemon of chain.evolution1" class="triggers">
         <div *ngFor="let trigger of pokemon.trigger" class="trigger">
-          {{trigger.triggerName}}: {{trigger.triggerValue}}
+          {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
         </div>
       </div>
     </div>
@@ -33,10 +33,10 @@
         <div class="pokemonName">{{pokemon.pokemon.name}}</div>
         <div class="pokemonTypes">
           <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
-            {{pokemon.pokemon.types[0]}}</div>
+            {{pokemon.pokemon.types[0]| translate}}</div>
           <div *ngIf="pokemon.pokemon.types.length > 1"
             [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}" class="pokemonType">
-            {{pokemon.pokemon.types[1]}}</div>
+            {{pokemon.pokemon.types[1]| translate}}</div>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="column">
       <div *ngFor="let pokemon of chain.evolution2" class="triggers">
         <div *ngFor="let trigger of pokemon.trigger" class="trigger">
-          {{trigger.triggerName}}: {{trigger.triggerValue}}
+          {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
         </div>
       </div>
     </div>
@@ -57,10 +57,10 @@
         <div class="pokemonName">{{pokemon.pokemon.name}}</div>
         <div class="pokemonTypes">
           <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
-            {{pokemon.pokemon.types[0]}}</div>
+            {{pokemon.pokemon.types[0]| translate}}</div>
           <div *ngIf="pokemon.pokemon.types.length > 1"
             [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}" class="pokemonType">
-            {{pokemon.pokemon.types[1]}}</div>
+            {{pokemon.pokemon.types[1]| translate}}</div>
         </div>
       </div>
     </div>

@@ -12,9 +12,9 @@
     <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <div class="name">{{pokemon.name}}</div>
     <div class="types">
-      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0]}}</div>
+      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0] | translate}}</div>
       <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
-        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1]}}</div>
+        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1] | translate}}</div>
     </div>
     <div class="dimensions" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">
       <div class="height">{{pokemon.height}} m</div>

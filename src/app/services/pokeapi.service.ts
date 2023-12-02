@@ -80,7 +80,7 @@ export class PokeapiService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
       map((data: any) => {
         const flavorTextEntry = data.flavor_text_entries.find((entry: any) => {
-          return entry.language.name === 'en' && entry.version.name === 'platinum';
+          return entry.language.name === localStorage.getItem('language') && entry.version.name === 'x';
         });
 
         if (flavorTextEntry) {
@@ -170,6 +170,7 @@ export class PokeapiService {
               triggerName: trigger,
               triggerValue: value == 1 ? 'female' : 'male'
             };
+            triggersFiltered.push(triggerToAdd);
             break;
 
           case 'held_item':
@@ -177,6 +178,7 @@ export class PokeapiService {
               triggerName: 'holding item',
               triggerValue: value.name ? value.name : value
             };
+            triggersFiltered.push(triggerToAdd);
             break;
 
           case 'known_move':
@@ -184,6 +186,7 @@ export class PokeapiService {
               triggerName: 'knows move',
               triggerValue: value.name ? value.name : value
             };
+            triggersFiltered.push(triggerToAdd);
             break;
 
           case 'known_move_type':
@@ -191,6 +194,7 @@ export class PokeapiService {
               triggerName: 'knows move of type',
               triggerValue: value.name ? value.name : value
             };
+            triggersFiltered.push(triggerToAdd);
             break;
 
           case 'needs_overworld_rain':
@@ -198,6 +202,7 @@ export class PokeapiService {
               triggerName: 'has to be raining',
               triggerValue: value.name ? value.name : value
             };
+            triggersFiltered.push(triggerToAdd);
             break;
 
           case 'relative_physical_stats':
@@ -205,17 +210,40 @@ export class PokeapiService {
               triggerName: 'relative stats',
               triggerValue: value == 0 ? 'equal attack and defense' : value == 1 ? 'more attack than defense' : 'more defense than attack'
             };
+            triggersFiltered.push(triggerToAdd);
+            break;
+
+          case 'time_of_day':
+            triggerToAdd = {
+              triggerName: 'time of day',
+              triggerValue: value.name ? value.name : value
+            };
+            triggersFiltered.push(triggerToAdd);
+            break;
+
+          case 'item':
+            this.http.get(value.url).subscribe((data: any) => {
+              let nameLang = data.names.find((entry: any) => {
+                return entry.language.name === localStorage.getItem('language');
+              });
+              triggerToAdd = {
+                triggerName: trigger,
+                triggerValue: nameLang.name
+              };
+              triggersFiltered.push(triggerToAdd);
+
+            })
             break;
 
           default:
             triggerToAdd = {
-              triggerName: trigger.replace('min_', '').replace('_', ''),
+              triggerName: trigger.replace('min_', '').replace('_', ' '),
               triggerValue: value.name ? value.name.replace('-', ' ') : value
             };
+            triggersFiltered.push(triggerToAdd);
 
         }
 
-        triggersFiltered.push(triggerToAdd);
       }
     }
 
@@ -233,8 +261,11 @@ export class PokeapiService {
           .filter((move: any) => move.version_group_details.some((detail: any) =>
             detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'platinum'))
           .map((move: any) => this.http.get(move.move.url).subscribe((moveData: any) => {
+            let nameLang = moveData.names.find((entry: any) => {
+              return entry.language.name === localStorage.getItem('language');
+            });
             const mov: Move = {
-              name: moveData.name,
+              name: nameLang.name.replace('-', ' '),
               type: moveData.type.name,
               cattegory: moveData.damage_class.name,
               accuracy: moveData.accuracy,
@@ -251,8 +282,11 @@ export class PokeapiService {
             .filter((move: any) => move.version_group_details.some((detail: any) =>
               detail.move_learn_method.name === 'machine' && detail.version_group.name === 'platinum'))
             .map((move: any) => this.http.get(move.move.url).subscribe((moveData: any) => {
+              let nameLang = moveData.names.find((entry: any) => {
+                return entry.language.name === localStorage.getItem('language');
+              });
               const mov: Move = {
-                name: moveData.name,
+                name: nameLang.name.replace('-', ' '),
                 type: moveData.type.name,
                 cattegory: moveData.damage_class.name,
                 accuracy: moveData.accuracy,
@@ -262,7 +296,14 @@ export class PokeapiService {
               }
               this.http.get(moveData.machines.filter((detail: any) => detail.version_group.name == 'platinum')[0].machine.url)
                 .subscribe((data: any) => {
-                  mov.machine = data.item.name
+                  if (localStorage.getItem('language') == 'es') {
+                    mov.machine = data.item.name.replace('tm', 'mt').replace('hm', 'mo')
+
+                  }
+                  else {
+                    mov.machine = data.item.name
+
+                  }
                 })
 
               movements.machineMovements.push(mov);
