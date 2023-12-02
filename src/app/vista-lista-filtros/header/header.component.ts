@@ -8,9 +8,17 @@ import { TranslationService } from 'src/app/services/translation.service';
 })
 export class HeaderComponent {
 
-  imagen: string = "../../../assets/languages/" + localStorage.getItem('language') + ".png"
+  imagen: string = ""
 
-  constructor(private translation: TranslationService) { }
+  constructor(private translation: TranslationService) {
+    if (localStorage.getItem('language')) {
+      this.imagen = "../../../assets/languages/" + localStorage.getItem('language') + ".png"
+
+    } else {
+      this.imagen = "../../../assets/languages/en.png"
+
+    }
+  }
 
   switchLanguage() {
     if (this.translation.getLanguage() == 'es') {

@@ -86,7 +86,7 @@
 
 .pokemon-type {
   flex: 1;
-  font-size: 1.3rem;
+  font-size: 1.6vw;
   text-align: center;
   border-radius: 12px;
   background-color: var(--type-color);

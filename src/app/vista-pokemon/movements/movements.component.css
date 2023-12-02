@@ -10,9 +10,9 @@ h1 {
   margin: 0% 5% 0% 5%;
   text-align: center;
   padding: 0.6em;
-  font-size: 1.4em;
+  font-size: 1.8vw;
   position: sticky;
-  top: 1em;
+  top: .3em;
   background-color: var(--type-color);
   border-radius: 12px;
 }
@@ -26,6 +26,7 @@ h1 {
   text-align: center;
   padding: 0.6em;
   font-size: 1.3em;
+  font-size: 2vw;
 }
 
 .moveType {

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 30px;
   top: 0;
   width: 100%;
   height: 100px;
@@ -12,7 +11,7 @@
 }
 
 .gifTitle {
-  font-size: 4em;
+  font-size: 3vw;
   padding: 1%;
   color: rgb(241, 241, 74);
   filter: saturate(2);

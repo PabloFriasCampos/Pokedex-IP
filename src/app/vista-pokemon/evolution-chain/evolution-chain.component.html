@@ -3,64 +3,65 @@
   <div class="chain" [ngStyle]="{'--type-color':listaColores[type]}">
   
     <div class="column">
-      <div class="pokemonCard" [routerLink]="'/pokemon/' + chain.pokeTrigger.pokemon.nPokedex"
-        [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}">
-        <img src="{{chain.pokeTrigger.pokemon.image}}" class="pokemonImage">
-        <div class="pokemonName">{{chain.pokeTrigger.pokemon.name}}</div>
-        <div class="pokemonTypes">
-          <div [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}" class="pokemonType">
-            {{chain.pokeTrigger.pokemon.types[0] | translate}}</div>
-          <div *ngIf="chain.pokeTrigger.pokemon.types.length > 1"
-            [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[1]]}" class="pokemonType">
-            {{chain.pokeTrigger.pokemon.types[1] | translate}}</div>
+      <div class="pokeTrigger">
+        <div class="triggers">
+          <div class="trigger">{{'root pokemon' | translate}}</div>
+        </div>
+        <div class="pokemonCard" [routerLink]="'/pokemon/' + chain.pokeTrigger.pokemon.nPokedex"
+          [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}">
+          <img src="{{chain.pokeTrigger.pokemon.image}}" class="pokemonImage">
+          <div class="pokemonName">{{chain.pokeTrigger.pokemon.name}}</div>
+          <div class="pokemonTypes">
+            <div [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[0]]}" class="pokemonType">
+              {{chain.pokeTrigger.pokemon.types[0] | translate}}</div>
+            <div *ngIf="chain.pokeTrigger.pokemon.types.length > 1"
+              [ngStyle]="{'--type-color':listaColores[chain.pokeTrigger.pokemon.types[1]]}" class="pokemonType">
+              {{chain.pokeTrigger.pokemon.types[1] | translate}}</div>
+          </div>
         </div>
       </div>
     </div>
   
     <div class="column">
-      <div *ngFor="let pokemon of chain.evolution1" class="triggers">
-        <div *ngFor="let trigger of pokemon.trigger" class="trigger">
-          {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
+      <div class="pokeTrigger" *ngFor="let pokemon of chain.evolution1">
+        <div class="triggers">
+          <div *ngFor="let trigger of pokemon.trigger" class="trigger">
+            {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
+          </div>
+        </div>
+        <div class="pokemonCard" [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
+          [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
+          <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
+          <div class="pokemonName">{{pokemon.pokemon.name}}</div>
+          <div class="pokemonTypes">
+            <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
+              {{pokemon.pokemon.types[0]| translate}}</div>
+            <div *ngIf="pokemon.pokemon.types.length > 1" [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}"
+              class="pokemonType">
+              {{pokemon.pokemon.types[1]| translate}}</div>
+          </div>
         </div>
       </div>
     </div>
-  
+
     <div class="column">
-      <div *ngFor="let pokemon of chain.evolution1" class="pokemonCard"
-        [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
-        [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
-        <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
-        <div class="pokemonName">{{pokemon.pokemon.name}}</div>
-        <div class="pokemonTypes">
-          <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
-            {{pokemon.pokemon.types[0]| translate}}</div>
-          <div *ngIf="pokemon.pokemon.types.length > 1"
-            [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}" class="pokemonType">
-            {{pokemon.pokemon.types[1]| translate}}</div>
+      <div class="pokeTrigger" *ngFor="let pokemon of chain.evolution2">
+        <div class="triggers">
+          <div *ngFor="let trigger of pokemon.trigger" class="trigger">
+            {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
+          </div>
         </div>
-      </div>
-    </div>
-  
-    <div class="column">
-      <div *ngFor="let pokemon of chain.evolution2" class="triggers">
-        <div *ngFor="let trigger of pokemon.trigger" class="trigger">
-          {{trigger.triggerName | translate}}: {{trigger.triggerValue | translate}}
-        </div>
-      </div>
-    </div>
-  
-    <div class="column">
-      <div *ngFor="let pokemon of chain.evolution2" class="pokemonCard"
-        [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
-        [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
-        <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
-        <div class="pokemonName">{{pokemon.pokemon.name}}</div>
-        <div class="pokemonTypes">
-          <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
-            {{pokemon.pokemon.types[0]| translate}}</div>
-          <div *ngIf="pokemon.pokemon.types.length > 1"
-            [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}" class="pokemonType">
-            {{pokemon.pokemon.types[1]| translate}}</div>
+        <div class="pokemonCard" [routerLink]="'/pokemon/' + pokemon.pokemon.nPokedex"
+          [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}">
+          <img src="{{pokemon.pokemon.image}}" class="pokemonImage">
+          <div class="pokemonName">{{pokemon.pokemon.name}}</div>
+          <div class="pokemonTypes">
+            <div [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[0]]}" class="pokemonType">
+              {{pokemon.pokemon.types[0]| translate}}</div>
+            <div *ngIf="pokemon.pokemon.types.length > 1"
+              [ngStyle]="{'--type-color':listaColores[pokemon.pokemon.types[1]]}" class="pokemonType">
+              {{pokemon.pokemon.types[1]| translate}}</div>
+          </div>
         </div>
       </div>
     </div>

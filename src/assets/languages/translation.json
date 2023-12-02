@@ -62,7 +62,11 @@
     "day": "day",
     "night": "night",
     "male": "male",
-    "female": "female"
+    "female": "female",
+    "more attack than defense": "more atack than defense",
+    "more defense than attack": "more defense than attack",
+    "equal attack and defense": "equal attack and defense",
+    "root pokemon": "root pokemon"
   },
   "es": {
     "Search...": "Buscar...",
@@ -128,6 +132,10 @@
     "day": "dia",
     "night": "noche",
     "male": "macho",
-    "female": "hembra"
+    "female": "hembra",
+    "more attack than defense": "más ataque que defensa",
+    "more defense than attack": "más defensa que ataque",
+    "equal attack and defense": "ataque y defensa iguales",
+    "root pokemon": "pokemon raíz"
   }
 }

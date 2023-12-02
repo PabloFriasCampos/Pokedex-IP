@@ -10,7 +10,6 @@
   animation: scroll-down both linear;
   animation-timeline: scroll();
   animation-range: 0 300px;
-  border-bottom-right-radius: 20rem;
 }
 
 @keyframes scroll-down {
@@ -50,7 +49,7 @@
   border: solid 2px white;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 6rem;
-  width: 45rem;
+  width: 60vw;
   max-width: 100%;
   min-width: none;
   height: 5rem;
@@ -118,7 +117,6 @@
 
 .type-label {
   text-transform: capitalize;
-  /*cursor: url(../../assets/ultraball.png), auto;*/
   cursor: pointer;
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }

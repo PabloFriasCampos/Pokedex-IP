@@ -8,18 +8,19 @@ h1 {
   padding: 5%;
   text-transform: capitalize;
   place-items: center;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2em;
 }
 
-.chain::-webkit-scrollbar {
-  width: 10px;
-  background-color: transparent;
-}
+@media (width < 800px) {
+  .chain {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-.chain::-webkit-scrollbar-thumb {
-  background-color: white;
-  border-radius: 20px;
+  .pokeTrigger {
+    flex-direction: column;
+  }
+
 }
 
 .column {
@@ -32,7 +33,14 @@ h1 {
   align-items: center;
 }
 
+.pokeTrigger {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
 .pokemonCard {
+  flex: 2;
   cursor: pointer;
   padding: 2%;
 }
@@ -73,12 +81,14 @@ h1 {
 }
 
 .triggers {
+  flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 10px;
+  height: fit-content;
 }
 
 .trigger {
