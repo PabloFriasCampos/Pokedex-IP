@@ -15,10 +15,12 @@
   font-size: 4em;
   padding: 1%;
   color: rgb(241, 241, 74);
-  text-shadow: 2px 2px 0 rgb(45, 45, 165), 2px -2px 0 rgb(45, 45, 165), -2px 2px 0 rgb(45, 45, 165), -2px -2px 0 rgb(45, 45, 165);
+  filter: saturate(2);
+  text-shadow: 5px 5px 0 rgb(45, 45, 165), 5px -5px 0 rgb(45, 45, 165), -5px 5px 0 rgb(45, 45, 165), -5px -5px 0 rgb(45, 45, 165);
   font-family: FuentePokemon, sans-serif;
   margin-bottom: 20px;
   animation: floatAnimation 1s ease-in-out infinite alternate;
+  cursor: default;
 }
 
 @keyframes floatAnimation {
