@@ -66,3 +66,12 @@
     opacity: .4;
   }
 }
+
+.language {
+  cursor: pointer;
+  width: 50px;
+}
+
+.language:hover {
+  box-shadow: 0px 0px 10px 0px white;
+}

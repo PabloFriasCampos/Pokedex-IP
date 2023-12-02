@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as jsonTranslations from '../../assets/json/translation.json';
+import * as jsonTranslations from '../../assets/languages/translation.json';
 
 @Injectable({
   providedIn: 'root'
