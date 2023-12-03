@@ -9,7 +9,7 @@
 
 .back-image {
   position: fixed;
-  width: 4rem;
+  width: 4vw;
   padding: 1%;
   cursor: pointer;
 }

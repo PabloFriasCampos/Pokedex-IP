@@ -8,10 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   ngOnInit(): void {
-    // Verificar si la clave "language" existe en el localStorage
     const language = localStorage.getItem('language');
 
-    // Si no existe, establecerla en "en"
     if (!language) {
       localStorage.setItem('language', 'en');
     }

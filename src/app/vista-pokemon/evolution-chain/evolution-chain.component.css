@@ -12,7 +12,7 @@ h1 {
   gap: 2em;
 }
 
-@media (width < 800px) {
+@media (width < 900px) {
   .chain {
     grid-template-columns: repeat(1, 1fr);
   }
