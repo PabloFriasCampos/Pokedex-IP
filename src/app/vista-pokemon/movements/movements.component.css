@@ -41,7 +41,6 @@ h1 {
 }
 
 .moveData {
-  border-right: 5px solid var(--type-color);
   width: 30%;
   text-transform: uppercase;
 }

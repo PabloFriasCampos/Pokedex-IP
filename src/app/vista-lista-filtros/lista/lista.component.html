@@ -1,19 +1,24 @@
+<div class="loader" *ngIf="listaMostrada.length == 0">
+  <img src="../../../assets/pokeballsCursor/superball.png" class="loaderBall">
+  <img src="../../../assets/pokeballsCursor/ultraball.png" class="loaderBall ultra">
+  <img src="../../../assets/pokeballsCursor/masterball.png" class="loaderBall master">
+</div>
 <div class="pokemon-list">
 
-    <div *ngFor="let pokemon of listaMostrada" class="pokemon-card"
-    [ngStyle]="{
+  <div *ngFor="let pokemon of listaMostrada" class="pokemon-card" [ngStyle]="{
       '--type-color1':listaColores[pokemon.types[0]],
       '--type-color2':listaColores[pokemon.types[1]]
-    }"
-    [routerLink]="'/pokemon/' + pokemon.nPokedex">
+    }" [routerLink]="'/pokemon/' + pokemon.nPokedex">
     <div class="nPokedex">#{{pokemon.nPokedex.toString().padStart(3,'0')}}</div>
     <img src="{{pokemon.image}}" class="pokemonImage">
     <div class="name">{{pokemon.name}}</div>
     <div class="types">
-      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0] | translate}}</div>
-      <div *ngIf="pokemon.types.length > 1" class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1] | translate}}</div>
+      <div class="pokemon-type" [ngStyle]="{'--type-color':listaColores[pokemon.types[0]]}">{{pokemon.types[0] |
+        translate}}</div>
+      <div *ngIf="pokemon.types.length > 1" class="pokemon-type"
+        [ngStyle]="{'--type-color':listaColores[pokemon.types[1]]}">{{pokemon.types[1] | translate}}</div>
     </div>
-  
+
   </div>
 
   <img src="./assets/items/flecha.png" class="goTop" id="goTop" (click)="goTop()">

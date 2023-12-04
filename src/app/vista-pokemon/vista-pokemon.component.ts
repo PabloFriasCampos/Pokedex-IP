@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, Output } from '@angular/core';
 import { PokeapiService } from '../services/pokeapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonDetails } from '../model/pokemon-details';

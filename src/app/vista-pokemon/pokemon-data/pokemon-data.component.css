@@ -128,3 +128,14 @@
   font-size: 1.8vw;
   margin-left: 50%;
 }
+
+@media (width < 860px) {
+  .description {
+    font-size: 1.2em;
+  }
+
+  .game-source {
+    font-size: .9em;
+  }
+
+}
