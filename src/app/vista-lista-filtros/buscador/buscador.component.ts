@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
@@ -21,8 +20,6 @@ type Gens = {
 
 export class BuscadorComponent {
 
-  constructor(private http: HttpClient) { }
-
   listaColores: any = jsonColores;
 
   @Output()
@@ -35,8 +32,6 @@ export class BuscadorComponent {
   textFilter: string = '';
 
   show: boolean = false;
-
-  menuIcon: string = '../../../assets/items/menu-hamburguesa.png';
 
   typesSelected: Tipos[] = [
     { name: 'normal', isChecked: false },
@@ -82,19 +77,17 @@ export class BuscadorComponent {
   }
 
   showFilters() {
-    const gens = document.getElementById('gen-selection')
-    const types = document.getElementById('type-selection')
+    const gens = document.getElementById('gen-selection');
+    const types = document.getElementById('type-selection');
 
     if (gens && types) {
       if (this.show) {
-        gens.style.display = 'none'
-        types.style.display = 'none'
-        this.menuIcon = '../../../assets/items/menu-hamburguesa.png'
+        gens.style.display = 'none';
+        types.style.display = 'none';
 
       } else {
-        gens.style.display = 'grid'
-        types.style.display = 'grid'
-        this.menuIcon = '../../../assets/items/cruz.png'
+        gens.style.display = 'grid';
+        types.style.display = 'grid';
 
       }
 

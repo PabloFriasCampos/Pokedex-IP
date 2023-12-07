@@ -35,20 +35,18 @@ export class HeaderComponent {
     if (this.translation.getLanguage() == 'es') {
       this.translation.switchLanguage('en');
       localStorage.setItem('language', 'en');
-      this.imagen = this.imagen.replace('es', 'en');
       window.location.reload();
 
     } else {
       this.translation.switchLanguage('es');
       localStorage.setItem('language', 'es');
-      this.imagen = this.imagen.replace('en', 'es');
       window.location.reload();
 
     }
 
   }
 
-  toggleLightTheme(): void {
+  toggleLightTheme() {
     document.body.classList.toggle('light-theme');
     if (document.body.classList.contains('light-theme')) {
       localStorage.setItem('theme', 'light');

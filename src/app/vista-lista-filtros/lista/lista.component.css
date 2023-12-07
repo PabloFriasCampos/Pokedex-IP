@@ -61,7 +61,6 @@
   background-color: var(--card-color);
   border: 0.8em solid var(--background-color);
   cursor: url(../../../assets/pokeballsCursor/pokeball.png), auto;
-  transition: border 0.1s ease;
 }
 
 .pokemon-card:hover {

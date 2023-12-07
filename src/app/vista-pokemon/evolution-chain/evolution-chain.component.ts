@@ -22,9 +22,7 @@ export class EvolutionChainComponent implements OnChanges {
 
   url: string = '';
 
-  constructor(
-    private pokeApi: PokeapiService,
-  ) { }
+  constructor(private pokeApi: PokeapiService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.nPokedex != 0) {

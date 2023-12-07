@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from '../../model/pokemon';
-import { HttpClient } from '@angular/common/http';
 import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 @Component({
@@ -14,8 +13,6 @@ export class ListaComponent implements OnInit {
   listaMostrada: Pokemon[] = [];
 
   listaColores: any = jsonColores;
-
-  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
 

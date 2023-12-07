@@ -10,8 +10,6 @@ export class TranslationService {
 
   private language: string = localStorage.getItem('language') || 'en'
 
-  constructor() { }
-
   getLanguage(): string {
     return this.language;
   }
