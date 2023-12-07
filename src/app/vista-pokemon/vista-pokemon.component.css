@@ -3,7 +3,6 @@
   background-position: center center;
   background-attachment: fixed;
   background-image: var(--background-img);
-  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
   padding-bottom: 80px;
 }
 

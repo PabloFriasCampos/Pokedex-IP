@@ -5,7 +5,11 @@
       <img src="../assets/items/lupa.png" />
       <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="{{'Search...' | translate}}">
     </div>
-    <img [src]="menuIcon" (click)="showFilters()" class="menuIcon">
+    <div class="menuIcon" id="menuIcon" (click)="showFilters()">
+      <div class="bar bar1" [ngClass]="{'change': show}"></div>
+      <div class="bar bar2" [ngClass]="{'change': show}"></div>
+      <div class="bar bar3" [ngClass]="{'change': show}"></div>
+    </div>
   </div>
 
   <div class="gen-selection" id="gen-selection">

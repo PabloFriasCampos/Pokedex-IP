@@ -5,6 +5,5 @@
   padding-left: 5%;
   height: 100px;
   font-size: 3vw;
-  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
-  background-color: rgb(71, 69, 69);
+  background-color: var(--card-color);
 }

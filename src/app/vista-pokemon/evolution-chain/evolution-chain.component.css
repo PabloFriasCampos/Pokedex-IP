@@ -85,7 +85,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--card-colorOpa);
   border-radius: 20px;
   padding: 10px;
   height: fit-content;

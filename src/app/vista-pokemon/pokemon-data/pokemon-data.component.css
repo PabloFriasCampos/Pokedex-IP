@@ -127,6 +127,7 @@
   color: var(--type-color);
   font-size: 1.8vw;
   margin-left: 50%;
+  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
 
 @media (width < 860px) {

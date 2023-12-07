@@ -8,7 +8,11 @@ import { TranslationService } from 'src/app/services/translation.service';
 })
 export class HeaderComponent {
 
-  imagen: string = ""
+  light: boolean = false;
+
+  imagenLight: string = "../../../assets/items/light.png";
+  imagenDark: string = "../../../assets/items/dark.png"
+  imagen: string = "";
 
   constructor(private translation: TranslationService) {
     if (localStorage.getItem('language')) {
@@ -18,21 +22,40 @@ export class HeaderComponent {
       this.imagen = "../../../assets/languages/en.png"
 
     }
+
+    if (localStorage.getItem('theme') == 'light' && !document.body.classList.contains('light-theme')) {
+      this.light = true;
+      document.body.classList.toggle('light-theme');
+
+    }
+
   }
 
   switchLanguage() {
     if (this.translation.getLanguage() == 'es') {
       this.translation.switchLanguage('en');
-      localStorage.setItem('language', 'en')
-      this.imagen = this.imagen.replace('es', 'en')
-      window.location.reload()
+      localStorage.setItem('language', 'en');
+      this.imagen = this.imagen.replace('es', 'en');
+      window.location.reload();
 
     } else {
       this.translation.switchLanguage('es');
-      localStorage.setItem('language', 'es')
-      this.imagen = this.imagen.replace('en', 'es')
-      window.location.reload()
+      localStorage.setItem('language', 'es');
+      this.imagen = this.imagen.replace('en', 'es');
+      window.location.reload();
 
+    }
+
+  }
+
+  toggleLightTheme(): void {
+    document.body.classList.toggle('light-theme');
+    if (document.body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+      this.light = !this.light;
+    } else {
+      localStorage.setItem('theme', 'dark');
+      this.light = !this.light;
     }
 
   }

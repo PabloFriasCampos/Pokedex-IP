@@ -3,8 +3,26 @@ html {
 }
 
 body {
-  background-color: rgb(47, 45, 45);
-  color: rgb(255, 255, 255);
+  --background-color: rgb(47, 45, 45);
+  --background-colorOpa: rgba(47, 45, 45, .5);
+  --text-color: rgb(255, 255, 255);
+  --card-color: rgb(95, 109, 126);
+  --card-colorOpa: rgba(95, 109, 126, .5);
+  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
+}
+
+body.light-theme {
+  --background-color: rgb(253, 253, 207);
+  --background-colorOpa: rgba(253, 253, 207, .5);
+  --text-color: black;
+  --card-color: rgb(186, 199, 214);
+  --card-colorOpa: rgba(186, 199, 214, .5);
+  text-shadow: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
@@ -23,10 +41,10 @@ body {
 
 body::-webkit-scrollbar {
   width: 10px;
-  background-color: var(--type-color);
+  background-color: var(--background-color);
 }
 
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--text-color);
 }

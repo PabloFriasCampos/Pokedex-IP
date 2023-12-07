@@ -4,5 +4,5 @@
   <div class="blueButton button"></div>
   <div class="yellowButton button"></div>
   <img [src]=imagen (click)="switchLanguage()" class="language">
-  <div class="theme"></div>
+  <img [src]="light ? imagenLight : imagenDark" (click)="toggleLightTheme()" class="theme">
 </div>
