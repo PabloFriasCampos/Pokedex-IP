@@ -10,16 +10,16 @@ export class HeaderComponent {
 
   light: boolean = false;
 
-  imagenLight: string = "/assets/items/light.png";
-  imagenDark: string = "/assets/items/dark.png"
+  imagenLight: string = "./assets/items/light.png";
+  imagenDark: string = "./assets/items/dark.png"
   imagen: string = "";
 
   constructor(private translation: TranslationService) {
     if (localStorage.getItem('language')) {
-      this.imagen = "/assets/languages/" + localStorage.getItem('language') + ".png"
+      this.imagen = "./assets/languages/" + localStorage.getItem('language') + ".png"
 
     } else {
-      this.imagen = "/assets/languages/en.png"
+      this.imagen = "./assets/languages/en.png"
 
     }
 

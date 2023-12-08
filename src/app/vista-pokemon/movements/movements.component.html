@@ -11,7 +11,7 @@
   <div *ngFor="let move of moves.lvlMovements" class="movesTable" [ngStyle]="{'--type-color':listaColores[move.type]}">
     <div class="moveName">{{move.name}}</div>
     <div class="moveType">{{move.type | translate}}</div>
-    <div><img src="/assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
+    <div><img src="./assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
     <div class="moveData">{{move.accuracy}}</div>
     <div class="moveData">{{move.power}}</div>
     <div class="moveData">{{move.lvl}}</div>
@@ -31,7 +31,7 @@
     [ngStyle]="{'--type-color':listaColores[move.type]}">
     <div class="moveName">{{move.name}}</div>
     <div class="moveType">{{move.type | translate}}</div>
-    <div><img src="/assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
+    <div><img src="./assets/cattegorys/{{move.cattegory}}.png" class="moveCattegory"></div>
     <div class="moveData">{{move.accuracy}}</div>
     <div class="moveData">{{move.power}}</div>
     <div class="moveData">{{move.machine}}</div>
