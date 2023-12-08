@@ -38,7 +38,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/pokedex-ip/",
             "outputPath": "dist/pokedex-ip",
             "index": "src/index.html",
             "main": "src/main.ts",
