@@ -2,7 +2,7 @@
   
   <div class="text-selection">
     <div class="buscador">
-      <img src="./assets/items/lupa.png" />
+      <img src="assets/items/lupa.png" />
       <input type="text" [(ngModel)]="textFilter" (input)="enviaTexto()" placeholder="{{'Search...' | translate}}">
     </div>
     <div class="menuIcon" id="menuIcon" (click)="showFilters()">
@@ -17,7 +17,7 @@
     <label *ngFor="let gen of gensSelected" class="gen-label">
       {{('Generation' | translate) + " " + gen.gen}}
       <input type="checkbox" class="gen-checkbox" (change)="enviaGen()" [(ngModel)]="gen.isChecked">
-      <span class="gen-span" [ngStyle]="{'--background-gen': 'url(./assets/genPhotos/gen' + gen.gen + '.png)'}"></span>
+      <span class="gen-span" [ngStyle]="{'--background-gen': 'url(assets/genPhotos/gen' + gen.gen + '.png)'}"></span>
     </label>
 
   </div>
