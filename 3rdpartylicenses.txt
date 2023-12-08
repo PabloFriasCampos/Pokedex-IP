@@ -13,6 +13,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @kurkle/color
 MIT
 The MIT License (MIT)
