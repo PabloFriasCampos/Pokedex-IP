@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 
 
@@ -18,7 +18,7 @@ type Gens = {
   styleUrls: ['./buscador.component.css']
 })
 
-export class BuscadorComponent {
+export class BuscadorComponent implements OnInit {
 
   listaColores: any = jsonColores;
 
@@ -60,6 +60,19 @@ export class BuscadorComponent {
     { gen: 3, isChecked: false },
     { gen: 4, isChecked: false }
   ];
+
+
+  ngOnInit(): void {
+    this.showBuscador()
+  }
+
+
+  showBuscador() {
+    let buscador = document.getElementById('buscador');
+    if (buscador) {
+      buscador.style.backgroundImage = 'url("assets/buscadorBackground.png")';
+    }
+  }
 
   enviaTexto() {
     this.textFilterEvent.emit({ textFilter: this.textFilter });

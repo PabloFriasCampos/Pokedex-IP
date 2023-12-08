@@ -73,10 +73,9 @@
   border-bottom-right-radius: 6rem;
   width: 60vw;
   max-width: 100%;
-  min-width: none;
   height: 5rem;
   max-height: 100%;
-  background-image: url("/assets/buscadorBackground.png");
+  background-image: var(--backGround-buscador);
   background-repeat: repeat-x;
 }
 
