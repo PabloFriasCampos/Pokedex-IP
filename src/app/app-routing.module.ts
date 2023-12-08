@@ -6,7 +6,7 @@ import { VistaPokemonComponent } from './vista-pokemon/vista-pokemon.component';
 const routes: Routes = [
   { path: 'pokemonList', component: VistaListaFiltrosComponent },
   { path: 'pokemon/:nPokedex', component: VistaPokemonComponent },
-  { path: '', redirectTo: '/pokemonList', pathMatch: 'full' }
+  { path: '/', redirectTo: '/pokemonList', pathMatch: 'full' }
 ];
 
 @NgModule({
