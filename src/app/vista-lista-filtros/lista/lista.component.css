@@ -31,6 +31,14 @@
   }
 }
 
+.noFound {
+  font-size: 2vw;
+  color: rgb(241, 241, 74);
+  filter: saturate(2);
+  text-shadow: 2px 2px 0 rgb(45, 45, 165), 2px -2px 0 rgb(45, 45, 165), -2px 2px 0 rgb(45, 45, 165), -2px -2px 0 rgb(45, 45, 165);
+  font-family: FuentePokemon, sans-serif;
+}
+
 .pokemon-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

@@ -10,6 +10,9 @@ import * as jsonColores from '../../../assets/json/pokemon-colors.json';
 export class ListaComponent implements OnInit {
 
   @Input()
+  empty: boolean = true;
+
+  @Input()
   listaMostrada: Pokemon[] = [];
 
   listaColores: any = jsonColores;

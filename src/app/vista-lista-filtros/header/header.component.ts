@@ -29,6 +29,11 @@ export class HeaderComponent {
 
     }
 
+    if (localStorage.getItem('theme') == 'light') {
+      this.light = true;
+
+    }
+
   }
 
   switchLanguage() {

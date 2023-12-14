@@ -23,8 +23,10 @@ export class VistaListaFiltrosComponent {
   @Output()
   listaMostrada: Pokemon[] = [];
 
-  constructor(private pokeApi: PokeapiService) { }
+  @Output()
+  empty: boolean = true;
 
+  constructor(private pokeApi: PokeapiService) { }
 
   ngOnInit(): void {
     this.loadList();
@@ -44,6 +46,12 @@ export class VistaListaFiltrosComponent {
     this.applyFilterGen();
     this.applyFilterType();
     this.applyFilterText();
+
+    if (this.textFilter.length > 0) {
+      this.empty = false;
+    } else {
+      this.empty = true;
+    }
 
   }
 
