@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1702048130820,
+  "timestamp": 1702733808840,
   "index": "https://pablofriascampos.github.io/Pokedex-IP/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://pablofriascampos.github.io/Pokedex-IP/index.html",
-        "https://pablofriascampos.github.io/Pokedex-IP/main.19a5ed6d68017889.js",
+        "https://pablofriascampos.github.io/Pokedex-IP/main.df60198f185a8842.js",
         "https://pablofriascampos.github.io/Pokedex-IP/manifest.webmanifest",
         "https://pablofriascampos.github.io/Pokedex-IP/polyfills.dca9be671f793019.js",
         "https://pablofriascampos.github.io/Pokedex-IP/runtime.21c1478203efbe26.js",
@@ -116,7 +116,7 @@
     "https://pablofriascampos.github.io/Pokedex-IP/assets/json/table-type.json": "3153799459750098868e39a6393e9731e4d2cc56",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/languages/en.png": "c0b21e550156fbcb830fccc7ca529093513dabd0",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/languages/es.png": "53075c56b8fad09d069c903242243835379a38bd",
-    "https://pablofriascampos.github.io/Pokedex-IP/assets/languages/translation.json": "e93f7e49f855acefd2f32ac8e9a53e248f0179d1",
+    "https://pablofriascampos.github.io/Pokedex-IP/assets/languages/translation.json": "c8a47bed55674e77f719ff9216c7f740cd9153d0",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/pokeballsCursor/masterball.png": "41efb81971b3d32502b0232d51d389d250184551",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/pokeballsCursor/pokeball.png": "06ffd9e4901fc432ed53e46863c5340959e1942e",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/pokeballsCursor/superball.png": "39fd845ad63fc5a900be908653f476495b4dec8e",
@@ -141,8 +141,8 @@
     "https://pablofriascampos.github.io/Pokedex-IP/assets/typesBackground/steelBackground.png": "f0e7accf463bd139c3afdeef933fe03cab04e78e",
     "https://pablofriascampos.github.io/Pokedex-IP/assets/typesBackground/waterBackground.png": "cc4726f44e909d0a3b08ee21a9bdbab1c0707be3",
     "https://pablofriascampos.github.io/Pokedex-IP/gen1.511e6e41230f630d.png": "52b92ae26e15ecbae94dca99a6be5e185697f960",
-    "https://pablofriascampos.github.io/Pokedex-IP/index.html": "eaf4372fa53a886ba4e646f1572eb00acff05cd0",
-    "https://pablofriascampos.github.io/Pokedex-IP/main.19a5ed6d68017889.js": "d6888505feae18b84254aebd5fcdba89d9909ecc",
+    "https://pablofriascampos.github.io/Pokedex-IP/index.html": "8a0871a7cbc83f7c81f1ba71f34eb8f366007691",
+    "https://pablofriascampos.github.io/Pokedex-IP/main.df60198f185a8842.js": "4e5a99b1f34efbf73d22fad207af3b7a8c063935",
     "https://pablofriascampos.github.io/Pokedex-IP/manifest.webmanifest": "66988870fcd58f726d5fcef447e433d2375d6757",
     "https://pablofriascampos.github.io/Pokedex-IP/pokeball.3ff38d919fe0da0d.png": "06ffd9e4901fc432ed53e46863c5340959e1942e",
     "https://pablofriascampos.github.io/Pokedex-IP/polyfills.dca9be671f793019.js": "6450d484cda2241cf8119b492de9fb0aa6812288",
